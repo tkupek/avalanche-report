@@ -12,15 +12,17 @@ const handler = {
     },
     dangerscale: function(agent) {
         let selectedLevel = agent.parameters['number'];
-        agent.add(handler.getDangerScaleText(selectedLevel));
+        let text = handler.getDangerscaleText(agent, selectedLevel);
+        agent.add(text);
     },
     dangerscaleGA: function(agent) {
         let selectedLevel = agent.parameters['number'];
         let conv = agent.conv();
-        conv.ask(handler.getDangerScaleText(selectedLevel))
+        let text = handler.getDangerscaleText(agent, selectedLevel);
+        conv.ask(text)
         agent.add(conv);
     },
-    getDangerscaleText: function(selectedLevel) {
+    getDangerscaleText: function(agent, selectedLevel) {
         if (selectedLevel) {
             if (selectedLevel < 1 || selectedLevel > 5) {
                 return T.getMessage(agent, 'DANGER_LEVEL_UNKNOWN');
@@ -28,7 +30,7 @@ const handler = {
             return T.getMessage(agent, 'DANGER_LEVEL_' + selectedLevel);
         }
         return T.getMessage(agent, 'DANGER_LEVEL' + selectedLevel);
-    }
+    },
 };
 
 module.exports = handler;
