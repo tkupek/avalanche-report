@@ -18,7 +18,8 @@ module.exports = Object.freeze({
         'Tyrol Lienz': 'AT-07-26',
         'South Tyrol': 'IT-32-BZ',
         'Trentino Central': 'IT-32-TN-12',
-        'Trentino East West': 'IT-32-TN-02'
+        'Trentino West': 'IT-32-TN-02',
+        'Trentino East': 'IT-32-TN-13'
     },
 
     images: {

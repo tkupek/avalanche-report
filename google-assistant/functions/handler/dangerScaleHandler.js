@@ -1,7 +1,7 @@
 const { Card, Suggestion } = require('dialogflow-fulfillment');
 
-const config = require('./config/config');
-const T = require('./util/translationManager');
+const config = require('../config/config');
+const T = require('../util/translationManager');
 
 const handler = {
     registerHandler: function(intentMap) {
@@ -11,6 +11,7 @@ const handler = {
     dangerscale: function(agent) {
         let selectedLevel = agent.parameters['number'];
 
+        console.log(JSON.stringify(agent.context));
         if (!selectedLevel && agent.context.get('dangerscale')) {
             let context = agent.context.get('dangerscale');
             let parameter = context.parameters['selected-level'];
@@ -21,7 +22,7 @@ const handler = {
 
         if (selectedLevel && (selectedLevel < 1 || selectedLevel > 5)) {
             agent.add(T.getMessage(agent, 'DANGER_LEVEL_UNKNOWN'));
-            agent.add(new Suggestion('explain level 3'));
+            agent.add(new Suggestion('explain level 1'));
             agent.add(new Suggestion('check the forecast'));
             return;
         }
@@ -35,15 +36,14 @@ const handler = {
                 text: T.getMessage(agent, 'DANGER_LEVEL_' + selectedLevel),
             }));
 
-            agent.add(new Suggestion('yes'));
-            agent.add(new Suggestion('explain level ' + ((--selectedLevel < 1) ? '5' : selectedLevel)));
+            agent.add(new Suggestion('explain level ' + (((selectedLevel - 1) < 1) ? '5' : selectedLevel + 1)));
             agent.add(new Suggestion('forecast'));
 
             agent.context.set({
                 'name': 'dangerscale',
                 'lifespan': 1,
                 'parameters': {
-                    'selected-level': selectedLevel
+                    'selected-level': selectedLevel + 1
                 }
             });
         } else {

@@ -3,9 +3,9 @@
 const functions = require('firebase-functions');
 const { WebhookClient } = require('dialogflow-fulfillment');
 
-const defaultHandler = require('./defaultHandler');
-const forecastHandler = require('./forecastHandler');
-const dangerScaleHandler = require('./dangerScaleHandler');
+const defaultHandler = require('./handler/defaultHandler');
+const forecastHandler = require('./handler/forecastHandler');
+const dangerScaleHandler = require('./handler/dangerScaleHandler');
 
 process.env.DEBUG = 'dialogflow:debug'; // enables lib debugging statements
 

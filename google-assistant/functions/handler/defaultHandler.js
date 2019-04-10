@@ -1,6 +1,6 @@
 const { Suggestion } = require('dialogflow-fulfillment');
 
-const T = require('./util/translationManager');
+const T = require('../util/translationManager');
 const dangerScaleHandler = require('./dangerScaleHandler');
 
 const handler = {
