@@ -25,6 +25,7 @@ const handler = {
         }
 
         return handler.getAvalancheReportFromAPI(agent, region).then(function(data) {
+            console.log(JSON.stringify(data));
             let dateValid = Date.parse(data['validTime'][0]['TimePeriod'][0]['endPosition'][0]);
             let formatDateValid = dateformat(dateValid, 'dddd, mmmm dS');
 
@@ -38,8 +39,8 @@ const handler = {
             } else {
                 result.intro += ' ' + T.getMessage(agent, 'FORECAST_LEVEL_SINGLE', [dangerRating[0]['mainValue']]);
             }
-            result.text = data['bulletinResultsOf'][0]['BulletinMeasurements'][0]['avActivityComment'];
-            result.highlight = data['bulletinResultsOf'][0]['BulletinMeasurements'][0]['avActivityHighlights'];
+            result.text = data['bulletinResultsOf'][0]['BulletinMeasurements'][0]['avActivityComment'][0];
+            result.highlight = data['bulletinResultsOf'][0]['BulletinMeasurements'][0]['avActivityHighlights'][0];
 
             result = handler.clearHTML(result);
 
@@ -124,9 +125,9 @@ const handler = {
         });
     },
     clearHTML: function(result) {
-        result.intro = result.text.replace(/<(?:.|\n)*?> /gm, '');
-        result.text = result.text.replace(/<(?:.|\n)*?> /gm, '');
-        result.highlight = result.highlight.replace(/<(?:.|\n)*?> /gm, '');
+        result.intro && (result.intro = result.text.replace(/<(?:.|\n)*?> /gm, ''));
+        result.text && (result.text = result.text.replace(/<(?:.|\n)*?> /gm, ''));
+        result.highlight && (result.highlight = result.highlight.replace(/<(?:.|\n)*?> /gm, ''));
         return result;
     },
     getElevationText: function(agent, elevation) {

@@ -42,10 +42,10 @@ const messages = {
             'SUGGESTION_DL_3': 'explain level 3',
             'SUGGESTION_DL_4': 'forecast',
 
-            'SUGGESTION_NO_REGION_3': 'tyrol',
-            'SUGGESTION_NO_REGION_3': 'stubai',
+            'SUGGESTION_NO_REGION_1': 'tyrol',
+            'SUGGESTION_NO_REGION_2': 'stubai',
             'SUGGESTION_NO_REGION_3': 'south tyrol',
-            'SUGGESTION_NO_REGION_3': 'trentino'
+            'SUGGESTION_NO_REGION_4': 'trentino'
         }
     },
     'de': {
@@ -91,10 +91,10 @@ const messages = {
             'SUGGESTION_DL_3': 'erkläre stufe 3',
             'SUGGESTION_DL_4': 'vorhersage',
 
-            'SUGGESTION_NO_REGION_3': 'tirol',
-            'SUGGESTION_NO_REGION_3': 'stubai',
+            'SUGGESTION_NO_REGION_1': 'tirol',
+            'SUGGESTION_NO_REGION_2': 'stubai',
             'SUGGESTION_NO_REGION_3': 'südtirol',
-            'SUGGESTION_NO_REGION_3': 'trentino'
+            'SUGGESTION_NO_REGION_4': 'trentino'
         }
     }
 };
