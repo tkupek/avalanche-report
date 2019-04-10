@@ -14,9 +14,9 @@ const handler = {
     },
     welcome: function(agent) {
         agent.add(T.getMessage(agent, 'WELCOME'));
-        agent.add(new Suggestion('forecast'));
-        agent.add(new Suggestion('danger scale'));
-        agent.add(new Suggestion('help'));
+        agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_WELCOME_1')));
+        agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_WELCOME_2')));
+        agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_WELCOME_3')));
     },
     fallback: function(agent) {
         agent.add(T.getMessage(agent, 'FALLBACK'));

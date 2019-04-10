@@ -17,10 +17,10 @@ const handler = {
 
         if (!region) {
             agent.add(T.getMessage(agent, 'NO_REGION'));
-            agent.add(new Suggestion('tyrol'));
-            agent.add(new Suggestion('stubai'));
-            agent.add(new Suggestion('south tyrol'));
-            agent.add(new Suggestion('trentino'));
+            agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_NO_REGION_1')));
+            agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_NO_REGION_2')));
+            agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_NO_REGION_3')));
+            agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_NO_REGION_4')));
             return;
         }
 

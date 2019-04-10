@@ -22,8 +22,8 @@ const handler = {
 
         if (selectedLevel && (selectedLevel < 1 || selectedLevel > 5)) {
             agent.add(T.getMessage(agent, 'DANGER_LEVEL_UNKNOWN'));
-            agent.add(new Suggestion('explain level 1'));
-            agent.add(new Suggestion('check the forecast'));
+            agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_DL_UNKNOWN_1')));
+            agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_DL_UNKNOWN_2')));
             return;
         }
 
@@ -36,8 +36,8 @@ const handler = {
                 text: T.getMessage(agent, 'DANGER_LEVEL_' + selectedLevel),
             }));
 
-            agent.add(new Suggestion('explain level ' + (((selectedLevel - 1) < 1) ? '5' : selectedLevel + 1)));
-            agent.add(new Suggestion('forecast'));
+            agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_DL_1', [(((selectedLevel - 1) < 1) ? '5' : selectedLevel + 1)])));
+            agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_DL_2')));
 
             agent.context.set({
                 'name': 'dangerscale',
@@ -56,8 +56,8 @@ const handler = {
 
             }));
 
-            agent.add(new Suggestion('explain level 3'));
-            agent.add(new Suggestion('check the forecast'));
+            agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_DL_3')));
+            agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_DL_4')));
         }
     }
 };
