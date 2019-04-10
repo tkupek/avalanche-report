@@ -11,6 +11,14 @@ const handler = {
     dangerscale: function(agent) {
         let selectedLevel = agent.parameters['number'];
 
+        if (!selectedLevel && agent.context.get('dangerscale')) {
+            let context = agent.context.get('dangerscale');
+            let parameter = context.parameters['selected-level'];
+            if (parameter) {
+                selectedLevel = parameter > 5 ? 1 : parameter;
+            }
+        }
+
         if (selectedLevel && (selectedLevel < 1 || selectedLevel > 5)) {
             agent.add(T.getMessage(agent, 'DANGER_LEVEL_UNKNOWN'));
             agent.add(new Suggestion('explain level 3'));
@@ -27,8 +35,17 @@ const handler = {
                 text: T.getMessage(agent, 'DANGER_LEVEL_' + selectedLevel),
             }));
 
-            agent.add(new Suggestion('explain level ' + ((++selectedLevel > 5) ? '1' : selectedLevel)));
+            agent.add(new Suggestion('yes'));
+            agent.add(new Suggestion('explain level ' + ((--selectedLevel < 1) ? '5' : selectedLevel)));
             agent.add(new Suggestion('forecast'));
+
+            agent.context.set({
+                'name': 'dangerscale',
+                'lifespan': 1,
+                'parameters': {
+                    'selected-level': selectedLevel
+                }
+            });
         } else {
             agent.add(T.getMessage(agent, 'DANGER_LEVEL_INTRO'));
 

@@ -2,6 +2,8 @@ const https = require('https');
 const xmlparser = require('xml2js').parseString;
 const dateformat = require('dateformat');
 
+const { Card, Suggestion } = require('dialogflow-fulfillment');
+
 const config = require('./config/config');
 const T = require('./util/translationManager');
 
@@ -11,13 +13,6 @@ const handler = {
         return intentMap;
     },
     forecast: function(agent) {
-        return handler.getAvalancheReportData(agent).then(function(result) {
-            agent.add(result.text);
-        }).catch(function() {
-            agent.add(T.getMessage(agent, 'FORECAST_ERROR'));
-        });
-    },
-    getAvalancheReportData: function(agent) {
         let region = agent.parameters['region'];
 
         if (!region) {
@@ -25,33 +20,44 @@ const handler = {
             return;
         }
 
-        return new Promise(function(resolve, reject) {
-            handler.getAvalancheReportFromAPI(agent, region).then(function(data) {
-                let dateValid = Date.parse(data['validTime'][0]['TimePeriod'][0]['endPosition'][0]);
-                let formatDateValid = dateformat(dateValid, 'dddd, mmmm dS');
+        return handler.getAvalancheReportFromAPI(agent, region).then(function(data) {
+            let dateValid = Date.parse(data['validTime'][0]['TimePeriod'][0]['endPosition'][0]);
+            let formatDateValid = dateformat(dateValid, 'dddd, mmmm dS');
 
-                let result = {};
-                result.text = T.getMessage(agent, 'REPORT_INTRO', [region, formatDateValid]);
+            let result = {};
+            result.text = T.getMessage(agent, 'REPORT_INTRO', [region, formatDateValid]);
 
-                let dangerRating = data['bulletinResultsOf'][0]['BulletinMeasurements'][0]['dangerRatings'][0]['DangerRating'];
-                if (dangerRating.length > 1) {
-                    let elevationData = handler.getElevationData(dangerRating);
-                    result.text += ' ' + T.getMessage(agent, 'FORECAST_LEVEL_DOUBLE', [elevationData.elevationLw, elevationData.dangerLw, elevationData.elevationHi, elevationData.dangerHi]);
-                } else {
-                    result.text += ' ' + T.getMessage(agent, 'FORECAST_LEVEL_SINGLE', [dangerRating[0]['mainValue']]);
-                }
-                result.text += data['bulletinResultsOf'][0]['BulletinMeasurements'][0]['avActivityComment'];
+            let dangerRating = data['bulletinResultsOf'][0]['BulletinMeasurements'][0]['dangerRatings'][0]['DangerRating'];
+            if (dangerRating.length > 1) {
+                let elevationData = handler.getElevationData(dangerRating);
+                result.text += ' ' + T.getMessage(agent, 'FORECAST_LEVEL_DOUBLE', [elevationData.elevationLw, elevationData.dangerLw, elevationData.elevationHi, elevationData.dangerHi]);
+            } else {
+                result.text += ' ' + T.getMessage(agent, 'FORECAST_LEVEL_SINGLE', [dangerRating[0]['mainValue']]);
+            }
+            result.text += data['bulletinResultsOf'][0]['BulletinMeasurements'][0]['avActivityComment'];
+            result.snowComment = data['bulletinResultsOf'][0]['BulletinMeasurements'][0]['snowpackStructureComment'];
 
-                resolve(result);
-            }).catch(function(err) {
-                console.error(err);
-                reject();
-            });
+            result = handler.clearHTML(result);
+            console.log(config.images['latest_forecast'].replace('{{0}}', data['$']['gml:id']));
+
+            agent.add(result.text);
+            agent.add(new Card({
+                title: T.getMessage(agent, 'FORECAST_CARD_TITLE', [region, dateformat(dateValid, 'dd.mm')]),
+                imageUrl: config.images['latest_forecast'].replace('{{0}}', data['$']['gml:id']),
+                text: result.snowComment,
+                buttonText: T.getMessage(agent, 'FULL_REPORT'),
+                buttonUrl: config.fullReport.replace('{{0}}', T.getLanguage(agent))
+            }));
+
+        }).catch(function(err) {
+            console.error(err);
+            agent.add(T.getMessage(agent, 'FORECAST_ERROR'));
         });
     },
     getElevationData: function(dangerRating) {
         let elevationData = {};
 
+        //TODO elevation might be "treeline"
         dangerRating.forEach(function(element) {
             let elevation = element.validElevation[0]['$']['xlink:href'].replace('ElevationRange_', '');
             if (elevation.endsWith('Hi')) {
@@ -113,6 +119,12 @@ const handler = {
             });
             req.end();
         });
+    },
+    clearHTML: function(result) {
+        //TODO replace </ br>
+        result.text = result.text;
+        result.snowComment = result.snowComment;
+        return result;
     }
 };
 

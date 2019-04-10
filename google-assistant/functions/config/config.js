@@ -22,6 +22,7 @@ module.exports = Object.freeze({
     },
 
     images: {
+    	'latest_forecast': 'https://avalanche.report/albina_files/latest/{{0}}.jpg',
     	'danger_scale': 'https://cms.avalanche.report/sites/default/files/2019-03/ava_danger_en.png',
     	'danger_scale_5': 'https://cms.avalanche.report/sites/default/files/2019-03/level_5.png',
     	'danger_scale_4': 'https://cms.avalanche.report/sites/default/files/2019-03/level_4.png',
@@ -29,6 +30,8 @@ module.exports = Object.freeze({
     	'danger_scale_2': 'https://cms.avalanche.report/sites/default/files/2019-03/level_2.png',
     	'danger_scale_1': 'https://cms.avalanche.report/sites/default/files/2019-03/level_1.png',
     },
+
+    fullReport: 'https://avalanche.report/albina-web/bulletin/latest?lang={{0}}',
 
     hasScreenSupport: function(conv) {
         return conv.surface.capabilities.has('actions.capability.SCREEN_OUTPUT');
