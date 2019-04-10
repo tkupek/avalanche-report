@@ -6,12 +6,8 @@ const config = require('./config/config');
 const T = require('./util/translationManager');
 
 const handler = {
-    registerHandler: function(agent, intentMap) {
-        if (agent.requestSource === agent.ACTIONS_ON_GOOGLE) {
-            intentMap.set('Get Avalanche Forecast', handler.forecastGA);
-        } else {
-            intentMap.set('Get Avalanche Forecast', handler.forecast);
-        }
+    registerHandler: function(intentMap) {
+        intentMap.set('Get Avalanche Forecast', handler.forecast);
         return intentMap;
     },
     forecast: function(agent) {
@@ -19,17 +15,6 @@ const handler = {
             agent.add(result.text);
         }).catch(function() {
             agent.add(T.getMessage(agent, 'FORECAST_ERROR'));
-        });
-    },
-    forecastGA: function(agent) {
-        let conv = agent.conv();
-
-        return handler.getAvalancheReportData(agent).then(function(result) {
-            conv.close(result.text)
-            agent.add(conv);
-        }).catch(function() {
-            conv.close(T.getMessage(agent, 'FORECAST_ERROR'))
-            agent.add(conv);
         });
     },
     getAvalancheReportData: function(agent) {
@@ -50,7 +35,8 @@ const handler = {
 
                 let dangerRating = data['bulletinResultsOf'][0]['BulletinMeasurements'][0]['dangerRatings'][0]['DangerRating'];
                 if (dangerRating.length > 1) {
-                    result.text += ' ' + T.getMessage(agent, 'FORECAST_LEVEL_SINGLE', [dangerRating[1]['mainValue'][0], dangerRating[0]['mainValue']]);
+                    let elevationData = handler.getElevationData(dangerRating);
+                    result.text += ' ' + T.getMessage(agent, 'FORECAST_LEVEL_DOUBLE', [elevationData.elevationLw, elevationData.dangerLw, elevationData.elevationHi, elevationData.dangerHi]);
                 } else {
                     result.text += ' ' + T.getMessage(agent, 'FORECAST_LEVEL_SINGLE', [dangerRating[0]['mainValue']]);
                 }
@@ -62,6 +48,23 @@ const handler = {
                 reject();
             });
         });
+    },
+    getElevationData: function(dangerRating) {
+        let elevationData = {};
+
+        dangerRating.forEach(function(element) {
+            let elevation = element.validElevation[0]['$']['xlink:href'].replace('ElevationRange_', '');
+            if (elevation.endsWith('Hi')) {
+                elevationData.elevationHi = elevation.replace('Hi', '');
+                elevationData.dangerHi = element.mainValue[0];
+            }
+            if (elevation.endsWith('Lw')) {
+                elevationData.elevationLw = elevation.replace('Lw', '');;
+                elevationData.dangerLw = element.mainValue[0];
+            }
+        });
+
+        return elevationData;
     },
     getAvalancheReportFromAPI: function(agent, region) {
         return new Promise(function(resolve, reject) {

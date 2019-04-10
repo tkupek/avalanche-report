@@ -1,3 +1,5 @@
+const { Suggestion } = require('dialogflow-fulfillment');
+
 const T = require('./util/translationManager');
 
 const handler = {
@@ -9,6 +11,9 @@ const handler = {
     },
     welcome: function(agent) {
         agent.add(T.getMessage(agent, 'WELCOME'));
+        agent.add(new Suggestion('forecast'));
+        agent.add(new Suggestion('danger scale'));
+        agent.add(new Suggestion('help'));
     },
     fallback: function(agent) {
         agent.add(T.getMessage(agent, 'FALLBACK'));

@@ -17,8 +17,8 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     let intentMap = new Map();
 
     intentMap = defaultHandler.registerHandler(intentMap);
-    intentMap = forecastHandler.registerHandler(agent, intentMap);
-    intentMap = dangerScaleHandler.registerHandler(agent, intentMap);
+    intentMap = forecastHandler.registerHandler(intentMap);
+    intentMap = dangerScaleHandler.registerHandler(intentMap);
 
     agent.handleRequest(intentMap);
 });

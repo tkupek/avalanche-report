@@ -21,6 +21,15 @@ module.exports = Object.freeze({
         'Trentino East West': 'IT-32-TN-02'
     },
 
+    images: {
+    	'danger_scale': 'https://cms.avalanche.report/sites/default/files/2019-03/ava_danger_en.png',
+    	'danger_scale_5': 'https://cms.avalanche.report/sites/default/files/2019-03/level_5.png',
+    	'danger_scale_4': 'https://cms.avalanche.report/sites/default/files/2019-03/level_4.png',
+    	'danger_scale_3': 'https://cms.avalanche.report/sites/default/files/2019-03/level_3.png',
+    	'danger_scale_2': 'https://cms.avalanche.report/sites/default/files/2019-03/level_2.png',
+    	'danger_scale_1': 'https://cms.avalanche.report/sites/default/files/2019-03/level_1.png',
+    },
+
     hasScreenSupport: function(conv) {
         return conv.surface.capabilities.has('actions.capability.SCREEN_OUTPUT');
     },
