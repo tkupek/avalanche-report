@@ -76,8 +76,6 @@ const handler = {
             }
         });
 
-        console.log(JSON.stringify(dangerRating));
-
         return elevationData;
     },
     getAvalancheReportFromAPI: function(agent, region) {
