@@ -20,14 +20,17 @@ const handler = {
             agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_NO_REGION_1')));
             agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_NO_REGION_2')));
             agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_NO_REGION_3')));
-            agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_NO_REGION_4')));
             return;
         }
 
+        //TODO the localization is currently only an approximation, we need an exact localization via google geocoding api + calculation via geo polygons
+        // https://avalanche.report/albina_files/2019-04-12/fd_regions.json
+        // https://github.com/mikolalysenko/robust-point-in-polygon
         return handler.getAvalancheReportFromAPI(agent, region).then(function(data) {
             console.log(JSON.stringify(data));
+            //TODO we need to check if there is an afternoon report and mention that
             let dateValid = Date.parse(data['validTime'][0]['TimePeriod'][0]['endPosition'][0]);
-            let formatDateValid = dateformat(dateValid, 'dddd, mmmm dS');
+            let formatDateValid = dateformat(dateValid, 'dd.mm.');
 
             let result = {};
             result.intro = T.getMessage(agent, 'REPORT_INTRO', [region, formatDateValid]);
@@ -41,9 +44,8 @@ const handler = {
             }
             result.text = data['bulletinResultsOf'][0]['BulletinMeasurements'][0]['avActivityComment'][0];
             result.highlight = data['bulletinResultsOf'][0]['BulletinMeasurements'][0]['avActivityHighlights'][0];
-
             result = handler.clearHTML(result);
-
+            
             agent.add(result.intro);
             agent.add(new Card({
                 title: result.highlight,
@@ -70,9 +72,11 @@ const handler = {
             }
             if (elevation.endsWith('Lw')) {
                 elevationData.elevationLw = handler.getElevationText(agent, elevation.replace('Lw', ''));
-                elevationData.dangerLw = agent, element.mainValue[0];
+                elevationData.dangerLw = element.mainValue[0];
             }
         });
+
+        console.log(JSON.stringify(dangerRating));
 
         return elevationData;
     },

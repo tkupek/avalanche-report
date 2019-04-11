@@ -1,12 +1,12 @@
 const messages = {
     'en': {
         translation: {
-            'WELCOME': 'Welcome to avalanche forecast. What region are you interested in? Examples are Tyrol, Stubai, South Tyrol or Trentino West.',
+            'WELCOME': 'Welcome to avalanche forecast. What region are you interested in? Examples are Tyrol, South Tyrol or Trentino.',
             'FALLBACK': 'Sorry, I did not get that. Can you try again?',
-            'HELP': 'You can ask me for the latest avalanche forecast for a region in Tyrol, South Tyrol or Trentino. Examples are Stubai, Tyrol Lienz, Trentino Center or Bolzano. I can also explain you the european avalanche danger scale. What would you like to hear?',
-            'NO_REGION': ['What region are you interested in? Examples are Tyrol, Stubai, South Tyrol or Trentino West.', 'What region do you need the forecast? Examples are Tyrol Center, Lienz, South Tyrol or Trentino East.'],
+            'HELP': 'You can ask me for the latest avalanche forecast for a region in Tyrol, South Tyrol or Trentino. I can also explain you the european avalanche danger scale. What would you like to hear?',
+            'NO_REGION': ['What region are you interested in? Examples are Tyrol, South Tyrol or Trentino.', 'What region do you need the forecast? Examples are Tyrol, South Tyrol or Trentino.'],
 
-            'DANGER_LEVEL_INTRO': 'The avalanche danger is evaluated with the five-levelled European avalanche danger scale. The levels are described by three different parameters: Probability of avalanche release, distribution of hazardous sites as well as size and frequency of expected avalanches.',
+            'DANGER_LEVEL_INTRO': 'The avalanche danger is evaluated with the five-levelled European avalanche danger scale. The levels are described by three different parameters: Probability of avalanche release, distribution of hazardous sites as well as size and frequency of expected avalanches. Ask me for a specific level.',
             'DANGER_LEVEL': 'The danger level always applies to a region with an area of larger than 100 km² and not to a specific individual slope. The avalanche danger described is always a forecast with uncertainties. It should always be checked on site. Ask me for a specific danger level to learn more.',
             'DANGER_LEVEL_INTRO_5': 'Danger level 5, very high, stands for an extraordinary avalanche situation. Numerous very large and extreme natural avalanches can be expected. These can reach roads and settlements in the valley. Do you want to inform about the next level?',
             'DANGER_LEVEL_INTRO_4': 'Danger level 4, high, stands for a very critical avalanche situation. Natural and often very large avalanches are likely. Avalanches can easily be triggered on many steep slopes. Remote triggering is typical. Whumpf sounds and shooting cracks occur frequently. Do you want to check the next level?',
@@ -20,7 +20,7 @@ const messages = {
             'DANGER_LEVEL_1': 'No alarm signs present. Avalanches can only be triggered in isolated cases, in particular on extremely steep slopes. Recommendations for backcountry recreationists: Travel extremely steep slopes one person at a time and mind the danger of falling.',
 
             'DANGER_LEVEL_UNKNOWN': 'The European avalanche danger scales goes from one to five. About what level do you want to learn more?',
-            'DANGER_LEVEL_X_CARD_TITLE': 'Dangerscale level {{0}} explained',
+            'DANGER_LEVEL_X_CARD_TITLE': 'Dangerscale level {{0}}',
             'DANGER_LEVEL_CARD_TITLE': 'The European avalanche dangerscale',
 
             'REPORT_INTRO': 'Here is the latest report for {{0}} valid for {{1}}.',
@@ -42,20 +42,19 @@ const messages = {
             'SUGGESTION_DL_3': 'explain level 3',
             'SUGGESTION_DL_4': 'forecast',
 
-            'SUGGESTION_NO_REGION_1': 'tyrol',
-            'SUGGESTION_NO_REGION_2': 'stubai',
-            'SUGGESTION_NO_REGION_3': 'south tyrol',
-            'SUGGESTION_NO_REGION_4': 'trentino'
+            'SUGGESTION_NO_REGION_1': 'Tyrol',
+            'SUGGESTION_NO_REGION_2': 'South tyrol',
+            'SUGGESTION_NO_REGION_3': 'Trentino'
         }
     },
     'de': {
         translation: {
-            'WELCOME': 'Willkommen zur Lawinenvorhersage. Welche Region interessiert dich? Beispiele sind Tirol, Stubai, Südtirol oder Trentino West.',
+            'WELCOME': 'Willkommen zur Lawinenvorhersage. Welche Region interessiert dich? Beispiele sind Tirol, Südtirol oder Trentino.',
             'FALLBACK': 'Entschuldige, das habe ich nicht verstanden. Kannst du es wiederholen?',
-            'HELP': 'Du kannst mich nach dem neusten Lawinenreport für eine Region in Tirol, Südtirol oder Trentino fragen. Beispiele sind das Stubaital, Lienz, Trentino Zentral oder Bozen. Ich kann dir außerdem etwas über die europäische Lawinengefahrenstufen erzählen. Was würdest du gerne hören?',
-            'NO_REGION': ['Welche Region interessiert dich? Beispiele sind Tirol, Stubai, Südtirol oder Trentino West.', 'Für welche Region möchtest du die Vorhersage? Beispiele sind Tirol Zentral, Lienz, Südtirol oder Trentino Ost.'],
+            'HELP': 'Du kannst mich nach dem neusten Lawinenreport für eine Region in Tirol, Südtirol oder Trentino fragen. Ich kann dir außerdem etwas über die europäische Lawinengefahrenstufen erzählen. Was würdest du gerne hören?',
+            'NO_REGION': ['Welche Region interessiert dich? Beispiele sind Tirol, Südtirol oder Trentino.', 'Für welche Region möchtest du die Vorhersage? Beispiele sind Tirol, Südtirol oder Trentino.'],
 
-            'DANGER_LEVEL_INTRO': 'Die Lawinenvorhersage beschreibt die Lawinengefahr mit der fünfteiligen europäischen Lawinengefahrenstufenskala. Dabei werden die fünf Gefahrenstufen durch drei verschiedene Parameter beschrieben: Die Auslösewahrscheinlichkeit von Lawinen, der Umfang der Gefahrenstellen bzw. die Größe und Häufigkeit der zu erwartenden Lawinen.',
+            'DANGER_LEVEL_INTRO': 'Die Lawinenvorhersage beschreibt die Lawinengefahr mit der fünfteiligen europäischen Lawinengefahrenstufenskala. Dabei werden die fünf Gefahrenstufen durch drei verschiedene Parameter beschrieben: Die Auslösewahrscheinlichkeit von Lawinen, der Umfang der Gefahrenstellen bzw. die Größe und Häufigkeit der zu erwartenden Lawinen. Frag mich nach einer Stufe.',
             'DANGER_LEVEL': 'Die Gefahrenstufe gilt immer für eine Region mit einer Fläche von >100 km² und nicht für einen bestimmten Einzelhang. Die auf lawinen.report beschriebene Lawinengefahr ist immer eine Prognose, die mit Unsicherheiten behaftet ist. Sie sollte vor Ort immer überprüft werden.',
             'DANGER_LEVEL_INTRO_5': 'Gefahrenstufe 5, sehr groß, steht für eine außerordentliche Lawinensituation. Viele sehr große und extreme spontane Lawinen sind zu erwarten. Diese können Straßen und Siedlungen in Tallagen erreichen. Möchtest du etwas über die nächste Stufe erfahren?',
             'DANGER_LEVEL_INTRO_4': 'Gefahrenstufe 4, groß, steht für eine sehr kritische Lawinensituation. Spontane, oft auch sehr große Lawinen sind wahrscheinlich. An vielen Steilhängen können Lawinen leicht ausgelöst werden. Fernauslösungen sind typisch. Wummgeräusche und Risse sind häufig. Möchtest du etwas über die nächste Stufe lernen?',
@@ -69,7 +68,7 @@ const messages = {
             'DANGER_LEVEL_1': 'Es sind keine Alarmzeichen feststellbar. Lawinen können nur vereinzelt, vor allem an extrem steilen Hängen ausgelöst werden. Empfehlungen für Personen im ungesicherten Gelände: Extrem steile Hänge einzeln befahren und Absturzgefahr beachten.',
 
             'DANGER_LEVEL_UNKNOWN': 'Die europäische Lawinengefahrenstufenskala geht von eins bis fünf. Über welche Stufe möchtest du mehr erfahren?',
-            'DANGER_LEVEL_X_CARD_TITLE': 'Gefahrenstufe {{0}} erklärt',
+            'DANGER_LEVEL_X_CARD_TITLE': 'Gefahrenstufe {{0}}',
             'DANGER_LEVEL_CARD_TITLE': 'Die europäische Lawinengefahrenstufenskala',
 
             'REPORT_INTRO': 'Hier ist der aktuelle Bericht {{0}} gültig für {{1}}.',
@@ -80,21 +79,20 @@ const messages = {
             'FORECAST_TREELINE': 'der Waldgrenze',
             'FULL_REPORT': 'Ganzen Bericht lesen',
 
-            'SUGGESTION_WELCOME_1': 'vorhersage',
-            'SUGGESTION_WELCOME_2': 'gefahrenstufen',
-            'SUGGESTION_WELCOME_3': 'hilfe',
+            'SUGGESTION_WELCOME_1': 'Warnbericht',
+            'SUGGESTION_WELCOME_2': 'Gefahrenstufen',
+            'SUGGESTION_WELCOME_3': 'Hilfe',
 
-            'SUGGESTION_DL_UNKNOWN_1': 'erkläre stufe 3',
-            'SUGGESTION_DL_UNKNOWN_2': 'warnbericht',
-            'SUGGESTION_DL_1': 'erkläre stufe {{0}}',
-            'SUGGESTION_DL_2': 'vorhersage',
-            'SUGGESTION_DL_3': 'erkläre stufe 3',
-            'SUGGESTION_DL_4': 'vorhersage',
+            'SUGGESTION_DL_UNKNOWN_1': 'Erkläre Stufe 3',
+            'SUGGESTION_DL_UNKNOWN_2': 'Warnbericht',
+            'SUGGESTION_DL_1': 'Erkläre Stufe {{0}}',
+            'SUGGESTION_DL_2': 'Warnbericht',
+            'SUGGESTION_DL_3': 'Erkläre Stufe 3',
+            'SUGGESTION_DL_4': 'Warnbericht',
 
-            'SUGGESTION_NO_REGION_1': 'tirol',
-            'SUGGESTION_NO_REGION_2': 'stubai',
-            'SUGGESTION_NO_REGION_3': 'südtirol',
-            'SUGGESTION_NO_REGION_4': 'trentino'
+            'SUGGESTION_NO_REGION_1': 'Tirol',
+            'SUGGESTION_NO_REGION_2': 'Südtirol',
+            'SUGGESTION_NO_REGION_3': 'Trentino'
         }
     }
 };

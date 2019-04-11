@@ -14,13 +14,12 @@ module.exports = Object.freeze({
 
     regionMapping: {
         'Tyrol': 'AT-07-10',
-        'Tyrol Stubai': 'AT-07-20',
-        'Tyrol Lienz': 'AT-07-26',
         'South Tyrol': 'IT-32-BZ',
-        'Trentino Central': 'IT-32-TN-12',
-        'Trentino West': 'IT-32-TN-02',
-        'Trentino East': 'IT-32-TN-13'
+        'Trentino': 'IT-32-TN-12',
+        'Tirol': 'AT-07-10',
+        'Südtirol': 'IT-32-BZ'
     },
+
 
     images: {
     	'latest_forecast': 'https://avalanche.report/albina_files/latest/{{0}}.jpg',
