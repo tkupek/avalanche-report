@@ -36,7 +36,7 @@ const handler = {
                 text: T.getMessage(agent, 'DANGER_LEVEL_' + selectedLevel),
             }));
 
-            agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_DL_1', [(((selectedLevel - 1) < 1) ? '5' : selectedLevel + 1)])));
+            agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_DL_1', [(selectedLevel + 1) > 5 ? '1' : selectedLevel + 1])));
             agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_DL_2')));
 
             agent.context.set({

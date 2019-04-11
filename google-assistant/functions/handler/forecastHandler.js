@@ -125,9 +125,9 @@ const handler = {
         });
     },
     clearHTML: function(result) {
-        result.intro && (result.intro = result.text.replace(/<(?:.|\n)*?> /gm, ''));
-        result.text && (result.text = result.text.replace(/<(?:.|\n)*?> /gm, ''));
-        result.highlight && (result.highlight = result.highlight.replace(/<(?:.|\n)*?> /gm, ''));
+        result.intro && (result.intro = result.intro.trim().replace(/<(?:.|\n)*?> /gm, ''));
+        result.text && (result.text = result.text.trim().replace(/<(?:.|\n)*?> /gm, ''));
+        result.highlight && (result.highlight = result.highlight.trim().replace(/<(?:.|\n)*?> /gm, ''));
         return result;
     },
     getElevationText: function(agent, elevation) {
