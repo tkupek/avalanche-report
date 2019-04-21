@@ -70,7 +70,7 @@ const handler = {
             text: result.text,
             subtitle: T.getMessage(agent, 'FORECAST_CARD_TITLE', [location, dateformat(dateValid, 'longDate')]),
             buttonText: T.getMessage(agent, 'FULL_REPORT'),
-            buttonUrl: config.fullReport.replace('{{0}}', T.getLanguage(agent)).replace('{{1}}', data.regionId)
+            buttonUrl: config.fullReport.replace('{{0}}', T.getLanguage(agent)).replace('{{1}}', data['$']["gml:id"])
         }));
     },
     getElevationData: function(agent, dangerRating) {
@@ -102,7 +102,6 @@ const handler = {
                     });
 
                     if (localeObservation !== undefined) {
-                        localeObservation.regionId = regionId;
                         resolve(localeObservation);
                     } else {
                         reject('no observations found for requested region')
