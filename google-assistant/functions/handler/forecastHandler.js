@@ -88,7 +88,11 @@ const handler = {
         let dangerRating = data['bulletinResultsOf'][0]['BulletinMeasurements'][0]['dangerRatings'][0]['DangerRating'];
         if (dangerRating.length > 1) {
             let elevationData = handler.getElevationData(agent, dangerRating);
-            return T.getMessage(agent, 'FORECAST_LEVEL_DOUBLE_' + time, [elevationData.elevationLw, elevationData.dangerLw, elevationData.elevationHi, elevationData.dangerHi]);
+            if(elevationData.dangerLw === elevationData.dangerHi) {
+                return T.getMessage(agent, 'FORECAST_LEVEL_SINGLE_' + time, [elevationData.dangerLw]);
+            } else {
+                return T.getMessage(agent, 'FORECAST_LEVEL_DOUBLE_' + time, [elevationData.elevationLw, elevationData.dangerLw, elevationData.elevationHi, elevationData.dangerHi]);
+            }
         } else {
             return T.getMessage(agent, 'FORECAST_LEVEL_SINGLE_' + time, [dangerRating[0]['mainValue']]);
         }

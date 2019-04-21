@@ -1,6 +1,6 @@
 module.exports = Object.freeze({
 
-    debug: true,
+    debug: true
 
     supportedLanguages: ['en', 'de'],
     defaultLanguage: 'en',
