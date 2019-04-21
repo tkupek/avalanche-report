@@ -9,6 +9,8 @@ Avalance Report is a Action for the Google Assistant that gets the latest data f
 https://avalanche.report/albina_files/2019-04-12/fd_regions.json
 https://github.com/mikolalysenko/robust-point-in-polygon
 
+- forecast for current location, https://developers.google.com/actions/reference/rest/Shared.Types/Location
+
 - we need to check if there is an afternoon report and mention that
 
 - improve date output like this: Friday, April 12th

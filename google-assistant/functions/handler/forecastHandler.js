@@ -1,10 +1,12 @@
 const https = require('https');
 const xmlparser = require('xml2js').parseString;
 const dateformat = require('dateformat');
+const classifyPoint = require("robust-point-in-polygon");
 
 const { Card, Suggestion } = require('dialogflow-fulfillment');
 
 const config = require('../config/config');
+
 const T = require('../util/translationManager');
 
 const handler = {
@@ -13,9 +15,9 @@ const handler = {
         return intentMap;
     },
     forecast: function(agent) {
-        let region = agent.parameters['region'];
-
-        if (!region) {
+        let location = agent.parameters['location'];
+        let resolvedLoc = { name: location, coordinates: [12.5276,47.0848]};
+        if (!location) {
             agent.add(T.getMessage(agent, 'NO_REGION'));
             agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_NO_REGION_1')));
             agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_NO_REGION_2')));
@@ -23,17 +25,27 @@ const handler = {
             return;
         }
 
-        //TODO the localization is currently only an approximation, we need an exact localization via google geocoding api + calculation via geo polygons
-        // https://avalanche.report/albina_files/2019-04-12/fd_regions.json
-        // https://github.com/mikolalysenko/robust-point-in-polygon
-        return handler.getAvalancheReportFromAPI(agent, region).then(function(data) {
+        console.log(JSON.stringify(resolvedLoc));
+
+        let regionId = handler.mapCoordinatesToRegion(resolvedLoc.coordinates);
+
+        if(!regionId) {
+            agent.add(T.getMessage(agent, 'LOCATION_UNSUPPORTED'));
+            agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_NO_REGION_1')));
+            agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_NO_REGION_2')));
+            agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_NO_REGION_3')));
+            return;
+        }
+        console.log("result of mapping " + regionId);
+
+        return handler.getAvalancheReportFromAPI(agent, regionId).then(function(data) {
             console.log(JSON.stringify(data));
             //TODO we need to check if there is an afternoon report and mention that
             let dateValid = Date.parse(data['validTime'][0]['TimePeriod'][0]['endPosition'][0]);
             let formatDateValid = dateformat(dateValid, 'dd.mm.');
 
             let result = {};
-            result.intro = T.getMessage(agent, 'REPORT_INTRO', [region, formatDateValid]);
+            result.intro = T.getMessage(agent, 'REPORT_INTRO', [resolvedLoc.name, formatDateValid]);
 
             let dangerRating = data['bulletinResultsOf'][0]['BulletinMeasurements'][0]['dangerRatings'][0]['DangerRating'];
             if (dangerRating.length > 1) {
@@ -51,7 +63,7 @@ const handler = {
                 title: result.highlight,
                 imageUrl: config.images['latest_forecast'].replace('{{0}}', data['$']['gml:id']),
                 text: result.text,
-                subtitle: T.getMessage(agent, 'FORECAST_CARD_TITLE', [region, dateformat(dateValid, 'dd.mm.yyyy')]),
+                subtitle: T.getMessage(agent, 'FORECAST_CARD_TITLE', [resolvedLoc.name, dateformat(dateValid, 'dd.mm.yyyy')]),
                 buttonText: T.getMessage(agent, 'FULL_REPORT'),
                 buttonUrl: config.fullReport.replace('{{0}}', T.getLanguage(agent))
             }));
@@ -78,16 +90,13 @@ const handler = {
 
         return elevationData;
     },
-    getAvalancheReportFromAPI: function(agent, region) {
+    getAvalancheReportFromAPI: function(agent, regionId) {
         return new Promise(function(resolve, reject) {
             let apiConfig = config.getApiConfig(T.getLanguage(agent));
             handler.executeServerRequest(apiConfig).then(function(returnData) {
                 xmlparser(returnData, function(err, result) {
                     let localeObservation = result['ObsCollection']['observations'][0]['Bulletin'].find(function(element) {
-                        let localeRef = element['locRef'].find(function(element) {
-                            return element['$']['xlink:href'].startsWith(config.regionMapping[region]);
-                        });
-                        return localeRef !== undefined;
+                        return element['$']["gml:id"] === regionId;
                     });
 
                     if (localeObservation !== undefined) {
@@ -134,7 +143,26 @@ const handler = {
     },
     getElevationText: function(agent, elevation) {
         return elevation === 'Treeline' ? T.getMessage(agent, 'FORECAST_TREELINE') : elevation + 'm';
+    },
+    mapCoordinatesToRegion: async function(coordinates) {
+
+        let regions = await getLatestRegions();
+
+        let resolvedRegion = regions.features.find(function(region) {
+            let subRegion = region.geometry.coordinates.find(function(polygon) {
+                let classification = classifyPoint(polygon[0], coordinates);
+                return classification == 0 || classification == -1;
+            });
+            return subRegion !== undefined;
+        });
+        if(resolvedRegion) {
+            return resolvedRegion.properties.bid;
+        }
+        return undefined;
+    },
+    getLatestRegions: function() {
+        return config.regions;
     }
-};
+}
 
 module.exports = handler;

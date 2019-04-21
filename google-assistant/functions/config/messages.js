@@ -5,6 +5,7 @@ const messages = {
             'FALLBACK': 'Sorry, I did not get that. Can you try again?',
             'HELP': 'You can ask me for the latest avalanche forecast for a region in Tyrol, South Tyrol or Trentino. I can also explain you the european avalanche danger scale. What would you like to hear?',
             'NO_REGION': ['What region are you interested in? Examples are Tyrol, South Tyrol or Trentino.', 'What region do you need the forecast? Examples are Tyrol, South Tyrol or Trentino.'],
+            'LOCATION_UNSUPPORTED': 'The region you searched for is not supported. Only data for Tyrol, South Tyrol and Trentino is available',
 
             'DANGER_LEVEL_INTRO': 'The avalanche danger is evaluated with the five-levelled European avalanche danger scale. The levels are described by three different parameters: Probability of avalanche release, distribution of hazardous sites as well as size and frequency of expected avalanches. Ask me for a specific level.',
             'DANGER_LEVEL': 'The danger level always applies to a region with an area of larger than 100 km² and not to a specific individual slope. The avalanche danger described is always a forecast with uncertainties. It should always be checked on site. Ask me for a specific danger level to learn more.',
@@ -42,9 +43,9 @@ const messages = {
             'SUGGESTION_DL_3': 'explain level 3',
             'SUGGESTION_DL_4': 'forecast',
 
-            'SUGGESTION_NO_REGION_1': 'Tyrol',
-            'SUGGESTION_NO_REGION_2': 'South tyrol',
-            'SUGGESTION_NO_REGION_3': 'Trentino'
+            'SUGGESTION_NO_REGION_1': 'Stubai Glacier',
+            'SUGGESTION_NO_REGION_2': 'Kronplatz',
+            'SUGGESTION_NO_REGION_3': 'Lavarone'
         }
     },
     'de': {
@@ -53,6 +54,7 @@ const messages = {
             'FALLBACK': 'Entschuldige, das habe ich nicht verstanden. Kannst du es wiederholen?',
             'HELP': 'Du kannst mich nach dem neusten Lawinenreport für eine Region in Tirol, Südtirol oder Trentino fragen. Ich kann dir außerdem etwas über die europäische Lawinengefahrenstufen erzählen. Was würdest du gerne hören?',
             'NO_REGION': ['Welche Region interessiert dich? Beispiele sind Tirol, Südtirol oder Trentino.', 'Für welche Region möchtest du die Vorhersage? Beispiele sind Tirol, Südtirol oder Trentino.'],
+            'LOCATION_UNSUPPORTED': 'Die gesuchte Region wird aktuell nicht unterstützt. Es sind nur Daten für Tirol, Südtirol und Trentino verfügbar.',
 
             'DANGER_LEVEL_INTRO': 'Die Lawinenvorhersage beschreibt die Lawinengefahr mit der fünfteiligen europäischen Lawinengefahrenstufenskala. Dabei werden die fünf Gefahrenstufen durch drei verschiedene Parameter beschrieben: Die Auslösewahrscheinlichkeit von Lawinen, der Umfang der Gefahrenstellen bzw. die Größe und Häufigkeit der zu erwartenden Lawinen. Frag mich nach einer Stufe.',
             'DANGER_LEVEL': 'Die Gefahrenstufe gilt immer für eine Region mit einer Fläche von >100 km² und nicht für einen bestimmten Einzelhang. Die auf lawinen.report beschriebene Lawinengefahr ist immer eine Prognose, die mit Unsicherheiten behaftet ist. Sie sollte vor Ort immer überprüft werden.',
@@ -90,9 +92,9 @@ const messages = {
             'SUGGESTION_DL_3': 'Erkläre Stufe 3',
             'SUGGESTION_DL_4': 'Warnbericht',
 
-            'SUGGESTION_NO_REGION_1': 'Tirol',
-            'SUGGESTION_NO_REGION_2': 'Südtirol',
-            'SUGGESTION_NO_REGION_3': 'Trentino'
+            'SUGGESTION_NO_REGION_1': 'Stubaier Gletscher',
+            'SUGGESTION_NO_REGION_2': 'Kronplatz',
+            'SUGGESTION_NO_REGION_3': 'Lavarone'
         }
     }
 };
