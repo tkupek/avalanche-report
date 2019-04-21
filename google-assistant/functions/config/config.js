@@ -1,8 +1,9 @@
 module.exports = Object.freeze({
 
+    debug: true,
+    
     supportedLanguages: ['en', 'de'],
     defaultLanguage: 'en',
-
     getApiConfig: function(language) {
         return {
             host: 'avalanche.report',
@@ -11,6 +12,16 @@ module.exports = Object.freeze({
             method: 'GET'
         };
     },
+    getRegionsConfig: function(mode) {
+        return {
+            host: 'avalanche.report',
+            port: 443,
+            path: '/albina_files/latest/' + mode + '_regions.json',
+            method: 'GET'
+        };
+    },
+
+    regionModes: ['fd', 'am', 'pm'],
 
     images: {
     	'latest_forecast': 'https://avalanche.report/albina_files/latest/{{0}}.jpg',
