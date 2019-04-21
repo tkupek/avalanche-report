@@ -49,8 +49,8 @@ const messages = {
             'SUGGESTION_DL_4': 'forecast',
 
             'SUGGESTION_NO_REGION_1': 'Stubai Glacier',
-            'SUGGESTION_NO_REGION_2': 'Kronplatz',
-            'SUGGESTION_NO_REGION_3': 'Lavarone',
+            'SUGGESTION_NO_REGION_2': 'Bruneck',
+            'SUGGESTION_NO_REGION_3': 'Trient',
             
             'DATES': {
                   dayNames: [
@@ -117,8 +117,8 @@ const messages = {
             'SUGGESTION_DL_4': 'Warnbericht',
 
             'SUGGESTION_NO_REGION_1': 'Stubaier Gletscher',
-            'SUGGESTION_NO_REGION_2': 'Kronplatz',
-            'SUGGESTION_NO_REGION_3': 'Lavarone',
+            'SUGGESTION_NO_REGION_2': 'Bruneck',
+            'SUGGESTION_NO_REGION_3': 'Trient',
 
             'DATES': {
                   dayNames: [

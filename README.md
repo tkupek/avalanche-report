@@ -4,9 +4,6 @@ Avalance Report is a Action for the Google Assistant that gets the latest data f
 ## project description
 [https://tkupek.eu/avalanche-report/](https://tkupek.eu/avalanche-report/)
 
-## TODO
-- insert locations to the model
-
 ## possible improvements
 - ask directly for the PM report
 - search for zip code
