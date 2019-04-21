@@ -45,8 +45,22 @@ const messages = {
 
             'SUGGESTION_NO_REGION_1': 'Stubai Glacier',
             'SUGGESTION_NO_REGION_2': 'Kronplatz',
-            'SUGGESTION_NO_REGION_3': 'Lavarone'
-        }
+            'SUGGESTION_NO_REGION_3': 'Lavarone',
+            
+            'DATES': {
+                  dayNames: [
+                      'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat',
+                      'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
+                  ],
+                  monthNames: [
+                      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
+                      'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+                  ],
+                  timeNames: [
+                      'a', 'p', 'am', 'pm', 'A', 'P', 'AM', 'PM'
+                  ]
+              }
+            }
     },
     'de': {
         translation: {
@@ -73,7 +87,7 @@ const messages = {
             'DANGER_LEVEL_X_CARD_TITLE': 'Gefahrenstufe {{0}}',
             'DANGER_LEVEL_CARD_TITLE': 'Die europäische Lawinengefahrenstufenskala',
 
-            'REPORT_INTRO': 'Hier ist der aktuelle Bericht {{0}} gültig für {{1}}.',
+            'REPORT_INTRO': 'Hier ist der aktuelle Bericht {{0}}, gültig für {{1}}.',
             'FORECAST_LEVEL_SINGLE': 'Die Gefahrenstufe ist {{0}}.',
             'FORECAST_LEVEL_DOUBLE': 'Die Gefahrenstufe unter {{0}} ist {{1}}, über {{2}} bei {{3}}.',
             'FORECAST_ERROR': 'Entschuldige, aktuell ist die Vorhersage nicht verfügbar.',
@@ -94,8 +108,22 @@ const messages = {
 
             'SUGGESTION_NO_REGION_1': 'Stubaier Gletscher',
             'SUGGESTION_NO_REGION_2': 'Kronplatz',
-            'SUGGESTION_NO_REGION_3': 'Lavarone'
-        }
+            'SUGGESTION_NO_REGION_3': 'Lavarone',
+
+            'DATES': {
+                  dayNames: [
+                      'So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa',
+                      'Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'
+                  ],
+                  monthNames: [
+                      'Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez',
+                      'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
+                  ],
+                  timeNames: [
+                      'a', 'p', 'am', 'pm', 'A', 'P', 'AM', 'PM'
+                  ]
+              }
+            }
     }
 };
 

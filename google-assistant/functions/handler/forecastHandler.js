@@ -45,8 +45,9 @@ const handler = {
         config.debug && console.log('build agent response [' + JSON.stringify(data) + ']');
 
         //TODO we need to check if there is an afternoon report and mention that
+        dateformat.i18n = T.getMessage(agent, 'DATES');
         let dateValid = Date.parse(data['validTime'][0]['TimePeriod'][0]['endPosition'][0]);
-        let formatDateValid = dateformat(dateValid, 'dd.mm.');
+        let formatDateValid = dateformat(dateValid, 'dddd, d. mmmm');
 
         let result = {};
         result.intro = T.getMessage(agent, 'REPORT_INTRO', [location, formatDateValid]);
@@ -67,9 +68,9 @@ const handler = {
             title: result.highlight,
             imageUrl: config.images['latest_forecast'].replace('{{0}}', data['$']['gml:id']),
             text: result.text,
-            subtitle: T.getMessage(agent, 'FORECAST_CARD_TITLE', [location, dateformat(dateValid, 'dd.mm.yyyy')]),
+            subtitle: T.getMessage(agent, 'FORECAST_CARD_TITLE', [location, dateformat(dateValid, 'longDate')]),
             buttonText: T.getMessage(agent, 'FULL_REPORT'),
-            buttonUrl: config.fullReport.replace('{{0}}', T.getLanguage(agent))
+            buttonUrl: config.fullReport.replace('{{0}}', T.getLanguage(agent)).replace('{{1}}', data.regionId)
         }));
     },
     getElevationData: function(agent, dangerRating) {
@@ -101,13 +102,14 @@ const handler = {
                     });
 
                     if (localeObservation !== undefined) {
+                        localeObservation.regionId = regionId;
                         resolve(localeObservation);
                     } else {
                         reject('no observations found for requested region')
                     }
                 });
             }).catch(function(err) {
-                reject('error while executing the server request');
+                reject('error while executing the server request [' + JSON.stringify(err) + ']');
             });
         });
     },
