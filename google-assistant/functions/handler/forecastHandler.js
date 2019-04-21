@@ -16,7 +16,7 @@ const handler = {
     },
     forecast: function(agent) {
         let location = agent.parameters['location'];
-        let resolvedLoc = { name: location, coordinates: [12.5276,47.0848]};
+        let resolvedLoc = { name: location, coordinates: [11.0501445, 46.08044]};
         if (!location) {
             agent.add(T.getMessage(agent, 'NO_REGION'));
             agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_NO_REGION_1')));
@@ -144,16 +144,25 @@ const handler = {
     getElevationText: function(agent, elevation) {
         return elevation === 'Treeline' ? T.getMessage(agent, 'FORECAST_TREELINE') : elevation + 'm';
     },
-    mapCoordinatesToRegion: async function(coordinates) {
+    mapCoordinatesToRegion: function(coordinates) {
 
-        let regions = await getLatestRegions();
+        let regions = handler.getLatestRegions();
 
         let resolvedRegion = regions.features.find(function(region) {
-            let subRegion = region.geometry.coordinates.find(function(polygon) {
-                let classification = classifyPoint(polygon[0], coordinates);
+            console.log(JSON.stringify(region));
+            if(region.geometry.type === 'MultiPolygon') {
+                console.log("multi");
+                let subRegion = region.geometry.coordinates.find(function(polygon) {
+                    console.log(JSON.stringify(polygon[0]));
+                    let classification = classifyPoint(polygon[0], coordinates);
+                    return classification == 0 || classification == -1;
+                });
+                return subRegion !== undefined;
+            } else {
+                console.log("polygon " + JSON.stringify(region.geometry.coordinates[0]));
+                let classification = classifyPoint(region.geometry.coordinates[0], coordinates);
                 return classification == 0 || classification == -1;
-            });
-            return subRegion !== undefined;
+            }
         });
         if(resolvedRegion) {
             return resolvedRegion.properties.bid;
