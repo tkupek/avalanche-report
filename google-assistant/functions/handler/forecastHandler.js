@@ -14,6 +14,12 @@ const googleMapsClient = require('@google/maps').createClient({
   Promise: Promise
 });
 
+const OBS_TIME = {
+    FULL: 'FULL',
+    AM: 'AM',
+    PM: 'PM'
+}
+
 const handler = {
     registerHandler: function(intentMap) {
         intentMap.set('Get Avalanche Forecast', handler.forecast);
@@ -44,34 +50,48 @@ const handler = {
     buildAgentResponse: function(agent, data, location) {
         config.debug && console.log('build agent response [' + JSON.stringify(data) + ']');
 
-        //TODO we need to check if there is an afternoon report and mention that
+        let primaryData = data[OBS_TIME.AM];
+        let time = OBS_TIME.FULL;
+
+        if(data[OBS_TIME.PM]) {
+            time = OBS_TIME.AM;
+        }
+
         dateformat.i18n = T.getMessage(agent, 'DATES');
-        let dateValid = Date.parse(data['validTime'][0]['TimePeriod'][0]['endPosition'][0]);
+        let dateValid = Date.parse(primaryData['validTime'][0]['TimePeriod'][0]['endPosition'][0]);
         let formatDateValid = dateformat(dateValid, 'dddd, d. mmmm');
 
         let result = {};
         result.intro = T.getMessage(agent, 'REPORT_INTRO', [location, formatDateValid]);
-
-        let dangerRating = data['bulletinResultsOf'][0]['BulletinMeasurements'][0]['dangerRatings'][0]['DangerRating'];
-        if (dangerRating.length > 1) {
-            let elevationData = handler.getElevationData(agent, dangerRating);
-            result.intro += ' ' + T.getMessage(agent, 'FORECAST_LEVEL_DOUBLE', [elevationData.elevationLw, elevationData.dangerLw, elevationData.elevationHi, elevationData.dangerHi]);
-        } else {
-            result.intro += ' ' + T.getMessage(agent, 'FORECAST_LEVEL_SINGLE', [dangerRating[0]['mainValue']]);
+        result.intro += ' ' + handler.getDangerRating(agent, primaryData, time);
+        if(data[OBS_TIME.PM]) {
+            result.intro += ' ' + handler.getDangerRating(agent, data[OBS_TIME.PM], OBS_TIME.PM);
+            result.intro += ' ' + T.getMessage(agent, 'FORECAST_PM_NOTICE');
         }
-        result.text = data['bulletinResultsOf'][0]['BulletinMeasurements'][0]['avActivityComment'][0];
-        result.highlight = data['bulletinResultsOf'][0]['BulletinMeasurements'][0]['avActivityHighlights'][0];
+
+        result.text = primaryData['bulletinResultsOf'][0]['BulletinMeasurements'][0]['avActivityComment'][0];
+        result.highlight = primaryData['bulletinResultsOf'][0]['BulletinMeasurements'][0]['avActivityHighlights'][0];
+
         result = handler.clearHTML(result);
         
         agent.add(result.intro);
         agent.add(new Card({
             title: result.highlight,
-            imageUrl: config.images['latest_forecast'].replace('{{0}}', data['$']['gml:id']),
+            imageUrl: config.images['latest_forecast'].replace('{{0}}', primaryData['$']['gml:id']),
             text: result.text,
             subtitle: T.getMessage(agent, 'FORECAST_CARD_TITLE', [location, dateformat(dateValid, 'longDate')]),
             buttonText: T.getMessage(agent, 'FULL_REPORT'),
-            buttonUrl: config.fullReport.replace('{{0}}', T.getLanguage(agent)).replace('{{1}}', data['$']["gml:id"])
+            buttonUrl: config.fullReport.replace('{{0}}', T.getLanguage(agent)).replace('{{1}}', primaryData['$']["gml:id"])
         }));
+    },
+    getDangerRating: function(agent, data, time) {
+        let dangerRating = data['bulletinResultsOf'][0]['BulletinMeasurements'][0]['dangerRatings'][0]['DangerRating'];
+        if (dangerRating.length > 1) {
+            let elevationData = handler.getElevationData(agent, dangerRating);
+            return T.getMessage(agent, 'FORECAST_LEVEL_DOUBLE_' + time, [elevationData.elevationLw, elevationData.dangerLw, elevationData.elevationHi, elevationData.dangerHi]);
+        } else {
+            return T.getMessage(agent, 'FORECAST_LEVEL_SINGLE_' + time, [dangerRating[0]['mainValue']]);
+        }
     },
     getElevationData: function(agent, dangerRating) {
         let elevationData = {};
@@ -93,23 +113,33 @@ const handler = {
     getAvalancheReportFromAPI: function(agent, regionId) {
         config.debug && console.log('get avalanche report from api [' + regionId + ']');
 
+        let regionIdPM = regionId + "_PM";
+
         return new Promise(function(resolve, reject) {
             let apiConfig = config.getApiConfig(T.getLanguage(agent));
             handler.executeServerRequest(apiConfig).then(function(returnData) {
                 xmlparser(returnData, function(err, result) {
-                    let localeObservation = result['ObsCollection']['observations'][0]['Bulletin'].find(function(element) {
-                        return element['$']["gml:id"] === regionId;
-                    });
+                    let localeObservation = handler.findObservation(result, regionId);
+                    let localeObservationPM = handler.findObservation(result, regionIdPM);
 
-                    if (localeObservation !== undefined) {
-                        resolve(localeObservation);
-                    } else {
-                        reject('no observations found for requested region')
+                    if (!localeObservation) {
+                         reject('no observations found for requested region');
                     }
+
+                    let observations = {};
+                    observations[OBS_TIME.AM] = localeObservation;
+                    observations[OBS_TIME.PM] = localeObservationPM;
+
+                    resolve(observations);
                 });
             }).catch(function(err) {
                 reject('error while executing the server request [' + JSON.stringify(err) + ']');
             });
+        });
+    },
+    findObservation: function(data, regionId) {
+        return data['ObsCollection']['observations'][0]['Bulletin'].find(function(element) {
+            return element['$']["gml:id"] === regionId;
         });
     },
     executeServerRequest: function(config) {

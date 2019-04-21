@@ -5,11 +5,11 @@ Avalance Report is a Action for the Google Assistant that gets the latest data f
 [https://tkupek.eu/avalanche-report/](https://tkupek.eu/avalanche-report/)
 
 ## TODO
-- we need to check if there is an afternoon report and mention that
 - insert locations to the model
 
 ## possible improvements
-- searching for zip code
+- ask directly for the PM report
+- search for zip code
 - forecast for current device location, https://developers.google.com/actions/reference/rest/Shared.Types/Location
 
 ## thanks to
