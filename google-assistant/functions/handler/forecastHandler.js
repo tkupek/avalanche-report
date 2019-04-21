@@ -6,7 +6,13 @@ const classifyPoint = require("robust-point-in-polygon");
 const { Card, Suggestion } = require('dialogflow-fulfillment');
 
 const config = require('../config/config');
+const apiKeys = require('../config/apiKeys');
 const T = require('../util/translationManager');
+
+const googleMapsClient = require('@google/maps').createClient({
+  key: apiKeys.googleGeocodingAPI,
+  Promise: Promise
+});
 
 const handler = {
     registerHandler: function(intentMap) {
@@ -36,7 +42,7 @@ const handler = {
         agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_NO_REGION_3')));
     },
     buildAgentResponse: function(agent, data, location) {
-        config.debug && console.log('build agent resposne [' + JSON.stringify(data) + ']');
+        config.debug && console.log('build agent response [' + JSON.stringify(data) + ']');
 
         //TODO we need to check if there is an afternoon report and mention that
         let dateValid = Date.parse(data['validTime'][0]['TimePeriod'][0]['endPosition'][0]);
@@ -190,8 +196,17 @@ const handler = {
         config.debug && console.log('geocoding location [' + location + ']');
 
         return new Promise(function(resolve, reject) {
-            let resolvedLoc = { name: location, coordinates: [11.0501445, 46.08044]};
-            resolve(resolvedLoc);
+            let resolvedLoc = { name: location };
+
+            googleMapsClient.geocode({address: location})
+              .asPromise()
+              .then((response) => {
+                resolvedLoc.coordinates = [response.json.results[0].geometry.location.lng, response.json.results[0].geometry.location.lat];
+                resolve(resolvedLoc);
+              })
+              .catch((err) => {
+                reject('unable to call google geocoding API [' + JSON.stringify(err) + ']');
+              });
         });
     }
 }

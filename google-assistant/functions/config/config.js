@@ -1,7 +1,7 @@
 module.exports = Object.freeze({
 
     debug: true,
-    
+
     supportedLanguages: ['en', 'de'],
     defaultLanguage: 'en',
     getApiConfig: function(language) {
@@ -33,7 +33,7 @@ module.exports = Object.freeze({
     	'danger_scale_1': 'https://cms.avalanche.report/sites/default/files/2019-03/level_1.png',
     },
 
-    fullReport: 'https://avalanche.report/albina-web/bulletin/latest?lang={{0}}',
+    fullReport: 'https://avalanche.report/albina-web/bulletin/latest?lang={{0}}&region={{1}}}',
 
     hasScreenSupport: function(conv) {
         return conv.surface.capabilities.has('actions.capability.SCREEN_OUTPUT');
