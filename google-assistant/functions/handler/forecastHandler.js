@@ -66,23 +66,27 @@ const handler = {
         result.intro += ' ' + handler.getDangerRating(agent, primaryData, time);
         if(data[OBS_TIME.PM]) {
             result.intro += ' ' + handler.getDangerRating(agent, data[OBS_TIME.PM], OBS_TIME.PM);
-            result.intro += ' ' + T.getMessage(agent, 'FORECAST_PM_NOTICE');
         }
-
         result.text = primaryData['bulletinResultsOf'][0]['BulletinMeasurements'][0]['avActivityComment'][0];
         result.highlight = primaryData['bulletinResultsOf'][0]['BulletinMeasurements'][0]['avActivityHighlights'][0];
-
         result = handler.clearHTML(result);
-        
-        agent.add(result.intro);
-        agent.add(new Card({
-            title: result.highlight,
-            imageUrl: config.images['latest_forecast'].replace('{{0}}', primaryData['$']['gml:id']),
-            text: result.text,
-            subtitle: T.getMessage(agent, 'FORECAST_CARD_TITLE', [location, dateformat(dateValid, 'longDate')]),
-            buttonText: T.getMessage(agent, 'FULL_REPORT'),
-            buttonUrl: config.fullReport.replace('{{0}}', T.getLanguage(agent)).replace('{{1}}', primaryData['$']["gml:id"])
-        }));
+
+        if(config.hasScreenSupport(agent)) {
+            result.intro += ' ' + T.getMessage(agent, 'FORECAST_PM_NOTICE');
+
+            agent.add(result.intro);
+            agent.add(new Card({
+                title: result.highlight,
+                imageUrl: config.images['latest_forecast'].replace('{{0}}', primaryData['$']['gml:id']),
+                text: result.text,
+                subtitle: T.getMessage(agent, 'FORECAST_CARD_TITLE', [location, dateformat(dateValid, 'longDate')]),
+                buttonText: T.getMessage(agent, 'FULL_REPORT'),
+                buttonUrl: config.fullReport.replace('{{0}}', T.getLanguage(agent)).replace('{{1}}', primaryData['$']["gml:id"])
+            }));
+        } else {
+            agent.add(result.intro + ' ' + result.highlight);
+            agent.add(result.text);
+        }      
     },
     getDangerRating: function(agent, data, time) {
         let dangerRating = data['bulletinResultsOf'][0]['BulletinMeasurements'][0]['dangerRatings'][0]['DangerRating'];

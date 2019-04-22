@@ -34,10 +34,12 @@ module.exports = Object.freeze({
 
     fullReport: 'https://avalanche.report/albina-web/bulletin/latest?lang={{0}}&region={{1}}',
 
-    hasScreenSupport: function(conv) {
-        return conv.surface.capabilities.has('actions.capability.SCREEN_OUTPUT');
+    hasScreenSupport: function(agent) {
+        let conv = agent.conv()
+        return conv && conv.surface.capabilities.has('actions.capability.SCREEN_OUTPUT');
     },
-    hasBrowserSupport: function(conv) {
-        return conv.surface.capabilities.has('actions.capability.WEB_BROWSER');
+    hasBrowserSupport: function(agent) {
+        let conv = agent.conv()
+        return conv && conv.surface.capabilities.has('actions.capability.WEB_BROWSER');
     }
 });
