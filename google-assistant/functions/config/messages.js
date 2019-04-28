@@ -1,7 +1,7 @@
 const messages = {
     'en': {
         translation: {
-            'WELCOME': 'Welcome to avalanche forecast. What location are you interested in? Examples are Ötztal, Mayrhofen or Silandro.',
+            'WELCOME': 'Welcome to avalanche forecast. What location are you interested in?',
             'FALLBACK': 'Sorry, I did not get that. Can you try again?',
             'HELP': 'You can ask me for the latest avalanche forecast for a region in Tyrol, South Tyrol or Trentino. I can also explain you the european avalanche danger scale. What would you like to hear?',
             'NO_REGION': ['What location are you interested in? Examples are Hintertux, Kronplatz or San Martino di Castrozza.', 'What location do you need the forecast? Examples are Kitzbühel, Lienz or Trentino.'],
@@ -48,9 +48,9 @@ const messages = {
             'SUGGESTION_DL_3': 'explain level 3',
             'SUGGESTION_DL_4': 'forecast',
 
-            'SUGGESTION_NO_REGION_1': 'Stubai Glacier',
-            'SUGGESTION_NO_REGION_2': 'Bruneck',
-            'SUGGESTION_NO_REGION_3': 'Trient',
+            'SUGGESTION_NO_REGION_1': 'Innsbruck',
+            'SUGGESTION_NO_REGION_2': 'Bolzano',
+            'SUGGESTION_NO_REGION_3': 'Trento',
             
             'DATES': {
                   dayNames: [
@@ -69,7 +69,7 @@ const messages = {
     },
     'de': {
         translation: {
-            'WELCOME': 'Willkommen zur Lawinenvorhersage. Welche Region interessiert dich? Beispiele sind Ötztal, Mayrhofen oder Silandro.',
+            'WELCOME': 'Willkommen zur Lawinenvorhersage. Welche Region interessiert dich?',
             'FALLBACK': 'Entschuldige, das habe ich nicht verstanden. Kannst du es wiederholen?',
             'HELP': 'Du kannst mich nach dem neusten Lawinenreport für eine Region in Tirol, Südtirol oder Trentino fragen. Ich kann dir außerdem etwas über die europäische Lawinengefahrenstufen erzählen. Was würdest du gerne hören?',
             'NO_REGION': ['Welche Region interessiert dich? Beispiele sind Hintertux, Kronplatz oder San Martino di Castrozza.', 'Für welche Region möchtest du die Vorhersage? Beispiele sind Kitzbühel, Lienz oder Trentino.'],
@@ -94,11 +94,11 @@ const messages = {
 
             'REPORT_INTRO': 'Hier ist der aktuelle Bericht {{0}}, gültig für {{1}}.',
             'FORECAST_LEVEL_SINGLE_FULL': 'Die Gefahrenstufe ist {{0}}.',
-            'FORECAST_LEVEL_DOUBLE_FULL': 'Die Gefahrenstufe liegt unter {{0}} bei {{1}}, <break time="1s" /> über {{2}} bei {{3}}.',
+            'FORECAST_LEVEL_DOUBLE_FULL': 'Die Gefahrenstufe liegt unter {{0}} bei {{1}}, über {{2}} bei {{3}}.',
             'FORECAST_LEVEL_SINGLE_AM': 'Die Gefahrenstufe liegt vormittags bei {{0}}.',
-            'FORECAST_LEVEL_DOUBLE_AM': 'Vormittags liegt die Gefahrenstufe unter {{0}} bei {{1}}, <break time="1s" /> über {{2}} bei {{3}}.',
+            'FORECAST_LEVEL_DOUBLE_AM': 'Vormittags liegt die Gefahrenstufe unter {{0}} bei {{1}}, über {{2}} bei {{3}}.',
             'FORECAST_LEVEL_SINGLE_PM': 'Die Gefahrenstufe liegt nachmittags bei {{0}}.',
-            'FORECAST_LEVEL_DOUBLE_PM': 'Am Nachmittag liegt die Gefahrenstufe unter {{0}} bei {{1}}, <break time="1s" /> über {{2}} bei {{3}}.',
+            'FORECAST_LEVEL_DOUBLE_PM': 'Am Nachmittag liegt die Gefahrenstufe unter {{0}} bei {{1}}, über {{2}} bei {{3}}.',
             'FORECAST_ERROR': 'Entschuldige, aktuell ist die Vorhersage nicht verfügbar.',
             'FORECAST_CARD_TITLE': 'Avalanche report {{0}} valid until {{1}}',
             'FORECAST_TREELINE': 'der Waldgrenze',
@@ -116,8 +116,8 @@ const messages = {
             'SUGGESTION_DL_3': 'Erkläre Stufe 3',
             'SUGGESTION_DL_4': 'Warnbericht',
 
-            'SUGGESTION_NO_REGION_1': 'Stubaier Gletscher',
-            'SUGGESTION_NO_REGION_2': 'Bruneck',
+            'SUGGESTION_NO_REGION_1': 'Innsbruck',
+            'SUGGESTION_NO_REGION_2': 'Bozen',
             'SUGGESTION_NO_REGION_3': 'Trient',
 
             'DATES': {
