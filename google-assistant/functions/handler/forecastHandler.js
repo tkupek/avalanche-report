@@ -59,7 +59,7 @@ const handler = {
 
         dateformat.i18n = T.getMessage(agent, 'DATES');
         let dateValid = Date.parse(primaryData['validTime'][0]['TimePeriod'][0]['endPosition'][0]);
-        let formatDateValid = dateformat(dateValid, 'dddd, d. mmmm');
+        let formatDateValid = dateformat(dateValid, 'dddd, dS mmmm');
 
         let result = {};
         result.intro = T.getMessage(agent, 'REPORT_INTRO', [location, formatDateValid]);
@@ -72,8 +72,10 @@ const handler = {
         result = handler.clearHTML(result);
 
         if(config.hasScreenSupport(agent)) {
-            result.intro += ' ' + T.getMessage(agent, 'FORECAST_PM_NOTICE');
-
+            if(time == OBS_TIME.AM) {
+                result.intro += ' ' + T.getMessage(agent, 'FORECAST_PM_NOTICE');
+            }
+            
             agent.add(result.intro);
             agent.add(new Card({
                 title: result.highlight,
