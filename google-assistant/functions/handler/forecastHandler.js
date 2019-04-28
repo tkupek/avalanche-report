@@ -53,10 +53,8 @@ const handler = {
         let primaryData = data[OBS_TIME.AM];
         let time = OBS_TIME.FULL;
 
-        console.log(JSON.stringify(data[OBS_TIME.PM]));
         if(data[OBS_TIME.PM]) {
             let period = agent.parameters['period'];
-            console.log(period);
             if (period && period === OBS_TIME.PM) {
                 primaryData = data[OBS_TIME.PM];
                 time = OBS_TIME.PM;
@@ -64,13 +62,11 @@ const handler = {
                 time = OBS_TIME.AM;
             }
         }
-
-        console.log(JSON.stringify(time));
         
         dateformat.i18n = T.getMessage(agent, 'DATES');
         let dateValid = Date.parse(primaryData['validTime'][0]['TimePeriod'][0]['endPosition'][0]);
         console.log(T.getLanguage(agent));
-        let formatDateValid = dateformat(dateValid, 'dddd, ' + T.getLanguage(agent) === 'en' ? 'dS' : 'd.' + ' mmmm');
+        let formatDateValid = dateformat(dateValid, 'dddd, ' + (T.getLanguage(agent) === 'en' ? 'dS' : 'd.') + ' mmmm');
 
         let result = {};
         result.intro = T.getMessage(agent, 'REPORT_INTRO', [location, formatDateValid]);
