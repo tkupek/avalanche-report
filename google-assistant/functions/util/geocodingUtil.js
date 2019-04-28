@@ -31,6 +31,10 @@ const geocodingUtil = {
         return resolvedLoc;
     },
     getCoordinatesFromResult(response) {
+        if(!response.json.results[0].geometry) {
+            console.error('failed to geocode location [' + JSON.stringify(response) + ']');
+            throw config.ERRORS.GEOCODE_ERROR;
+        }
         return [response.json.results[0].geometry.location.lng, response.json.results[0].geometry.location.lat];
     },
     callGeocodingApi: async function(location) {

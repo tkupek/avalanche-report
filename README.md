@@ -6,10 +6,9 @@ Avalance Forecast is a Action for the Google Assistant that gets the latest data
 
 ## possible improvements
 - possible bug if regions are different in the afternoon
-- cut last sentence if report is too long
-- refactor avalancheReportAPI to use async functions
 - search for zip code
 - forecast for current device location, https://developers.google.com/actions/reference/rest/Shared.Types/Location
+- refactor avalancheReportAPI to use async functions
 
 ## thanks to
 *Land Tirol* for providing the data for this application and for releasing their website avalanche.report under an CC license.

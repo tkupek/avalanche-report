@@ -6,7 +6,7 @@ const xmlparser = require('xml2js').parseString;
 const classifyPoint = require("robust-point-in-polygon");
 
 const avalancheReportAPI = {
-    mapCoordinatesToRegion: function(coordinates) {
+    mapCoordinatesToRegion: function(coordinates, location) {
         config.debug && console.log('map coordinates to region [' + JSON.stringify(coordinates) + ']');
 
         return new Promise(function(resolve, reject) {
@@ -27,7 +27,7 @@ const avalancheReportAPI = {
                 if(resolvedRegion) {
                     resolve(resolvedRegion.properties.bid);
                 } else {
-                    reject('no region found for coordinates [' + JSON.stringify(coordinates) + ']');
+                    reject('no region found for coordinates [' + JSON.stringify(coordinates) + '] and location [' + location + ']');
                 }
             });
         });        

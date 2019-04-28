@@ -21,7 +21,7 @@ const handler = {
         }
 
         return geocodingUtil.geocodeLocation(location)
-            .then(resolvedLoc => avalancheReportAPI.mapCoordinatesToRegion(resolvedLoc.coordinates))
+            .then(resolvedLoc => avalancheReportAPI.mapCoordinatesToRegion(resolvedLoc.coordinates, location))
             .then(regionId => avalancheReportAPI.getAvalancheReportFromAPI(agent, regionId))
             .then(reportData => handler.buildAgentResponse(agent, reportData, location))
             .catch(err => handler.buildAgentError(agent, 'FORECAST_ERROR', err))
