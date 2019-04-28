@@ -4,7 +4,7 @@ const messages = {
             'WELCOME': 'Welcome to avalanche forecast. What location are you interested in?',
             'FALLBACK': 'Sorry, I did not get that. Can you try again?',
             'HELP': 'You can ask me for the latest avalanche forecast for a region in Tyrol, South Tyrol or Trentino. I can also explain you the european avalanche danger scale. What would you like to hear?',
-            'NO_REGION': ['What location are you interested in? Examples are Hintertux, Kronplatz or San Martino di Castrozza.', 'What location do you need the forecast? Examples are Kitzbühel, Lienz or Trentino.'],
+            'NO_REGION': ['What location are you interested in? Examples are Innsbruck, Bolzano or Trento.', 'What location do you need the forecast? Examples are Innsbruck, Bolzano or Trento.'],
             'LOCATION_UNSUPPORTED': 'The region you searched for is not supported. Only data for Tyrol, South Tyrol and Trentino is available',
 
             'DANGER_LEVEL_INTRO': 'The avalanche danger is evaluated with the five-levelled European avalanche danger scale. The levels are described by three different parameters: Probability of avalanche release, distribution of hazardous sites as well as size and frequency of expected avalanches. Ask me for a specific level.',
@@ -72,7 +72,7 @@ const messages = {
             'WELCOME': 'Willkommen zur Lawinenvorhersage. Welche Region interessiert dich?',
             'FALLBACK': 'Entschuldige, das habe ich nicht verstanden. Kannst du es wiederholen?',
             'HELP': 'Du kannst mich nach dem neusten Lawinenreport für eine Region in Tirol, Südtirol oder Trentino fragen. Ich kann dir außerdem etwas über die europäische Lawinengefahrenstufen erzählen. Was würdest du gerne hören?',
-            'NO_REGION': ['Welche Region interessiert dich? Beispiele sind Hintertux, Kronplatz oder San Martino di Castrozza.', 'Für welche Region möchtest du die Vorhersage? Beispiele sind Kitzbühel, Lienz oder Trentino.'],
+            'NO_REGION': ['Welche Region interessiert dich? Beispiele sind Innsbruck, Bozen oder Trient.', 'Für welche Region möchtest du die Vorhersage? Beispiele sind Innsbruck, Bozen oder Trient.'],
             'LOCATION_UNSUPPORTED': 'Die gesuchte Region wird aktuell nicht unterstützt. Es sind nur Daten für Tirol, Südtirol und Trentino verfügbar.',
 
             'DANGER_LEVEL_INTRO': 'Die Lawinenvorhersage beschreibt die Lawinengefahr mit der fünfteiligen europäischen Lawinengefahrenstufenskala. Dabei werden die fünf Gefahrenstufen durch drei verschiedene Parameter beschrieben: Die Auslösewahrscheinlichkeit von Lawinen, der Umfang der Gefahrenstellen bzw. die Größe und Häufigkeit der zu erwartenden Lawinen. Frag mich nach einer Stufe.',
@@ -93,7 +93,7 @@ const messages = {
             'DANGER_LEVEL_CARD_TITLE': 'Die europäische Lawinengefahrenstufenskala',
 
             'REPORT_INTRO': 'Hier ist der aktuelle Bericht {{0}}, gültig für {{1}}.',
-            'FORECAST_LEVEL_SINGLE_FULL': 'Die Gefahrenstufe ist {{0}}.',
+            'FORECAST_LEVEL_SINGLE_FULL': 'Die Gefahrenstufe liegt bei {{0}}.',
             'FORECAST_LEVEL_DOUBLE_FULL': 'Die Gefahrenstufe liegt unter {{0}} bei {{1}}, über {{2}} bei {{3}}.',
             'FORECAST_LEVEL_SINGLE_AM': 'Die Gefahrenstufe liegt vormittags bei {{0}}.',
             'FORECAST_LEVEL_DOUBLE_AM': 'Vormittags liegt die Gefahrenstufe unter {{0}} bei {{1}}, über {{2}} bei {{3}}.',
@@ -105,16 +105,16 @@ const messages = {
             'FULL_REPORT': 'Ganzen Bericht lesen',
             'FORECAST_PM_NOTICE': 'Für den Nachmittag gibt es einen separaten Bericht.',
 
-            'SUGGESTION_WELCOME_1': 'Warnbericht',
+            'SUGGESTION_WELCOME_1': 'Vorhersage',
             'SUGGESTION_WELCOME_2': 'Gefahrenstufen',
             'SUGGESTION_WELCOME_3': 'Hilfe',
 
             'SUGGESTION_DL_UNKNOWN_1': 'Erkläre Stufe 3',
-            'SUGGESTION_DL_UNKNOWN_2': 'Warnbericht',
+            'SUGGESTION_DL_UNKNOWN_2': 'Vorhersage',
             'SUGGESTION_DL_1': 'Erkläre Stufe {{0}}',
-            'SUGGESTION_DL_2': 'Warnbericht',
+            'SUGGESTION_DL_2': 'Vorhersage',
             'SUGGESTION_DL_3': 'Erkläre Stufe 3',
-            'SUGGESTION_DL_4': 'Warnbericht',
+            'SUGGESTION_DL_4': 'Vorhersage',
 
             'SUGGESTION_NO_REGION_1': 'Innsbruck',
             'SUGGESTION_NO_REGION_2': 'Bozen',
