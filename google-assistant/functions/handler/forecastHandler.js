@@ -20,7 +20,7 @@ const handler = {
             return;
         }
 
-        return geocodingUtil.geocodeLocation(location)
+        return geocodingUtil.geocodeLocation(location, T.getLanguage(agent))
             .then(resolvedLoc => avalancheReportAPI.mapCoordinatesToRegion(resolvedLoc.coordinates, location))
             .then(regionId => avalancheReportAPI.getAvalancheReportFromAPI(agent, regionId))
             .then(reportData => handler.buildAgentResponse(agent, reportData, location))

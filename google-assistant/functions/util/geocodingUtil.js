@@ -12,7 +12,7 @@ const firestoreClient = require('@google-cloud/firestore');
 const db = new firestoreClient();
 
 const geocodingUtil = {
-    geocodeLocation: async function(location) {
+    geocodeLocation: async function(location, lang) {
         config.debug && console.log('geocoding location [' + location + ']');
         let resolvedLoc = { name: location };
 
@@ -23,24 +23,25 @@ const geocodingUtil = {
             return resolvedLoc;
         }
 
-        let geocodingResult = await geocodingUtil.callGeocodingApi(location);
-        let coordinates = geocodingUtil.getCoordinatesFromResult(geocodingResult)
+        let geocodingResult = await geocodingUtil.callGeocodingApi(location, lang);
+        let coordinates = geocodingUtil.getCoordinatesFromResult(geocodingResult, lang)
         await geocodingUtil.insertToGeocodeCache(location, coordinates);
 
         resolvedLoc.coordinates = coordinates;
         return resolvedLoc;
     },
-    getCoordinatesFromResult(response) {
-        if(!response.json.results[0].geometry) {
-            console.error('failed to geocode location [' + JSON.stringify(response) + ']');
+    getCoordinatesFromResult(response, location) {
+        if(!response.json.results[0]) {
+            console.error('failed to geocode location [' + location + '] response [' + JSON.stringify(response) + ']');
             throw config.ERRORS.GEOCODE_ERROR;
         }
         return [response.json.results[0].geometry.location.lng, response.json.results[0].geometry.location.lat];
     },
-    callGeocodingApi: async function(location) {
+    callGeocodingApi: async function(location, lang) {
         config.debug && console.log('call google geocoding API');
         let data = {
-            address: location
+            address: location,
+            language: lang
         };
 
         try {
