@@ -41,5 +41,18 @@ module.exports = Object.freeze({
     hasBrowserSupport: function(agent) {
         let conv = agent.conv()
         return conv && conv.surface.capabilities.has('actions.capability.WEB_BROWSER');
+    },
+
+    firestoreCollection: 'geocodingCache',
+    geocodingCacheDays: 30,
+
+    ERRORS: {
+        'CACHE_ERROR': 'CACHE_ERROR',
+        'GEOCODE_ERROR': 'GEOCODE_ERROR'
+    },
+    OBS_TIME: {
+        'FULL': 'FULL',
+        'AM': 'AM',
+        'PM': 'PM'
     }
 });

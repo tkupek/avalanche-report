@@ -1,13 +1,13 @@
-# avalanche-report
-Avalance Report is a Action for the Google Assistant that gets the latest data from the Avalanche Warning Services Tyrol - South Tyrol - Trentino.
+# avalanche-forecast
+Avalance Forecast is a Action for the Google Assistant that gets the latest data from the Avalanche Warning Services Tyrol - South Tyrol - Trentino.
 
 ## project description
-[https://tkupek.eu/avalanche-report/](https://tkupek.eu/avalanche-report/)
+[https://tkupek.eu/avalanche-forecast/](https://tkupek.eu/avalanche-forecast/)
 
 ## possible improvements
-- cache geocoding for 30d
 - possible bug if regions are different in the afternoon
 - cut last sentence if report is too long
+- refactor avalancheReportAPI to use async functions
 - search for zip code
 - forecast for current device location, https://developers.google.com/actions/reference/rest/Shared.Types/Location
 
