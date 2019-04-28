@@ -24,13 +24,13 @@ const handler = {
             .then(resolvedLoc => avalancheReportAPI.mapCoordinatesToRegion(resolvedLoc.coordinates))
             .then(regionId => avalancheReportAPI.getAvalancheReportFromAPI(agent, regionId))
             .then(reportData => handler.buildAgentResponse(agent, reportData, location))
-            .catch(err => handler.buildAgentError(agent, err))
+            .catch(err => handler.buildAgentError(agent, 'FORECAST_ERROR', err))
     },
-    buildAgentError: function(agent, err) {
-        if(!config.ERRORS[err]) {
+    buildAgentError: function(agent, message, err) {
+        if(err && !config.ERRORS[err]) {
             console.error(err);
         }
-        agent.add(T.getMessage(agent, 'FORECAST_ERROR'));
+        agent.add(T.getMessage(agent, message));
         agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_NO_REGION_1')));
         agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_NO_REGION_2')));
         agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_NO_REGION_3')));
