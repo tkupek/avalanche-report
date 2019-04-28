@@ -5,7 +5,9 @@ Avalance Report is a Action for the Google Assistant that gets the latest data f
 [https://tkupek.eu/avalanche-report/](https://tkupek.eu/avalanche-report/)
 
 ## possible improvements
-- ask directly for the PM report
+- cache geocoding for 30d
+- possible bug if regions are different in the afternoon
+- cut last sentence if report is too long
 - search for zip code
 - forecast for current device location, https://developers.google.com/actions/reference/rest/Shared.Types/Location
 

@@ -53,18 +53,29 @@ const handler = {
         let primaryData = data[OBS_TIME.AM];
         let time = OBS_TIME.FULL;
 
+        console.log(JSON.stringify(data[OBS_TIME.PM]));
         if(data[OBS_TIME.PM]) {
-            time = OBS_TIME.AM;
+            let period = agent.parameters['period'];
+            console.log(period);
+            if (period && period === OBS_TIME.PM) {
+                primaryData = data[OBS_TIME.PM];
+                time = OBS_TIME.PM;
+            } else {
+                time = OBS_TIME.AM;
+            }
         }
 
+        console.log(JSON.stringify(time));
+        
         dateformat.i18n = T.getMessage(agent, 'DATES');
         let dateValid = Date.parse(primaryData['validTime'][0]['TimePeriod'][0]['endPosition'][0]);
-        let formatDateValid = dateformat(dateValid, 'dddd, dS mmmm');
+        console.log(T.getLanguage(agent));
+        let formatDateValid = dateformat(dateValid, 'dddd, ' + T.getLanguage(agent) === 'en' ? 'dS' : 'd.' + ' mmmm');
 
         let result = {};
         result.intro = T.getMessage(agent, 'REPORT_INTRO', [location, formatDateValid]);
         result.intro += ' ' + handler.getDangerRating(agent, primaryData, time);
-        if(data[OBS_TIME.PM]) {
+        if(time === OBS_TIME.AM) {
             result.intro += ' ' + handler.getDangerRating(agent, data[OBS_TIME.PM], OBS_TIME.PM);
         }
         result.text = primaryData['bulletinResultsOf'][0]['BulletinMeasurements'][0]['avActivityComment'][0];
@@ -72,7 +83,7 @@ const handler = {
         result = handler.clearHTML(result);
 
         if(config.hasScreenSupport(agent)) {
-            if(time == OBS_TIME.AM) {
+            if(time === OBS_TIME.AM) {
                 result.intro += ' ' + T.getMessage(agent, 'FORECAST_PM_NOTICE');
             }
             
@@ -168,11 +179,11 @@ const handler = {
                     if (res.statusCode === 200) {
                         return resolve(returnData);
                     }
-                    return reject('server request failed with code ' + JSON.stringify(res.statusCode) + ' and message ' + res);
+                    return reject('server request failed with code ' + JSON.stringify(res.statusCode));
                 });
 
                 res.on('error', function(err) {
-                    return reject('server request failed with message ' + err);
+                    return reject('server request failed with message ' + JSON.stringify(err));
                 });
 
             });

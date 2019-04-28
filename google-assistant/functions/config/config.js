@@ -7,7 +7,7 @@ module.exports = Object.freeze({
         return {
             host: 'avalanche.report',
             port: 443,
-            path: '/albina_files/latest/{{locale}}.xml'.replace('{{locale}}', language),
+            path: '/albina_files/2019-04-26/2019-04-26_{{locale}}.xml'.replace('{{locale}}', language),
             method: 'GET'
         };
     },
@@ -15,7 +15,7 @@ module.exports = Object.freeze({
         return {
             host: 'avalanche.report',
             port: 443,
-            path: '/albina_files/latest/' + mode + '_regions.json',
+            path: '/albina_files/2019-04-26/' + mode + '_regions.json',
             method: 'GET'
         };
     },
