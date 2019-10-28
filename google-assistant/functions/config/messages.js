@@ -5,7 +5,7 @@ const messages = {
             'FALLBACK': 'Sorry, I did not get that. Can you try again?',
             'HELP': 'You can ask me for the latest avalanche forecast for a region in Tyrol, South Tyrol or Trentino. I can also explain you the european avalanche danger scale. What would you like to hear?',
             'NO_REGION': ['What location are you interested in? Examples are Innsbruck, Bolzano or Trento.', 'What location do you need the forecast? Examples are Innsbruck, Bolzano or Trento.'],
-            'LOCATION_UNSUPPORTED': 'The region you searched for is not supported. Only data for Tyrol, South Tyrol and Trentino is available',
+            'LOCATION_UNSUPPORTED': 'The region you searched for is not supported. Only data for Tyrol, South Tyrol and Trentino is available.',
 
             'DANGER_LEVEL_INTRO': 'The avalanche danger is evaluated with the five-levelled European avalanche danger scale. The levels are described by three different parameters: Probability of avalanche release, distribution of hazardous sites as well as size and frequency of expected avalanches. Ask me for a specific level.',
             'DANGER_LEVEL': 'The danger level always applies to a region with an area of larger than 100 km² and not to a specific individual slope. The avalanche danger described is always a forecast with uncertainties. It should always be checked on site. Ask me for a specific danger level to learn more.',
@@ -128,6 +128,74 @@ const messages = {
                   monthNames: [
                       'Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez',
                       'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
+                  ],
+                  timeNames: [
+                      'a', 'p', 'am', 'pm', 'A', 'P', 'AM', 'PM'
+                  ]
+              }
+            }
+    },
+    'it': {
+        translation: {
+            'WELCOME': 'Benvenuti al bollettino valanghe. A quale località siete interessati?',
+            'FALLBACK': 'Scusa, non l\'ho capito. Puoi riprovare?',
+            'HELP': 'Potete chiedermi le ultime previsioni valanghe per una regione del Tirolo, dell\'Alto Adige o del Trentino. Posso anche spiegarvi la scala europea del pericolo valanghe. Cosa vorresti sentire?',
+            'NO_REGION': ['A quale località ti interessa? Esempi sono Innsbruck, Bolzano o Trento.', 'In quale località avete bisogno della previsione? Esempi sono Innsbruck, Bolzano o Trento.'],
+            'LOCATION_UNSUPPORTED': 'La regione cercata non è supportata. Sono disponibili solo i dati per il Tirolo, l\'Alto Adige e il Trentino.',
+
+            'DANGER_LEVEL_INTRO': 'Per descrivere il pericolo di valanghe, valanghe.report utilizza la scala europea del pericolo valanghe divisa in cinque gradi. Il grado di pericolo dipende dai seguenti fattori: Probabilità di distacco valanghe, distribuzione dei luoghi pericolosi, dimensioni e frequenza delle valanghe previste. Chiedimi un livello specifico.',
+            'DANGER_LEVEL': 'Il grado di pericolo si riferisce sempre a una regione con un area >100 km² e non a un singolo pendio. Il pericolo valanghe descritto nel bollettino su valanghe.report è sempre una previsione e come tale include un certo grado di incertezze. È quindi necessario verificare sempre il pericolo valanghe in loco. Chiedimi un livello di pericolo specifico per saperne di più.',
+            'DANGER_LEVEL_INTRO_5': 'Livello di pericolo 5, molto forte, sta per una situazione straordinaria di valanghe. Si prevedono numerose valanghe spontanee di dimensioni molto grandi e estremi che possono raggiungere le strade e i centri abitati situati a fondovalle. Vuoi informare sul livello successivo?',
+            'DANGER_LEVEL_INTRO_4': 'Livello di pericolo 4, forte, rappresenta una situazione valanghiva molto critica. Probabili valanghe spontanee, spesso anche di grandi dimensioni. Su molti pendii ripidi è facile provocare il distacco di valanghe. I distacchi a distanza sono tipici di questo grado di pericolo. I rumori di “whum” e le fessure sono frequenti. Vuoi controllare il livello successivo?',
+            'DANGER_LEVEL_INTRO_3': 'Livello di pericolo 3, marcato, sta per una situazione critica di valanghe. I rumori di “whum” e le fessure sono tipici. Le valanghe possono facilmente essere staccate, soprattutto sui pendii ripidi alle esposizioni e alle quote indicate nel bollettino valanghe su valanghe.report. Possibili valanghe spontanee e distacchi a distanza. Vuoi conoscere il livello successivo?',
+            'DANGER_LEVEL_INTRO_2': 'Livello di pericolo 2, moderato, sta per situazione valanghe per lo più favorevole. È possibile la presenza di singoli segnali di allarme. Le valanghe possono essere staccate specialmente sui pendii molto ripidi alle esposizioni e alle quote indicate nel bollettino valanghe su valanghe.report. Non sono previste valanghe spontanee di grandi dimensioni. Vuoi informazioni sul livello successivo?',
+            'DANGER_LEVEL_INTRO_1': 'Livello di pericolo 1, debole, è sinonimo di una situazione valanghiva generalmente favorevole. Non si manifestano segnali di allarme. Possibile solo il distacco di valanghe isolate, soprattutto sui pendii estremamente ripidi. Vuoi vedere il livello successivo?',
+            'DANGER_LEVEL_5': 'Si consiglia di rinunciare alle attività sportive al di fuori degli itinerari controllati.',
+            'DANGER_LEVEL_4': 'Limitarsi ai pendii poco ripidi. Attenzione alla zona di deposito di valanghe di grandi dimensioni. Le persone inesperte rimangano sulle piste e sugli itinerari controllati.',
+            'DANGER_LEVEL_3': 'Questa è la situazione più critica per gli appassionati di sport invernali! Sono necessarie una scelta ottimale dell’itinerario e l’adozione di misure atte a ridurre il rischio. Evitare i pendii molto ripidi alle esposizioni e alle quote indicate nel bollettino valanghe su valanghe.report. È meglio che le persone inesperte rimangano sulle discese e sugli itinerari aperti.',
+            'DANGER_LEVEL_2': 'Prudente scelta dell’itinerario, soprattutto sui pendii alle esposizioni e alle quote indicate nel bollettino valanghe su valanghe.report. Percorrere i pendii molto ripidi una persona alla volta. Attenzione particolare è richiesta quando la struttura del manto nevoso è sfavorevole (situazione tipo: strati deboli persistenti).',
+            'DANGER_LEVEL_1': 'Scendere da pendii estremamente ripidi solo una persona alla volta e prestare attenzione al rischio di scivolamento.',
+
+            'DANGER_LEVEL_UNKNOWN': 'La scala europea del pericolo valanghe va da una a cinque. A quale livello volete saperne di più?',
+            'DANGER_LEVEL_X_CARD_TITLE': 'Pericolo di livello di scala {{0}}',
+            'DANGER_LEVEL_CARD_TITLE': 'Scala del Pericolo',
+
+            'REPORT_INTRO': 'Ecco l\'ultimo report per {{0}}, valido per {{1}}.',
+            'FORECAST_LEVEL_SINGLE_FULL': 'Il livello di pericolo è {{0}}.',
+            'FORECAST_LEVEL_DOUBLE_FULL': 'Il livello di pericolo sotto {{0}} è {{1}}, sopra {{2}} è {{3}}.',
+            'FORECAST_LEVEL_SINGLE_AM': 'Il livello di pericolo al mattino è {{0}}.',
+            'FORECAST_LEVEL_DOUBLE_AM': 'Al mattino, il livello di pericolo sotto {{0}} è {{1}}, sopra {{2}} è {{3}}.',
+            'FORECAST_LEVEL_SINGLE_PM': 'Il livello di pericolo nel pomeriggio è {{0}}.',
+            'FORECAST_LEVEL_DOUBLE_PM': 'Nel pomeriggio, il livello di pericolo sotto {{0}} è {{1}}, sopra {{2}} è {{3}}.',
+            'FORECAST_ERROR': 'Spiacente, al momento le previsioni non sono disponibili.',
+            'FORECAST_CARD_TITLE': 'Rapporto valanghe {{0}} valido fino a {{1}}.',
+            'FORECAST_TREELINE': 'l\'albero',
+            'FULL_REPORT': 'Mostra rapporto completo',
+            'FORECAST_PM_NOTICE': 'C\'è una relazione separata per il pomeriggio.',
+
+            'SUGGESTION_WELCOME_1': 'pronostico',
+            'SUGGESTION_WELCOME_2': 'scala del pericolo',
+            'SUGGESTION_WELCOME_3': 'assistenza',
+
+            'SUGGESTION_DL_UNKNOWN_1': 'spiegare il livello 3',
+            'SUGGESTION_DL_UNKNOWN_2': 'controllare le previsioni',
+            'SUGGESTION_DL_1': 'spiegare il livello {{0}}.',
+            'SUGGESTION_DL_2': 'controllare le previsioni',
+            'SUGGESTION_DL_3': 'spiegare il livello 3',
+            'SUGGESTION_DL_4': 'previsioni',
+
+            'SUGGESTION_NO_REGION_1': 'Innsbruck',
+            'SUGGESTION_NO_REGION_2': 'Bolzano',
+            'SUGGESTION_NO_REGION_3': 'Trento',
+            
+            'DATES': {
+                  dayNames: [
+                      'Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab',
+                      'Domenicale', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'
+                  ],
+                  monthNames: [
+                      'Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic',
+                      'Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'
                   ],
                   timeNames: [
                       'a', 'p', 'am', 'pm', 'A', 'P', 'AM', 'PM'

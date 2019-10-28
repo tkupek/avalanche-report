@@ -1,7 +1,7 @@
 module.exports = Object.freeze({
     debug: true,
 
-    supportedLanguages: ['en', 'de'],
+    supportedLanguages: ['en', 'de', 'it'],
     defaultLanguage: 'en',
     getApiConfig: function(language) {
         return {
