@@ -68,7 +68,6 @@ const handler = {
         result = handler.clearHTML(result);
 
         dangers = primaryData['bulletinResultsOf'][0]['BulletinMeasurements'][0]['avProblems'][0]['AvProblem'];
-        console.log(JSON.stringify(dangers))
 
         if(dangers.length > 0) {
             dangers.remove(""); //necessary to fix XML bug
@@ -103,6 +102,9 @@ const handler = {
         }
         if(elevation.elevationLw) {
             return T.getMessage(agent, 'EXPOSITION_ELEVATIONLW', [elevation.elevationLw]);
+        }
+        if(elevation.elevationRange) {
+            return T.getMessage(agent, 'EXPOSITION_ELEVATION_RANGE', [elevation.elevationRangeFrom, elevation.elevationRangeTo]);
         }
 
         return '';
@@ -174,14 +176,21 @@ const handler = {
         let elevationData = {};
 
         dangerRating.forEach(function(element) {
-            let elevation = element.validElevation[0]['$']['xlink:href'].replace('ElevationRange_', '');
-            if (elevation.endsWith('Hi')) {
-                elevationData.elevationHi = handler.getElevationText(agent, elevation.replace('Hi', ''));
-                element.mainValue && (elevationData.dangerHi = element.mainValue[0]);
-            }
-            if (elevation.endsWith('Lw')) {
-                elevationData.elevationLw = handler.getElevationText(agent, elevation.replace('Lw', ''));
-                element.mainValue && (elevationData.dangerLw = element.mainValue[0]);
+            let range = element.validElevation[0]['elevationRange']
+            if(range) {
+                elevationData.elevationRange = true;
+                elevationData.elevationRangeFrom = handler.getElevationText(agent, range[0].begionPosition[0]);
+                elevationData.elevationRangeTo = handler.getElevationText(agent, range[0].endPosition[0]);
+            } else {
+                let elevation = element.validElevation[0]['$']['xlink:href'].replace('ElevationRange_', '');
+                if (elevation.endsWith('Hi')) {
+                    elevationData.elevationHi = handler.getElevationText(agent, elevation.replace('Hi', ''));
+                    element.mainValue && (elevationData.dangerHi = element.mainValue[0]);
+                }
+                if (elevation.endsWith('Lw')) {
+                    elevationData.elevationLw = handler.getElevationText(agent, elevation.replace('Lw', ''));
+                    element.mainValue && (elevationData.dangerLw = element.mainValue[0]);
+                }
             }
         });
 
