@@ -31,6 +31,13 @@ const messages = {
             'FORECAST_LEVEL_DOUBLE_AM': 'In the morning, the danger level below {{0}} is {{1}} and {{3}} above {{2}}.',
             'FORECAST_LEVEL_SINGLE_PM': 'The danger level in the afternoon is {{0}}.',
             'FORECAST_LEVEL_DOUBLE_PM': 'In the afternoon, the danger level below {{0}} is {{1}} and {{3}} above {{2}}.',
+
+            'FORECAST_LEVEL_1': '1 - low',
+            'FORECAST_LEVEL_2': '2 - moderate',
+            'FORECAST_LEVEL_3': '3 - considerable',
+            'FORECAST_LEVEL_4': '4 - high',
+            'FORECAST_LEVEL_5': '5 - very high',
+
             'FORECAST_ERROR': 'Sorry, currently the forecast is not available.',
             'FORECAST_CARD_TITLE': 'Avalanche report {{0}} valid until {{1}}',
             'FORECAST_TREELINE': 'the treeline',
@@ -123,6 +130,13 @@ const messages = {
             'FORECAST_LEVEL_DOUBLE_AM': 'Vormittags liegt die Gefahrenstufe unter {{0}} bei {{1}}, über {{2}} bei {{3}}.',
             'FORECAST_LEVEL_SINGLE_PM': 'Die Gefahrenstufe liegt nachmittags bei {{0}}.',
             'FORECAST_LEVEL_DOUBLE_PM': 'Am Nachmittag liegt die Gefahrenstufe unter {{0}} bei {{1}}, über {{2}} bei {{3}}.',
+
+            'FORECAST_LEVEL_1': '1 - gering',
+            'FORECAST_LEVEL_2': '2 - mäßig',
+            'FORECAST_LEVEL_3': '3 - erheblich',
+            'FORECAST_LEVEL_4': '4 - groß',
+            'FORECAST_LEVEL_5': '5 - sehr groß',
+
             'FORECAST_ERROR': 'Entschuldige, aktuell ist die Vorhersage nicht verfügbar.',
             'FORECAST_CARD_TITLE': 'Avalanche report {{0}} valid until {{1}}',
             'FORECAST_TREELINE': 'der Waldgrenze',
@@ -215,6 +229,13 @@ const messages = {
             'FORECAST_LEVEL_DOUBLE_AM': 'Al mattino, il livello di pericolo sotto {{0}} è {{1}}, sopra {{2}} è {{3}}.',
             'FORECAST_LEVEL_SINGLE_PM': 'Il livello di pericolo nel pomeriggio è {{0}}.',
             'FORECAST_LEVEL_DOUBLE_PM': 'Nel pomeriggio, il livello di pericolo sotto {{0}} è {{1}}, sopra {{2}} è {{3}}.',
+
+            'FORECAST_LEVEL_1': '1 - debole',
+            'FORECAST_LEVEL_2': '2 - moderato',
+            'FORECAST_LEVEL_3': '3 - marcato',
+            'FORECAST_LEVEL_4': '4 - forte',
+            'FORECAST_LEVEL_5': '5 - molto forte',
+
             'FORECAST_ERROR': 'Spiacente, al momento le previsioni non sono disponibili.',
             'FORECAST_CARD_TITLE': 'Rapporto valanghe {{0}} valido fino a {{1}}.',
             'FORECAST_TREELINE': 'l\'albero',

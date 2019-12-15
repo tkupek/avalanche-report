@@ -159,13 +159,16 @@ const handler = {
         if (dangerRating.length > 1) {
             let elevationData = handler.getElevationData(agent, dangerRating);
             if(elevationData.dangerLw === elevationData.dangerHi) {
-                return T.getMessage(agent, 'FORECAST_LEVEL_SINGLE_' + time, [elevationData.dangerLw]);
+                return T.getMessage(agent, 'FORECAST_LEVEL_SINGLE_' + time, [handler.getDangerLevelDescription(agent, elevationData.dangerLw)]);
             } else {
-                return T.getMessage(agent, 'FORECAST_LEVEL_DOUBLE_' + time, [elevationData.elevationLw, elevationData.dangerLw, elevationData.elevationHi, elevationData.dangerHi]);
+                return T.getMessage(agent, 'FORECAST_LEVEL_DOUBLE_' + time, [elevationData.elevationLw, handler.getDangerLevelDescription(agent, elevationData.dangerLw), elevationData.elevationHi, handler.getDangerLevelDescription(agent, elevationData.dangerHi)]);
             }
         } else {
-            return T.getMessage(agent, 'FORECAST_LEVEL_SINGLE_' + time, [dangerRating[0]['mainValue']]);
+            return T.getMessage(agent, 'FORECAST_LEVEL_SINGLE_' + time, [handler.getDangerLevelDescription(agent, dangerRating[0]['mainValue'])]);
         }
+    },
+    getDangerLevelDescription: function(agent, level) {
+        return T.getMessage(agent, 'FORECAST_LEVEL_' + level);
     },
     getElevationData: function(agent, dangerRating) {
         let elevationData = {};
