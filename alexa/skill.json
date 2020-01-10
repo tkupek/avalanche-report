@@ -1,0 +1,27 @@
+{
+  "manifest": {
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "avalanche-forecast",
+          "sourceDir": "lambda\\eu-central-1_avalanche-forecast"
+        },
+        "interfaces": []
+      }
+    },
+    "manifestVersion": "1.0",
+    "publishingInformation": {
+      "locales": {
+        "it-IT": {
+          "name": "Avalanche Forecast"
+        },
+        "de-DE": {
+          "name": "Avalanche Forecast"
+        },
+        "en-US": {
+          "name": "Avalanche Forecast"
+        }
+      }
+    }
+  }
+}

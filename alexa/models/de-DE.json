@@ -1,0 +1,182 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "lawinenvorhersage tirol",
+      "intents": [
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.YesIntent",
+          "samples": [
+            "Weiter.",
+            "Bitte.",
+            "Ja bitte.",
+            "Ja.",
+            "Sicherlich.",
+            "Auf jeden Fall.",
+            "Tu es.",
+            "Mach weiter.",
+            "Genau.",
+            "Sicher."
+          ]
+        },
+        {
+          "name": "AMAZON.NoIntent",
+          "samples": [
+            "Nope.",
+            "Bitte nicht.",
+            "Vergiss es.",
+            "Nö.",
+            "Auf gar keinen Fall.",
+            "Vielleicht später.",
+            "Nein.",
+            "Nicht.",
+            "Auf keinen Fall.",
+            "Überspringen."
+          ]
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": [
+            "Was kann ich machen",
+            "Hilfe.",
+            "Bitte hilf mir",
+            "Welche Regionen gibt es",
+            "Ich brauche Hilfe.",
+            "Was soll ich machen",
+            "Was kann ich tun",
+            "Sag mir was ich machen muss.",
+            "Was kann ich fragen",
+            "Nach was kann ich fragen"
+          ]
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "ExplainDangerScale",
+          "slots": [
+            {
+              "name": "number",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "Erkläre die Lawinengefahrenstufen.",
+            "Gefahrenstufe {number}",
+            "Was sind die Gefahrenstufen",
+            "Erkläre mir Stufe {number}",
+            "Erkläre mir die Skala.",
+            "Warnstufe {number}",
+            "Gefahrenstufen.",
+            "Wie ist die Lawinenskala",
+            "Gefahrenlevel {number}",
+            "Was bedeutet Warnstufe {number}",
+            "Lawinengefahrenstufen.",
+            "Welche Gefahrenstufen gibt es",
+            "{number}",
+            "Wie ist die Skala aufgebaut",
+            "Gefahrenskala.",
+            "Warnstufen."
+          ]
+        },
+        {
+          "name": "GetAvalancheForecast",
+          "slots": [
+            {
+              "name": "location",
+              "type": "location"
+            },
+            {
+              "name": "period",
+              "type": "period"
+            }
+          ],
+          "samples": [
+            "{location}",
+            "Wie ist die Lawinenlage",
+            "Lawinenwarnstufe im {location}",
+            "Wie ist die Lawinenwarnstufe",
+            "Sag mir die aktuelle Vorhersage für {location}",
+            "Ich brauche den Lawinenreport.",
+            "Wie ist die Vorhersage für {location}",
+            "Was ist die Vorhersage für {location}",
+            "Bitte gib mir den aktuellen Report.",
+            "Bitte gib mir den aktuellen Report für {period}",
+            "Was die die Vorhersage {period} für {location}",
+            "Wie ist die Lawinenwarnstufe am {period}",
+            "Was ist der Warnbericht für {location}",
+            "Ich brauche die Vorhersage für {location}",
+            "Vorhersage.",
+            "Lawinenreport.",
+            "Warnbericht.",
+            "{location} {period}",
+            "Warnbericht für {period}",
+            "Ich brauche die Vorhersage für {location} am {period}",
+            "Wie ist die Warnstufe {period} in {location}",
+            "{period} {location}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "Innsbruck"
+              }
+            },
+            {
+              "name": {
+                "value": "Tirol"
+              }
+            }
+          ],
+          "name": "location"
+        },
+        {
+          "values": [
+            {
+              "id": "AM",
+              "name": {
+                "value": "AM",
+                "synonyms": [
+                  "vormittags",
+                  "morgens",
+                  "am morgen",
+                  "Vormittag"
+                ]
+              }
+            },
+            {
+              "id": "PM",
+              "name": {
+                "value": "PM",
+                "synonyms": [
+                  "nachmittags",
+                  "am Nachmittag",
+                  "am Abend",
+                  "Nachmittag",
+                  "Mittags"
+                ]
+              }
+            }
+          ],
+          "name": "period"
+        }
+      ]
+    }
+  },
+  "version": "1"
+}
