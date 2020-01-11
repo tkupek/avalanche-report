@@ -23,13 +23,13 @@ module.exports = Object.freeze({
     regionModes: ['fd', 'am', 'pm'],
 
     images: {
-    	'latest_forecast': 'https://avalanche.report/albina_files/latest/{{0}}.jpg',
-    	'danger_scale': 'https://cms.avalanche.report/sites/default/files/2019-03/ava_danger_en.png',
-    	'danger_scale_5': 'https://cms.avalanche.report/sites/default/files/2019-03/level_5.png',
-    	'danger_scale_4': 'https://cms.avalanche.report/sites/default/files/2019-03/level_4.png',
-    	'danger_scale_3': 'https://cms.avalanche.report/sites/default/files/2019-03/level_3.png',
-    	'danger_scale_2': 'https://cms.avalanche.report/sites/default/files/2019-03/level_2.png',
-    	'danger_scale_1': 'https://cms.avalanche.report/sites/default/files/2019-03/level_1.png',
+        'latest_forecast': 'https://avalanche.report/albina_files/latest/{{0}}.jpg',
+        'danger_scale': 'https://avalanche.report/content_files/ava_danger_en.png',
+        'danger_scale_5': 'https://avalanche.report/content_files/level_5.png',
+        'danger_scale_4': 'https://avalanche.report/content_files/level_4.png',
+        'danger_scale_3': 'https://avalanche.report/content_files/level_3.png',
+        'danger_scale_2': 'https://avalanche.report/content_files/level_2.png',
+        'danger_scale_1': 'https://avalanche.report/content_files/level_1.png',
     },
 
     fullReport: 'https://avalanche.report/albina-web/bulletin/latest?lang={{0}}&region={{1}}',

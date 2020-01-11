@@ -139,7 +139,7 @@ const messages = {
             'FORECAST_LEVEL_5': '5 - sehr groß',
 
             'FORECAST_ERROR': 'Entschuldige, aktuell ist die Vorhersage nicht verfügbar.',
-            'FORECAST_CARD_TITLE': 'Avalanche report {{0}} valid until {{1}}',
+            'FORECAST_CARD_TITLE': 'Lawinenbericht {{0}} gültig für {{1}}',
             'FORECAST_TREELINE': 'der Waldgrenze',
             'FULL_REPORT': 'Ganzen Bericht lesen',
             'FORECAST_PM_NOTICE': 'Für den Nachmittag gibt es einen separaten Bericht.',
