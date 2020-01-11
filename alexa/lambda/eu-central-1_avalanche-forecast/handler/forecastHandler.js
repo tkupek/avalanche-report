@@ -5,7 +5,7 @@ const config = require('../config/config');
 const T = require('../util/translationManager');
 const geocodingUtil = require('../util/geocodingUtil');
 const avalancheReportAPI = require('../util/avalancheReportAPI');
-const SessionUtil = require('../util/sessionUtil');
+const AlexaUtil = require('../util/alexaUtil');
 require('../util/utility');
 
 
@@ -17,8 +17,8 @@ const handler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'GetAvalancheForecast';
     },
     handle: function(handlerInput) {
-        handlerInput = SessionUtil.clear(handlerInput);
-        const slots = SessionUtil.getResolutedSlotValues(handlerInput);
+        handlerInput = AlexaUtil.clear(handlerInput);
+        const slots = AlexaUtil.getResolutedSlotValues(handlerInput);
 
         let location;
         if (slots['location'] && slots['location'].id) {
@@ -42,7 +42,7 @@ const handler = {
         return handlerInput.responseBuilder.speak(speakOutput).reprompt(speakOutput).getResponse();
     },
     buildAgentResponse: function(handlerInput, data, location) {
-        const slots = SessionUtil.getResolutedSlotValues(handlerInput);
+        const slots = AlexaUtil.getResolutedSlotValues(handlerInput);
         // config.debug && console.log('build agent response [' + JSON.stringify(data) + ']');
 
         let primaryData = data[config.OBS_TIME.AM];
@@ -89,15 +89,22 @@ const handler = {
             }
         }
 
-        // if(config.hasScreenSupport(agent)) {
-        //     handler.buildAgentResponseCard(agent, result, primaryData, time, dateValid, location);
-        // } else {
-            // agent.add(result.intro + ' ' + result.dangers);
-            // TODO implement this via additional "full report" intent
-            // agent.add(result.text);
-        // }
+        let response = handlerInput.responseBuilder
+        if(config.hasScreenSupport(handlerInput)) {
+            if(time === config.OBS_TIME.AM) {
+                result.intro += ' ' + handlerInput.t('FORECAST_PM_NOTICE');
+            }
+
+            const template = "BodyTemplate3";
+            const imageUrl = config.images['latest_forecast'].replace('{{0}}', primaryData['$']['gml:id']);
+            const title = handlerInput.t('FORECAST_CARD_TITLE', [location, formatDateValid]);
+            const subtitle = result.highlight;
+            const text = result.text;
+            response = AlexaUtil.getDisplay(response, template, imageUrl, title, text, subtitle)
+        }
+
         speakOutput = result.intro + ' ' + result.dangers;
-        return handlerInput.responseBuilder.speak(speakOutput).getResponse();
+        return response.speak(speakOutput).getResponse();
     },
     getDangerText(handlerInput, danger, message) {
         dangerText = handlerInput.t('DANGERS_' + danger.type)
@@ -152,21 +159,6 @@ const handler = {
 
         return handlerInput.t('EXPOSITIONS_multi', [exText1, exText2, exText3]);
     },
-    // buildAgentResponseCard(agent, result, primaryData, time, dateValid, location) {
-    //     if(time === config.OBS_TIME.AM) {
-    //         result.intro += ' ' + handlerInput.t('FORECAST_PM_NOTICE');
-    //     }
-        
-    //     agent.add(result.intro + ' ' + result.dangers);
-    //     agent.add(new Card({
-    //         title: result.highlight,
-    //         imageUrl: config.images['latest_forecast'].replace('{{0}}', primaryData['$']['gml:id']),
-    //         text: result.text,
-    //         subtitle: handlerInput.t('FORECAST_CARD_TITLE', [location, dateformat(dateValid, 'longDate')]),
-    //         buttonText: handlerInput.t('FULL_REPORT'),
-    //         buttonUrl: config.fullReport.replace('{{0}}', T.getLanguage(agent)).replace('{{1}}', primaryData['$']["gml:id"])
-    //     }));
-    // },
     getDangerRating: function(handlerInput, data, time) {
         let dangerRating = data['bulletinResultsOf'][0]['BulletinMeasurements'][0]['dangerRatings'][0]['DangerRating'];
         if (dangerRating.length > 1) {

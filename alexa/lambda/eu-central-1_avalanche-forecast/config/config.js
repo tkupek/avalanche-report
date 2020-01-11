@@ -24,23 +24,24 @@ module.exports = Object.freeze({
 
     images: {
     	'latest_forecast': 'https://avalanche.report/albina_files/latest/{{0}}.jpg',
-    	'danger_scale': 'https://cms.avalanche.report/sites/default/files/2019-03/ava_danger_en.png',
-    	'danger_scale_5': 'https://cms.avalanche.report/sites/default/files/2019-03/level_5.png',
-    	'danger_scale_4': 'https://cms.avalanche.report/sites/default/files/2019-03/level_4.png',
-    	'danger_scale_3': 'https://cms.avalanche.report/sites/default/files/2019-03/level_3.png',
-    	'danger_scale_2': 'https://cms.avalanche.report/sites/default/files/2019-03/level_2.png',
-    	'danger_scale_1': 'https://cms.avalanche.report/sites/default/files/2019-03/level_1.png',
+    	'danger_scale': 'https://avalanche.report/content_files/ava_danger_en.png',
+    	'danger_scale_5': 'https://avalanche.report/content_files/level_5.png',
+    	'danger_scale_4': 'https://avalanche.report/content_files/level_4.png',
+    	'danger_scale_3': 'https://avalanche.report/content_files/level_3.png',
+    	'danger_scale_2': 'https://avalanche.report/content_files/level_2.png',
+    	'danger_scale_1': 'https://avalanche.report/content_files/level_1.png',
     },
 
     fullReport: 'https://avalanche.report/albina-web/bulletin/latest?lang={{0}}&region={{1}}',
 
-    hasScreenSupport: function(agent) {
-        let conv = agent.conv()
-        return conv && conv.surface.capabilities.has('actions.capability.SCREEN_OUTPUT');
-    },
-    hasBrowserSupport: function(agent) {
-        let conv = agent.conv()
-        return conv && conv.surface.capabilities.has('actions.capability.WEB_BROWSER');
+    hasScreenSupport: function(handlerInput) {
+        var hasDisplay =
+          handlerInput.requestEnvelope.context &&
+          handlerInput.requestEnvelope.context.System &&
+          handlerInput.requestEnvelope.context.System.device &&
+          handlerInput.requestEnvelope.context.System.device.supportedInterfaces &&
+          handlerInput.requestEnvelope.context.System.device.supportedInterfaces.Display
+        return hasDisplay;
     },
 
     firestoreCollection: 'geocodingCache',

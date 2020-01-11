@@ -1,8 +1,9 @@
 const Alexa = require('ask-sdk-core');
 const i18n = require('i18next');
 const languageStrings = require('./config/messages');
-const SessionUtil = require('./util/sessionUtil');
+const AlexaUtil = require('./util/alexaUtil');
 const T = require('./util/translationManager');
+const config = require('./config/config');
 
 const ForecastIntentHandler = require('./handler/forecastHandler')
 const DangerScaleIntentHandler = require('./handler/dangerScaleHandler')
@@ -14,10 +15,16 @@ const LaunchRequestHandler = {
     handle(handlerInput) {
         const speakOutput = handlerInput.t('WELCOME');
 
-        return handlerInput.responseBuilder
-            .speak(speakOutput)
-            .reprompt(speakOutput)
-            .getResponse();
+        let response = handlerInput.responseBuilder;
+        console.log(config.hasScreenSupport(handlerInput))
+        if(config.hasScreenSupport(handlerInput)) {
+        	const template = "BodyTemplate6";
+            const text = speakOutput;
+            response = AlexaUtil.getDisplay(response, template, undefined, undefined, text)
+            response.addHintDirective(handlerInput.t('SUGGESTION_WELCOME_1') + ' ' + handlerInput.t('SUGGESTION_NO_REGION_' + T.random([1,2,3])))
+        }
+
+        return response.speak(speakOutput).reprompt(handlerInput.t('HELP')).getResponse();
     }
 };
 
@@ -46,9 +53,9 @@ const YesIntentHandler = {
         let context = sessionAttributes.context;
 
         if(context == 'dangerscale') {
-            return DangerScaleIntentHandler.handle(handlerInput);
+            return DangerScaleIntentHandler.handle(handlerInput, true);
         } else {
-        	handlerInput = SessionUtil.clear(handlerInput);
+        	handlerInput = AlexaUtil.clear(handlerInput);
             return FallbackIntentHandler.handle(handlerInput);
         }
     }
@@ -60,7 +67,7 @@ const NoIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.NoIntent';
     },
     handle(handlerInput) {
-    	handlerInput = SessionUtil.clear(handlerInput);
+    	handlerInput = AlexaUtil.clear(handlerInput);
     	return HelpIntentHandler.handle(handlerInput)
     }
 };
@@ -82,7 +89,7 @@ const FallbackIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.FallbackIntent';
     },
     handle(handlerInput) {
-    	handlerInput = SessionUtil.clear(handlerInput);
+    	handlerInput = AlexaUtil.clear(handlerInput);
         const speakOutput = handlerInput.t('FALLBACK');
 
         return handlerInput.responseBuilder
@@ -107,7 +114,7 @@ const ErrorHandler = {
         return true;
     },
     handle(handlerInput, error) {
-    	handlerInput = SessionUtil.clear(handlerInput);
+    	handlerInput = AlexaUtil.clear(handlerInput);
         const speakOutput = handlerInput.t('FORECAST_ERROR');
         console.log(`~~~~ Error handled: ${JSON.stringify(error)}`);
 
