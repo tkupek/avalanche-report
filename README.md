@@ -5,6 +5,7 @@ Avalance Forecast is an Action / Skill for the Google Assistant and Alexa that g
 [https://tkupek.eu/avalanche-forecast/](https://tkupek.eu/avalanche-forecast/)
 
 ## possible improvements
+- implement dynamodb geocoding cache in alexa app
 - search for zip code
 - forecast for current device location, https://developers.google.com/actions/reference/rest/Shared.Types/Location
 - refactor avalancheReportAPI to use async functions

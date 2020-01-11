@@ -49,31 +49,10 @@ const geocodingUtil = {
         }
     },
     readGeocodeCache: async function(location) {
-        // config.debug && console.log('read geocode from cache');
-        // try {
-        //     const document = db.collection(config.firestoreCollection).doc(geocodingUtil.getDocumentId(location));
-        //     let data = await document.get();
-        //     return data.exists ? data.data() : false;
-        // } catch(err) {
-        //     console.error('unable to call firestore read API [' + JSON.stringify(err) + ']');
-        //     throw config.ERRORS.CACHE_ERROR;
-        // }
+        // TODO read geocodings from DynamoDB Cache
     },
     insertToGeocodeCache: async function(location, coordinates) {
-        // config.debug && console.log('insert geocode to caching database');
-        // let data = {
-        //     loc: location,
-        //     ts: new Date(),
-        //     gcode: coordinates
-        // };
-
-        // try {
-        //     const document = db.collection(config.firestoreCollection).doc(geocodingUtil.getDocumentId(location));
-        //     await document.set(data);
-        // } catch(err) {
-        //     console.error('unable to call firestore create API [' + JSON.stringify(err) + ']');
-        //     throw config.ERRORS.CACHE_ERROR;
-        // }
+        // TODO save geocodings to DynamoDB Cache
     },
     getDocumentId: function(location) {
         return crypto.createHash('sha256').update(location.toLowerCase()).digest('hex');
