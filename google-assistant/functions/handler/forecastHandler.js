@@ -22,9 +22,10 @@ const handler = {
             return;
         }
 
-        return geocodingUtil.geocodeLocation(location, T.getLanguage(agent))
+        let locale = T.getLanguage(agent)
+        return geocodingUtil.geocodeLocation(location, locale)
             .then(resolvedLoc => avalancheReportAPI.mapCoordinatesToRegion(resolvedLoc.coordinates, location))
-            .then(regionId => avalancheReportAPI.getAvalancheReportFromAPI(agent, regionId))
+            .then(regionId => avalancheReportAPI.getAvalancheReportFromAPI(locale, regionId))
             .then(reportData => handler.buildAgentResponse(agent, reportData, location))
             .catch(err => handler.buildAgentError(agent, 'FORECAST_ERROR', err))
     },
