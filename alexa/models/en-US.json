@@ -132,6 +132,7 @@
             "Warning in {location}",
             "Afternoon {location}",
             "Was is the forecast in the {period} for {location}",
+            "Check the forecast for {location}",
             "Check the forecast for {period}",
             "Latest forcast for {location} in the {period}",
             "Please give me the forecast in the {period}",
