@@ -46,6 +46,7 @@ const YesIntentHandler = {
         if(context == 'dangerscale') {
             return DangerScaleIntentHandler.handle(handlerInput);
         } else {
+        	handlerInput = SessionUtil.clear(handlerInput);
             return FallbackIntentHandler.handle(handlerInput);
         }
     }
@@ -79,6 +80,7 @@ const FallbackIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.FallbackIntent';
     },
     handle(handlerInput) {
+    	handlerInput = SessionUtil.clear(handlerInput);
         const speakOutput = handlerInput.t('FALLBACK');
 
         return handlerInput.responseBuilder
@@ -97,7 +99,7 @@ const SessionUtil = {
         handlerInput.attributesManager.setSessionAttributes(sessionAttributes);
         return handlerInput;
 	}
-}
+};
 
 const SessionEndedRequestHandler = {
     canHandle(handlerInput) {
@@ -114,6 +116,7 @@ const ErrorHandler = {
         return true;
     },
     handle(handlerInput, error) {
+    	handlerInput = SessionUtil.clear(handlerInput);
         const speakOutput = handlerInput.t('FORECAST_ERROR');
         console.log(`~~~~ Error handled: ${JSON.stringify(error)}`);
 

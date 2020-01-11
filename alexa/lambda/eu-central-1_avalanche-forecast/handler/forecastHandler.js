@@ -11,48 +11,50 @@ require('../util/utility');
 let EXPOSITION_ORD = ['n', 'ne', 'e', 'se', 's', 'sw', 'w', 'nw'];
 
 const handler = {
-    canHandle(handlerInput) {
+    canHandle: function(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'GetAvalancheForecast';
     },
-    handle(handlerInput) {
-        const speakOutput = handlerInput.t('TODO');
+    handle: function(handlerInput) {
+        // handlerInput = SessionUtil.clear(handlerInput);
+        const slots = handlerInput.requestEnvelope.request.intent.slots;
 
-        return handlerInput.responseBuilder
-            .speak(speakOutput)
-            .reprompt(speakOutput)
-            .getResponse();
-    },
-    forecast: function(agent) {
-        let location = agent.parameters['location'];
-        if (!location) {
-            handler.buildAgentError(agent, 'NO_REGION');
-            return;
+        console.log(JSON.stringify(slots))
+        let location;
+        // TODO switch to resoluted value, not original value
+        if (slots && slots.location && slots.location.value) {
+          location = slots.location.value;
+        } else {
+            return handler.buildAgentError(handlerInput, 'NO_REGION');
         }
 
-        return geocodingUtil.geocodeLocation(location, T.getLanguage(agent))
+        let locale = T.getLanguage(handlerInput)
+        return geocodingUtil.geocodeLocation(location, locale)
             .then(resolvedLoc => avalancheReportAPI.mapCoordinatesToRegion(resolvedLoc.coordinates, location))
-            .then(regionId => avalancheReportAPI.getAvalancheReportFromAPI(agent, regionId))
-            .then(reportData => handler.buildAgentResponse(agent, reportData, location))
-            .catch(err => handler.buildAgentError(agent, 'FORECAST_ERROR', err))
+            .then(regionId => avalancheReportAPI.getAvalancheReportFromAPI(locale, regionId))
+            .then(reportData => handler.buildAgentResponse(handlerInput, reportData, location))
+            .catch(err => handler.buildAgentError(handlerInput, 'FORECAST_ERROR', err))
     },
-    buildAgentError: function(agent, message, err) {
+    buildAgentError: function(handlerInput, message, err) {
         if(err && !config.ERRORS[err]) {
             console.error(err);
         }
-        agent.add(T.getMessage(agent, message));
-        agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_NO_REGION_1')));
-        agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_NO_REGION_2')));
-        agent.add(new Suggestion(T.getMessage(agent, 'SUGGESTION_NO_REGION_3')));
+        speakOutput = handlerInput.t(message);
+        return handlerInput.responseBuilder.speak(speakOutput).reprompt(speakOutput).getResponse();
     },
-    buildAgentResponse: function(agent, data, location) {
-        config.debug && console.log('build agent response [' + JSON.stringify(data) + ']');
+    buildAgentResponse: function(handlerInput, data, location) {
+        const slots = handlerInput.requestEnvelope.request.intent.slots;
+        // config.debug && console.log('build agent response [' + JSON.stringify(data) + ']');
 
         let primaryData = data[config.OBS_TIME.AM];
         let time = config.OBS_TIME.FULL;
 
         if(data[config.OBS_TIME.PM]) {
-            let period = agent.parameters['period'];
+            let period;
+            if (slots && slots.period && slots.period.value) {
+                period = slots.period.value;
+            }
+
             if (period && period === config.OBS_TIME.PM) {
                 primaryData = data[config.OBS_TIME.PM];
                 time = config.OBS_TIME.PM;
@@ -60,16 +62,16 @@ const handler = {
                 time = config.OBS_TIME.AM;
             }
         }
-        
-        dateformat.i18n = T.getMessage(agent, 'DATES');
+
+        dateformat.i18n = config.DATEFORMAT[T.getLanguage(handlerInput)];
         let dateValid = Date.parse(primaryData['validTime'][0]['TimePeriod'][0]['endPosition'][0]);
-        let formatDateValid = dateformat(dateValid, 'dddd, ' + (T.getLanguage(agent) === 'en' ? 'dS' : 'd.') + ' mmmm');
+        let formatDateValid = dateformat(dateValid, 'dddd, ' + (T.getLanguage(handlerInput) === 'en' ? 'dS' : 'd.') + ' mmmm');
 
         let result = {};
-        result.intro = T.getMessage(agent, 'REPORT_INTRO', [location, formatDateValid]);
-        result.intro += ' ' + handler.getDangerRating(agent, primaryData, time);
+        result.intro = handlerInput.t('REPORT_INTRO', [location, formatDateValid]);
+        result.intro += ' ' + handler.getDangerRating(handlerInput, primaryData, time);
         if(time === config.OBS_TIME.AM) {
-            result.intro += ' ' + handler.getDangerRating(agent, data[config.OBS_TIME.PM], config.OBS_TIME.PM);
+            result.intro += ' ' + handler.getDangerRating(handlerInput, data[config.OBS_TIME.PM], config.OBS_TIME.PM);
         }
         result.text = primaryData['bulletinResultsOf'][0]['BulletinMeasurements'][0]['avActivityComment'][0];
         result.highlight = primaryData['bulletinResultsOf'][0]['BulletinMeasurements'][0]['avActivityHighlights'][0];
@@ -81,43 +83,45 @@ const handler = {
             dangers.remove(""); //necessary to fix XML bug
 
             if(dangers.length == 1) {
-                result.dangers = handler.getDangerText(agent, dangers[0], 'FORECAST_DANGER_SINGLE');
+                result.dangers = handler.getDangerText(handlerInput, dangers[0], 'FORECAST_DANGER_SINGLE');
             } else {
-                result.dangers = handler.getDangerText(agent, dangers[0], 'FORECAST_DANGER_SINGLE');
-                result.dangers += ' ' + handler.getDangerText(agent, dangers[1], 'FORECAST_DANGER_SECOND');
+                result.dangers = handler.getDangerText(handlerInput, dangers[0], 'FORECAST_DANGER_SINGLE');
+                result.dangers += ' ' + handler.getDangerText(handlerInput, dangers[1], 'FORECAST_DANGER_SECOND');
             }
         }
 
-        if(config.hasScreenSupport(agent)) {
-            handler.buildAgentResponseCard(agent, result, primaryData, time, dateValid, location);
-        } else {
-            agent.add(result.intro + ' ' + result.dangers);
+        // if(config.hasScreenSupport(agent)) {
+        //     handler.buildAgentResponseCard(agent, result, primaryData, time, dateValid, location);
+        // } else {
+            // agent.add(result.intro + ' ' + result.dangers);
             // TODO implement this via additional "full report" intent
             // agent.add(result.text);
-        }      
+        // }
+        speakOutput = result.intro + ' ' + result.dangers;
+        return handlerInput.responseBuilder.speak(speakOutput).getResponse();
     },
-    getDangerText(agent, danger, message) {
-        dangerText = T.getMessage(agent, 'DANGERS_' + danger.type)
-        expositionText = handler.getExpositionText(agent, danger.validAspect);
-        elevationText = handler.getExpositionElevationText(agent, danger);
-        return T.getMessage(agent, message, [dangerText, expositionText, elevationText])
+    getDangerText(handlerInput, danger, message) {
+        dangerText = handlerInput.t('DANGERS_' + danger.type)
+        expositionText = handler.getExpositionText(handlerInput, danger.validAspect);
+        elevationText = handler.getExpositionElevationText(handlerInput, danger);
+        return handlerInput.t(message, [dangerText, expositionText, elevationText])
     },
-    getExpositionElevationText(agent, danger) {
-        elevation = handler.getElevationData(agent, [danger]);
+    getExpositionElevationText(handlerInput, danger) {
+        elevation = handler.getElevationData(handlerInput, [danger]);
         var key;
         if(elevation.elevationHi) {
-            return T.getMessage(agent, 'EXPOSITION_ELEVATIONHI', [elevation.elevationHi]);
+            return handlerInput.t('EXPOSITION_ELEVATIONHI', [elevation.elevationHi]);
         }
         if(elevation.elevationLw) {
-            return T.getMessage(agent, 'EXPOSITION_ELEVATIONLW', [elevation.elevationLw]);
+            return handlerInput.t('EXPOSITION_ELEVATIONLW', [elevation.elevationLw]);
         }
         if(elevation.elevationRange) {
-            return T.getMessage(agent, 'EXPOSITION_ELEVATION_RANGE', [elevation.elevationRangeFrom, elevation.elevationRangeTo]);
+            return handlerInput.t('EXPOSITION_ELEVATION_RANGE', [elevation.elevationRangeFrom, elevation.elevationRangeTo]);
         }
 
         return '';
     },
-    getExpositionText(agent, expositionData) {
+    getExpositionText(handlerInput, expositionData) {
         expositions = []
         expositionData.forEach(element => {
             expositions.push(element['$']['xlink:href'].replace('AspectRange_', ''))
@@ -126,16 +130,16 @@ const handler = {
         expositions.sort( ( a, b ) => EXPOSITION_ORD.indexOf(a) - EXPOSITION_ORD.indexOf(b) );
 
         if(expositions.length == 8) {
-            return T.getMessage(agent, 'EXPOSITIONS_all');
+            return handlerInput.t('EXPOSITIONS_all');
         }
         if(expositions.length == 1) {
-            exText1 = T.getMessage(agent, 'EXPOSITIONS_' + expositions[0]);
-            return T.getMessage(agent, 'EXPOSITIONS_single', [exText1]);
+            exText1 = handlerInput.t('EXPOSITIONS_' + expositions[0]);
+            return handlerInput.t('EXPOSITIONS_single', [exText1]);
         }
         if(expositions.length == 2) {
-            exText1 = T.getMessage(agent, 'EXPOSITIONS_' + expositions[0]);
-            exText2 = T.getMessage(agent, 'EXPOSITIONS_' + expositions[1]);
-            return T.getMessage(agent, 'EXPOSITIONS_double', [exText1, exText2]);
+            exText1 = handlerInput.t('EXPOSITIONS_' + expositions[0]);
+            exText2 = handlerInput.t('EXPOSITIONS_' + expositions[1]);
+            return handlerInput.t('EXPOSITIONS_double', [exText1, exText2]);
         }
         
         do {
@@ -143,60 +147,60 @@ const handler = {
             distance = Math.abs(EXPOSITION_ORD.indexOf(expositions[0]) - EXPOSITION_ORD.indexOf(expositions[expositions.length -1]));
         } while(distance == 1 || distance == EXPOSITION_ORD.length -1);
 
-        exText1 = T.getMessage(agent, 'EXPOSITIONS_' + expositions[0]);
-        exText2 = T.getMessage(agent, 'EXPOSITIONS_' + expositions[parseInt((expositions.length -1) /2)]);
-        exText3 = T.getMessage(agent, 'EXPOSITIONS_' + expositions[expositions.length -1]);
+        exText1 = handlerInput.t('EXPOSITIONS_' + expositions[0]);
+        exText2 = handlerInput.t('EXPOSITIONS_' + expositions[parseInt((expositions.length -1) /2)]);
+        exText3 = handlerInput.t('EXPOSITIONS_' + expositions[expositions.length -1]);
 
-        return T.getMessage(agent, 'EXPOSITIONS_multi', [exText1, exText2, exText3]);
+        return handlerInput.t('EXPOSITIONS_multi', [exText1, exText2, exText3]);
     },
-    buildAgentResponseCard(agent, result, primaryData, time, dateValid, location) {
-        if(time === config.OBS_TIME.AM) {
-            result.intro += ' ' + T.getMessage(agent, 'FORECAST_PM_NOTICE');
-        }
+    // buildAgentResponseCard(agent, result, primaryData, time, dateValid, location) {
+    //     if(time === config.OBS_TIME.AM) {
+    //         result.intro += ' ' + handlerInput.t('FORECAST_PM_NOTICE');
+    //     }
         
-        agent.add(result.intro + ' ' + result.dangers);
-        agent.add(new Card({
-            title: result.highlight,
-            imageUrl: config.images['latest_forecast'].replace('{{0}}', primaryData['$']['gml:id']),
-            text: result.text,
-            subtitle: T.getMessage(agent, 'FORECAST_CARD_TITLE', [location, dateformat(dateValid, 'longDate')]),
-            buttonText: T.getMessage(agent, 'FULL_REPORT'),
-            buttonUrl: config.fullReport.replace('{{0}}', T.getLanguage(agent)).replace('{{1}}', primaryData['$']["gml:id"])
-        }));
-    },
-    getDangerRating: function(agent, data, time) {
+    //     agent.add(result.intro + ' ' + result.dangers);
+    //     agent.add(new Card({
+    //         title: result.highlight,
+    //         imageUrl: config.images['latest_forecast'].replace('{{0}}', primaryData['$']['gml:id']),
+    //         text: result.text,
+    //         subtitle: handlerInput.t('FORECAST_CARD_TITLE', [location, dateformat(dateValid, 'longDate')]),
+    //         buttonText: handlerInput.t('FULL_REPORT'),
+    //         buttonUrl: config.fullReport.replace('{{0}}', T.getLanguage(agent)).replace('{{1}}', primaryData['$']["gml:id"])
+    //     }));
+    // },
+    getDangerRating: function(handlerInput, data, time) {
         let dangerRating = data['bulletinResultsOf'][0]['BulletinMeasurements'][0]['dangerRatings'][0]['DangerRating'];
         if (dangerRating.length > 1) {
-            let elevationData = handler.getElevationData(agent, dangerRating);
+            let elevationData = handler.getElevationData(handlerInput, dangerRating);
             if(elevationData.dangerLw === elevationData.dangerHi) {
-                return T.getMessage(agent, 'FORECAST_LEVEL_SINGLE_' + time, [handler.getDangerLevelDescription(agent, elevationData.dangerLw)]);
+                return handlerInput.t('FORECAST_LEVEL_SINGLE_' + time, [handler.getDangerLevelDescription(handlerInput, elevationData.dangerLw)]);
             } else {
-                return T.getMessage(agent, 'FORECAST_LEVEL_DOUBLE_' + time, [elevationData.elevationLw, handler.getDangerLevelDescription(agent, elevationData.dangerLw), elevationData.elevationHi, handler.getDangerLevelDescription(agent, elevationData.dangerHi)]);
+                return handlerInput.t('FORECAST_LEVEL_DOUBLE_' + time, [elevationData.elevationLw, handler.getDangerLevelDescription(handlerInput, elevationData.dangerLw), elevationData.elevationHi, handler.getDangerLevelDescription(handlerInput, elevationData.dangerHi)]);
             }
         } else {
-            return T.getMessage(agent, 'FORECAST_LEVEL_SINGLE_' + time, [handler.getDangerLevelDescription(agent, dangerRating[0]['mainValue'])]);
+            return handlerInput.t('FORECAST_LEVEL_SINGLE_' + time, [handler.getDangerLevelDescription(handlerInput, dangerRating[0]['mainValue'])]);
         }
     },
-    getDangerLevelDescription: function(agent, level) {
-        return T.getMessage(agent, 'FORECAST_LEVEL_' + level);
+    getDangerLevelDescription: function(handlerInput, level) {
+        return handlerInput.t('FORECAST_LEVEL_' + level);
     },
-    getElevationData: function(agent, dangerRating) {
+    getElevationData: function(handlerInput, dangerRating) {
         let elevationData = {};
 
         dangerRating.forEach(function(element) {
             let range = element.validElevation[0]['elevationRange']
             if(range) {
                 elevationData.elevationRange = true;
-                elevationData.elevationRangeFrom = handler.getElevationText(agent, range[0].begionPosition[0]);
-                elevationData.elevationRangeTo = handler.getElevationText(agent, range[0].endPosition[0]);
+                elevationData.elevationRangeFrom = handler.getElevationText(handlerInput, range[0].begionPosition[0]);
+                elevationData.elevationRangeTo = handler.getElevationText(handlerInput, range[0].endPosition[0]);
             } else {
                 let elevation = element.validElevation[0]['$']['xlink:href'].replace('ElevationRange_', '');
                 if (elevation.endsWith('Hi')) {
-                    elevationData.elevationHi = handler.getElevationText(agent, elevation.replace('Hi', ''));
+                    elevationData.elevationHi = handler.getElevationText(handlerInput, elevation.replace('Hi', ''));
                     element.mainValue && (elevationData.dangerHi = element.mainValue[0]);
                 }
                 if (elevation.endsWith('Lw')) {
-                    elevationData.elevationLw = handler.getElevationText(agent, elevation.replace('Lw', ''));
+                    elevationData.elevationLw = handler.getElevationText(handlerInput, elevation.replace('Lw', ''));
                     element.mainValue && (elevationData.dangerLw = element.mainValue[0]);
                 }
             }
@@ -210,8 +214,8 @@ const handler = {
         result.highlight && (result.highlight = result.highlight.trim().replace(/<(?:.|\n)*?> /gm, ''));
         return result;
     },
-    getElevationText: function(agent, elevation) {
-        return elevation === 'Treeline' ? T.getMessage(agent, 'FORECAST_TREELINE') : elevation + 'm';
+    getElevationText: function(handlerInput, elevation) {
+        return elevation === 'Treeline' ? handlerInput.t('FORECAST_TREELINE') : elevation + 'm';
     }
 }
 

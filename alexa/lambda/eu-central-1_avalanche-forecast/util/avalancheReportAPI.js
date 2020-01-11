@@ -49,13 +49,13 @@ const avalancheReportAPI = {
             });
         });
     },
-    getAvalancheReportFromAPI: function(agent, regionId) {
+    getAvalancheReportFromAPI: function(locale, regionId) {
         config.debug && console.log('get avalanche report from api [' + regionId + ']');
 
         let regionIdPM = regionId + "_PM";
 
         return new Promise(function(resolve, reject) {
-            let apiConfig = config.getApiConfig(T.getLanguage(agent));
+            let apiConfig = config.getApiConfig(locale);
             avalancheReportAPI.executeServerRequest(apiConfig).then(function(returnData) {
                 xmlparser(returnData, function(err, result) {
                     let localeObservation = avalancheReportAPI.findObservation(result, regionId);
