@@ -11,6 +11,46 @@
           "samples": []
         },
         {
+          "name": "AMAZON.PreviousIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollDownIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollUpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollLeftIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollRightIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateSettingsIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NextIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.MoreIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PageDownIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PageUpIntent",
+          "samples": []
+        },
+        {
           "name": "AMAZON.YesIntent",
           "samples": [
             "Yeah",
@@ -66,6 +106,7 @@
             "Dangerscale",
             "What is the danger scale",
             "European danger scale",
+            "Explain the danger scale",
             "Explain me the danger scale",
             "Danger scale",
             "{number}",
@@ -102,6 +143,7 @@
             "Check the forecast for {period}",
             "I need the forecast for {location} {period}",
             "{location} {period}",
+            "{location} in the {period}",
             "Latest forecast for {location}",
             "Check the forecast",
             "What is the forecast for {location}",
