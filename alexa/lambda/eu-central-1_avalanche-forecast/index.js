@@ -1,6 +1,7 @@
 const Alexa = require('ask-sdk-core');
 const i18n = require('i18next');
 const languageStrings = require('./config/messages');
+const SessionUtil = require('./util/sessonUtil');
 
 const ForecastIntentHandler = require('./handler/forecastHandler')
 const DangerScaleIntentHandler = require('./handler/dangerScaleHandler')
@@ -88,17 +89,6 @@ const FallbackIntentHandler = {
             .reprompt(speakOutput)
             .getResponse();
     }
-};
-
-const SessionUtil = {
-	clear(handlerInput) {
-		const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
-		delete sessionAttributes.context;
-		delete sessionAttributes.dangerscaleLevel;
-
-        handlerInput.attributesManager.setSessionAttributes(sessionAttributes);
-        return handlerInput;
-	}
 };
 
 const SessionEndedRequestHandler = {

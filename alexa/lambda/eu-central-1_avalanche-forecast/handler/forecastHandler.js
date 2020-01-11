@@ -5,6 +5,7 @@ const config = require('../config/config');
 const T = require('../util/translationManager');
 const geocodingUtil = require('../util/geocodingUtil');
 const avalancheReportAPI = require('../util/avalancheReportAPI');
+const SessionUtil = require('./util/sessonUtil');
 require('../util/utility');
 
 
@@ -16,7 +17,7 @@ const handler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'GetAvalancheForecast';
     },
     handle: function(handlerInput) {
-        // handlerInput = SessionUtil.clear(handlerInput);
+        handlerInput = SessionUtil.clear(handlerInput);
         const slots = handlerInput.requestEnvelope.request.intent.slots;
 
         console.log(JSON.stringify(slots))
