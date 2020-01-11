@@ -82,7 +82,21 @@ const messages = {
 
             'SUGGESTION_NO_REGION_1': 'Innsbruck',
             'SUGGESTION_NO_REGION_2': 'Bolzano',
-            'SUGGESTION_NO_REGION_3': 'Trento'
+            'SUGGESTION_NO_REGION_3': 'Trento',
+
+            'DATES': {
+                  dayNames: [
+                      'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat',
+                      'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
+                  ],
+                  monthNames: [
+                      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
+                      'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+                  ],
+                  timeNames: [
+                      'a', 'p', 'am', 'pm', 'A', 'P', 'AM', 'PM'
+                  ]
+            }
         }
     },
     'de': {
@@ -168,7 +182,21 @@ const messages = {
 
             'SUGGESTION_NO_REGION_1': 'Innsbruck',
             'SUGGESTION_NO_REGION_2': 'Bozen',
-            'SUGGESTION_NO_REGION_3': 'Trient'
+            'SUGGESTION_NO_REGION_3': 'Trient',
+
+            'DATES': {
+                  dayNames: [
+                      'So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa',
+                      'Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'
+                  ],
+                  monthNames: [
+                      'Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez',
+                      'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
+                  ],
+                  timeNames: [
+                      'a', 'p', 'am', 'pm', 'A', 'P', 'AM', 'PM'
+                  ]
+            }
         }
     },
     'it': {
@@ -254,7 +282,21 @@ const messages = {
 
             'SUGGESTION_NO_REGION_1': 'Innsbruck',
             'SUGGESTION_NO_REGION_2': 'Bolzano',
-            'SUGGESTION_NO_REGION_3': 'Trento'
+            'SUGGESTION_NO_REGION_3': 'Trento',
+
+            'DATES': {
+                  dayNames: [
+                      'Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab',
+                      'Domenicale', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'
+                  ],
+                  monthNames: [
+                      'Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic',
+                      'Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'
+                  ],
+                  timeNames: [
+                      'a', 'p', 'am', 'pm', 'A', 'P', 'AM', 'PM'
+                  ]
+            }
         }
     }
 };

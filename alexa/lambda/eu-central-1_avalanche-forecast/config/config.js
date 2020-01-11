@@ -54,46 +54,5 @@ module.exports = Object.freeze({
         'FULL': 'FULL',
         'AM': 'AM',
         'PM': 'PM'
-    },
-    DATEFORMAT: {
-        'de': {
-                  dayNames: [
-                      'So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa',
-                      'Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'
-                  ],
-                  monthNames: [
-                      'Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez',
-                      'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
-                  ],
-                  timeNames: [
-                      'a', 'p', 'am', 'pm', 'A', 'P', 'AM', 'PM'
-                  ]
-              },
-        'it': {
-                  dayNames: [
-                      'Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab',
-                      'Domenicale', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'
-                  ],
-                  monthNames: [
-                      'Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic',
-                      'Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'
-                  ],
-                  timeNames: [
-                      'a', 'p', 'am', 'pm', 'A', 'P', 'AM', 'PM'
-                  ]
-              },
-        'en': {
-                  dayNames: [
-                      'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat',
-                      'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
-                  ],
-                  monthNames: [
-                      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
-                      'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
-                  ],
-                  timeNames: [
-                      'a', 'p', 'am', 'pm', 'A', 'P', 'AM', 'PM'
-                  ]
-              }
     }
 });

@@ -1,7 +1,7 @@
 const Alexa = require('ask-sdk-core');
 const i18n = require('i18next');
 const languageStrings = require('./config/messages');
-const SessionUtil = require('./util/sessonUtil');
+const SessionUtil = require('./util/sessionUtil');
 
 const ForecastIntentHandler = require('./handler/forecastHandler')
 const DangerScaleIntentHandler = require('./handler/dangerScaleHandler')
@@ -121,7 +121,8 @@ const LocalisationRequestInterceptor = {
     process(handlerInput) {
         i18n.init({
             lng: Alexa.getLocale(handlerInput.requestEnvelope),
-            resources: languageStrings
+            resources: languageStrings,
+            returnObjects: true
         }).then((t) => {
             handlerInput.t = (...args) => t(...args);
         });

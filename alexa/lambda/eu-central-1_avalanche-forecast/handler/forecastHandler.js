@@ -5,7 +5,7 @@ const config = require('../config/config');
 const T = require('../util/translationManager');
 const geocodingUtil = require('../util/geocodingUtil');
 const avalancheReportAPI = require('../util/avalancheReportAPI');
-const SessionUtil = require('./util/sessonUtil');
+const SessionUtil = require('../util/sessionUtil');
 require('../util/utility');
 
 
@@ -24,7 +24,7 @@ const handler = {
         let location;
         // TODO switch to resoluted value, not original value
         if (slots && slots.location && slots.location.value) {
-          location = slots.location.value;
+            location = slots.location.value;
         } else {
             return handler.buildAgentError(handlerInput, 'NO_REGION');
         }
@@ -64,7 +64,7 @@ const handler = {
             }
         }
 
-        dateformat.i18n = config.DATEFORMAT[T.getLanguage(handlerInput)];
+        dateformat.i18n = handlerInput.t('DATES');
         let dateValid = Date.parse(primaryData['validTime'][0]['TimePeriod'][0]['endPosition'][0]);
         let formatDateValid = dateformat(dateValid, 'dddd, ' + (T.getLanguage(handlerInput) === 'en' ? 'dS' : 'd.') + ' mmmm');
 
