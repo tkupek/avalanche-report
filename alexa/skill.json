@@ -68,7 +68,7 @@
           "summary": "Lawinenvorhersage zeigt den aktuellen Warnbericht von Tirol - Südtirol und Trentino.",
           "description": "Lawinenvorhersage greift auf die aktuellsten Daten des Warndienstes Tirol - Südtirol - Trentino zu und stellt diese über Alexa leicht zugänglich zur Verfügung.\nDie Action verwendet die Daten des bekannten Euregio Projekts lawine.report.\n\nDatenquelle: Land Tirol - data.tirol.gv.at",
           "examplePhrases": [
-            "Alexa, frage Lawinenvorhersage Tirol nach der Warnstufe für Innsbruck.",
+            "Alexa, frage Lawinenvorhersage Tirol nach der Vorhersage für Innsbruck.",
             "Alexa, frage Lawinenvorhersage Tirol nach Stubaier Gletscher am Nachmittag.",
             "Alexa, frage Lawinenvorhersage Tirol welche Gefahrenstufen gibt es."
           ],
@@ -90,9 +90,9 @@
           "summary": "Avalanche Forecast shows you an up to date report of Tyrol - South Tyrol - Trentino.",
           "description": "Avalance Forecast accesses the latest data from the Avalanche Warning Services Tyrol - South Tyrol - Trentino and let's you easily get the up to date information.\nThe action uses data from the well known joint project avalanche.report.\n\nData Source: Land Tirol - data.tirol.gv.at",
           "examplePhrases": [
-            "Alexa, ask Avalanche Forecast Tyrol for the warning in Innsbruck.",
+            "Alexa, ask Avalanche Forecast Tyrol to check the forecast for Innsbruck.",
             "Alexa, ask Avalanche Forecast Tyrol for Stubai Glacier in the afternoon.",
-            "Alexa, ask Avalanche Forecast Tyrol to explain the dangerscale."
+            "Alexa, ask Avalanche Forecast Tyrol to explain the danger scale."
           ],
           "keywords": [
             "Avalanche",
