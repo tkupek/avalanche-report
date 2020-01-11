@@ -13,45 +13,41 @@
         {
           "name": "AMAZON.YesIntent",
           "samples": [
-            "Weiter",
-            "Bitte",
-            "Ja bitte",
-            "Ja",
-            "Sicherlich",
-            "Auf jeden Fall",
-            "Tu es",
-            "Mach weiter",
-            "Genau",
-            "Sicher"
+            "Si",
+            "Certo",
+            "Fallo",
+            "Prossimo",
+            "Per favore",
+            "Continua",
+            "Dimmi",
+            "Sì per favore",
+            "Per",
+            "Si'"
           ]
         },
         {
           "name": "AMAZON.NoIntent",
           "samples": [
-            "Nope",
-            "Bitte nicht",
-            "Nö",
-            "Auf gar keinen Fall",
-            "Vielleicht später",
-            "Nein",
-            "Nicht",
-            "Auf keinen Fall",
-            "Überspringen"
+            "Ti prego non farlo",
+            "No",
+            "Saltalo",
+            "Forse più tardi",
+            "Più tardi",
+            "Non se ne parla",
+            "No ti prego"
           ]
         },
         {
           "name": "AMAZON.HelpIntent",
           "samples": [
-            "Was kann ich machen",
-            "Hilfe",
-            "Bitte hilf mir",
-            "Welche Regionen gibt es",
-            "Ich brauche Hilfe",
-            "Was soll ich machen",
-            "Was kann ich tun",
-            "Sag mir was ich machen muss",
-            "Was kann ich fragen",
-            "Nach was kann ich fragen"
+            "Cosa posso fare",
+            "Quali sono le tue capacità",
+            "Cosa posso chiedere",
+            "Vi prego aiutatemi",
+            "Quali sono le regioni sostenute",
+            "Dimmi cosa fare",
+            "Cosa puoi fare",
+            "assistenza"
           ]
         },
         {
@@ -65,22 +61,20 @@
         {
           "name": "ExplainDangerScale",
           "samples": [
-            "Erkläre die Lawinengefahrenstufen",
-            "Gefahrenstufe {number}",
-            "Was sind die Gefahrenstufen",
-            "Erkläre mir Stufe {number}",
-            "Erkläre mir die Skala",
-            "Warnstufe {number}",
-            "Gefahrenstufen",
-            "Wie ist die Lawinenskala",
-            "Gefahrenlevel {number}",
-            "Was bedeutet Warnstufe {number}",
-            "Lawinengefahrenstufen",
-            "Welche Gefahrenstufen gibt es",
+            "Cos'è {number} della scala dei pericoli",
+            "Cosa significa {number} sulla scala dei pericoli",
+            "Voglio conoscere la scala dei pericoli",
+            "Pericolo scala {number}",
+            "Spiega il secondo livello",
+            "Qual è la scala europea dei pericoli",
+            "livello di pericolo {number}",
             "{number}",
-            "Wie ist die Skala aufgebaut",
-            "Gefahrenskala",
-            "Warnstufen"
+            "Spiegami la scala dei pericoli",
+            "Scala europea dei pericoli",
+            "Qual è la gradi dei pericoli",
+            "Qual è la scala dei pericoli",
+            "Scala di pericolo",
+            "Gradi di pericolo"
           ],
           "slots": [
             {
@@ -92,27 +86,31 @@
         {
           "name": "GetAvalancheForecast",
           "samples": [
+            "Pronostico {location}",
+            "Pronostico",
             "{location}",
-            "Wie ist die Lawinenlage",
-            "Lawinenwarnstufe im {location}",
-            "Wie ist die Lawinenwarnstufe",
-            "Sag mir die aktuelle Vorhersage für {location}",
-            "Ich brauche den Lawinenreport",
-            "Wie ist die Vorhersage für {location}",
-            "Was ist die Vorhersage für {location}",
-            "Bitte gib mir den aktuellen Report",
-            "Bitte gib mir den aktuellen Report für {period}",
-            "Was die die Vorhersage {period} für {location}",
-            "Wie ist die Lawinenwarnstufe am {period}",
-            "Was ist der Warnbericht für {location}",
-            "Ich brauche die Vorhersage für {location}",
-            "Vorhersage",
-            "Lawinenreport",
-            "Warnbericht",
+            "Vi prego di darmi le previsioni per {location}",
+            "Ho bisogno di previsioni per il {location}",
+            "Dammi il rapporto attuale",
+            "Dimmi le ultime previsioni per favore",
+            "Quali sono le previsioni per il {location}",
+            "Controlla le previsioni",
+            "Ultime previsioni per il {location}",
             "{location} {period}",
-            "Warnbericht für {period}",
-            "Ich brauche die Vorhersage für {location} am {period}",
-            "Wie ist die Warnstufe {period} in {location}",
+            "Mi servono le previsioni per il {period} del {location}",
+            "Controlla le previsioni per le {period}",
+            "Previsioni per {location}",
+            "Quali sono le previsioni per {location}",
+            "Per favore mi dia le previsioni per {location}",
+            "Per favore mi dia le previsioni per {location}",
+            "Previsione di {location}",
+            "Previsione per il {period} di {location}",
+            "Per favore mi dia le previsioni {period}",
+            "Ultimo forcast per il {location} nel {period}",
+            "Controlla le previsioni per {period}",
+            "Era previsto {period} per {location}",
+            "{period} {location}",
+            "avvertimento in {location}",
             "{period} {location}"
           ],
           "slots": [
@@ -127,7 +125,7 @@
           ]
         }
       ],
-      "invocationName": "lawinenvorhersage tirol",
+      "invocationName": "previsione valanghe",
       "types": [
         {
           "name": "location",
@@ -159,15 +157,6 @@
             {
               "name": {
                 "synonyms": [
-                  "Ahrntal",
-                  "Valle Aurina"
-                ],
-                "value": "Ahrntal"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
                   "Ala"
                 ],
                 "value": "Ala, Trentino"
@@ -179,15 +168,6 @@
                   "Aldeno"
                 ],
                 "value": "Aldeno"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Algund",
-                  "Lagundo"
-                ],
-                "value": "Algund"
               }
             },
             {
@@ -249,8 +229,8 @@
             {
               "name": {
                 "synonyms": [
-                  "Bolzano",
-                  "Bozen"
+                  "Bozen",
+                  "Bolzano"
                 ],
                 "value": "Bozen"
               }
@@ -282,7 +262,8 @@
             {
               "name": {
                 "synonyms": [
-                  "Brenner"
+                  "Brenner",
+                  "Brennero"
                 ],
                 "value": "Brenner"
               }
@@ -290,17 +271,16 @@
             {
               "name": {
                 "synonyms": [
-                  "Brenner",
-                  "Brennero"
+                  "Brentonico"
                 ],
-                "value": "Brenner, Südtirol"
+                "value": "Brentonico"
               }
             },
             {
               "name": {
                 "synonyms": [
-                  "Bressanone",
-                  "Brixen"
+                  "Brixen",
+                  "Bressanone"
                 ],
                 "value": "Brixen"
               }
@@ -312,6 +292,46 @@
                   "Brunico"
                 ],
                 "value": "Bruneck"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Caldonazzo"
+                ],
+                "value": "Caldonazzo"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Campo Tures"
+                ],
+                "value": "Campo Tures"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Castelrotto"
+                ],
+                "value": "Castelrotto"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Cavalese"
+                ],
+                "value": "Cavalese"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Chiusa"
+                ],
+                "value": "Chiusa"
               }
             },
             {
@@ -333,10 +353,9 @@
             {
               "name": {
                 "synonyms": [
-                  "Drau",
                   "Dro"
                 ],
-                "value": "Drau, Trentino"
+                "value": "Dro, Trentino"
               }
             },
             {
@@ -346,6 +365,14 @@
                   "Eben am Achensee"
                 ],
                 "value": "Eben"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Egna"
+                ],
+                "value": "Egna"
               }
             },
             {
@@ -367,8 +394,7 @@
             {
               "name": {
                 "synonyms": [
-                  "Eppan",
-                  "Eppan an der Weinstraße"
+                  "Eppan"
                 ],
                 "value": "Eppan"
               }
@@ -376,7 +402,8 @@
             {
               "name": {
                 "synonyms": [
-                  "Fernpass"
+                  "Fernpass",
+                  "Segnale di Fernpass"
                 ],
                 "value": "Fernpass"
               }
@@ -387,6 +414,15 @@
                   "Fieberbrunn"
                 ],
                 "value": "Fieberbrunn"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Fiera di Primiero",
+                  "Primiero"
+                ],
+                "value": "Fiera di Primiero"
               }
             },
             {
@@ -408,27 +444,9 @@
             {
               "name": {
                 "synonyms": [
-                  "Brentonico",
-                  "Frenten"
-                ],
-                "value": "Frenten"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
                   "Fügen"
                 ],
                 "value": "Fügen"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Cavalese",
-                  "Gablöss"
-                ],
-                "value": "Gablöss"
               }
             },
             {
@@ -459,7 +477,7 @@
               "name": {
                 "synonyms": [
                   "Hintertux",
-                  "Hintertuxer Gletscher"
+                  "Hintertux ghiacciaio"
                 ],
                 "value": "Hintertux"
               }
@@ -483,8 +501,8 @@
             {
               "name": {
                 "synonyms": [
-                  "Hopfgarten",
-                  "Hopfgarten im Brixental"
+                  "Hopfgarten im Brixental",
+                  "Hopfgarten"
                 ],
                 "value": "Hopfgarten im Brixental"
               }
@@ -544,24 +562,7 @@
                   "Kaltern",
                   "Kaltern an der Weinstraße"
                 ],
-                "value": "Kaltern an der Weinstraße"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Castelrotto",
-                  "Kastelruth"
-                ],
-                "value": "Kastelruth"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Kaunertal"
-                ],
-                "value": "Kaunertal"
+                "value": "Kaltern"
               }
             },
             {
@@ -578,32 +579,6 @@
                   "Kitzbühel"
                 ],
                 "value": "Kitzbühel"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Kitzbühel"
-                ],
-                "value": "Kitzbühel"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Chiusa",
-                  "Klausen"
-                ],
-                "value": "Klausen"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Kronplatz",
-                  "Plan de Corones"
-                ],
-                "value": "Kronplatz"
               }
             },
             {
@@ -617,19 +592,27 @@
             {
               "name": {
                 "synonyms": [
-                  "Laas",
-                  "Lasa"
+                  "Laces, South Tyrol",
+                  "Laces"
                 ],
-                "value": "Laas, Südtirol"
+                "value": "Laces, South Tyrol"
               }
             },
             {
               "name": {
                 "synonyms": [
-                  "Caldonazzo",
-                  "Lago di Caldonazzo"
+                  "Lagundo",
+                  "Algund"
                 ],
-                "value": "Lago di Caldonazzo"
+                "value": "Lagundo"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Laives"
+                ],
+                "value": "Laives"
               }
             },
             {
@@ -637,7 +620,7 @@
                 "synonyms": [
                   "Lana"
                 ],
-                "value": "Lana, Südtirol"
+                "value": "Lana, South Tyrol"
               }
             },
             {
@@ -651,18 +634,9 @@
             {
               "name": {
                 "synonyms": [
-                  "Landeck"
+                  "Lasa"
                 ],
-                "value": "Landeck"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Laces",
-                  "Latsch"
-                ],
-                "value": "Latsch"
+                "value": "Lasa, South Tyrol"
               }
             },
             {
@@ -692,15 +666,6 @@
             {
               "name": {
                 "synonyms": [
-                  "Laives",
-                  "Leifers"
-                ],
-                "value": "Leifers"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
                   "Levico Terme"
                 ],
                 "value": "Levico Terme"
@@ -725,20 +690,9 @@
             {
               "name": {
                 "synonyms": [
-                  "Malles Venosta",
-                  "Mals"
+                  "Malles Venosta"
                 ],
-                "value": "Mals, Südtirol"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Fiera di Primiero",
-                  "Primiero",
-                  "Primör"
-                ],
-                "value": "Markt Primör"
+                "value": "Malles Venosta"
               }
             },
             {
@@ -752,9 +706,8 @@
             {
               "name": {
                 "synonyms": [
-                  "Matrei Osttirol",
                   "Matrei in Osttirol",
-                  "Matrei"
+                  "Matrei Osttirol"
                 ],
                 "value": "Matrei in Osttirol"
               }
@@ -765,14 +718,6 @@
                   "Mattrei am Brenner"
                 ],
                 "value": "Mattrei am Brenner"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Mayrhofen"
-                ],
-                "value": "Mayrhofen"
               }
             },
             {
@@ -829,10 +774,9 @@
             {
               "name": {
                 "synonyms": [
-                  "Naturno",
-                  "Naturns"
+                  "Naturno"
                 ],
-                "value": "Naturns"
+                "value": "Naturno"
               }
             },
             {
@@ -846,15 +790,7 @@
             {
               "name": {
                 "synonyms": [
-                  "Egna",
-                  "Neumarkt"
-                ],
-                "value": "Neumarkt"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
+                  "Neustift im Stubaital",
                   "Neustift"
                 ],
                 "value": "Neustift im Stubaital"
@@ -882,18 +818,18 @@
             {
               "name": {
                 "synonyms": [
-                  "Osttirol"
+                  "Ortisei"
                 ],
-                "value": "Osttirol"
+                "value": "Ortisei"
               }
             },
             {
               "name": {
                 "synonyms": [
-                  "Pardatsch",
-                  "Predazzo"
+                  "Osttirol",
+                  "Tirolo Orientale"
                 ],
-                "value": "Pardatsch"
+                "value": "Osttirol"
               }
             },
             {
@@ -939,6 +875,15 @@
             {
               "name": {
                 "synonyms": [
+                  "Plan de Corones",
+                  "Kronplatz"
+                ],
+                "value": "Plan de Corones"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
                   "Predaia"
                 ],
                 "value": "Predaia"
@@ -947,9 +892,17 @@
             {
               "name": {
                 "synonyms": [
+                  "Predazzo"
+                ],
+                "value": "Predazzo"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Prägraten am Großvenediger",
                   "Großvenediger",
-                  "Prägraten",
-                  "Prägraten am Großvenediger"
+                  "Prägraten"
                 ],
                 "value": "Prägraten am Großvenediger"
               }
@@ -957,7 +910,16 @@
             {
               "name": {
                 "synonyms": [
-                  "Reschenpass"
+                  "Renon"
+                ],
+                "value": "Renon"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Reschenpass",
+                  "Passo Resia"
                 ],
                 "value": "Reschenpass"
               }
@@ -965,27 +927,9 @@
             {
               "name": {
                 "synonyms": [
-                  "Hahnenkamm Reutte",
                   "Reutte"
                 ],
                 "value": "Reutte"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Reutte"
-                ],
-                "value": "Reutte"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Renon",
-                  "Ritten"
-                ],
-                "value": "Ritten"
               }
             },
             {
@@ -1007,19 +951,19 @@
             {
               "name": {
                 "synonyms": [
-                  "Campo Tures",
-                  "Sand in Taufers"
+                  "San Martino di Castrozza",
+                  "Passo Rolle",
+                  "San Martino"
                 ],
-                "value": "Sand in Taufers"
+                "value": "San Martino di Castrozza"
               }
             },
             {
               "name": {
                 "synonyms": [
-                  "Sarentino",
-                  "Sarntal"
+                  "Sarentino"
                 ],
-                "value": "Sarntal"
+                "value": "Sarentino"
               }
             },
             {
@@ -1028,15 +972,6 @@
                   "Scharnitz"
                 ],
                 "value": "Scharnitz"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Schlanders",
-                  "Silandro"
-                ],
-                "value": "Schlanders"
               }
             },
             {
@@ -1058,10 +993,10 @@
             {
               "name": {
                 "synonyms": [
-                  "Fiss",
-                  "Ladis",
+                  "Serfaus Fiss Ladis",
                   "Serfaus",
-                  "Serfaus Fiss Ladis"
+                  "Fiss",
+                  "Ladis"
                 ],
                 "value": "Serfaus Fiss Ladis"
               }
@@ -1069,18 +1004,34 @@
             {
               "name": {
                 "synonyms": [
-                  "Sesto",
-                  "Sexten"
+                  "Sesto"
                 ],
-                "value": "Sexten"
+                "value": "Sesto"
               }
             },
             {
               "name": {
                 "synonyms": [
+                  "Silandro"
+                ],
+                "value": "Silandro"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "South Tyrol",
+                  "Alto Adige"
+                ],
+                "value": "South Tyrol"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "St. Anton am Arlberg",
                   "Sankt Anton",
-                  "Sankt Anton am Arlberg",
-                  "St. Anton am Arlberg"
+                  "Sankt Anton am Arlberg"
                 ],
                 "value": "St. Anton am Arlberg"
               }
@@ -1088,10 +1039,9 @@
             {
               "name": {
                 "synonyms": [
+                  "St. Jakob in Defereggen",
                   "Sankt Jakob",
-                  "Sankt Jakob in Defereggen",
-                  "St. Jakob",
-                  "St. Jakob in Defereggen"
+                  "Sankt Jakob in Defreggen"
                 ],
                 "value": "St. Jakob in Defereggen"
               }
@@ -1099,9 +1049,9 @@
             {
               "name": {
                 "synonyms": [
+                  "St. Johann in Tirol",
                   "Sankt Johann",
-                  "St. Johann",
-                  "St. Johann in Tirol"
+                  "Sankt Johann in Tirol"
                 ],
                 "value": "St. Johann in Tirol"
               }
@@ -1109,9 +1059,9 @@
             {
               "name": {
                 "synonyms": [
+                  "St. Leonhard im Pitztal",
                   "Sankt Leonhard",
-                  "Sankt Leonhard im Pitztal",
-                  "St. Leonhard im Pitztal"
+                  "Sankt Leonhard im Pitztal"
                 ],
                 "value": "St. Leonhard im Pitztal"
               }
@@ -1119,48 +1069,37 @@
             {
               "name": {
                 "synonyms": [
-                  "Passo Rolle",
-                  "San Martino",
-                  "San Martino di Castrozza",
-                  "St Martino",
-                  "St. Martin am Sismunthbach"
-                ],
-                "value": "St. Martin am Sismunthbach"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Ortisei",
-                  "Sankt Ulrich",
-                  "St. Ulrich in Gröden"
-                ],
-                "value": "St. Ulrich in Gröden"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
                   "Stans"
                 ],
-                "value": "Stans"
+                "value": "Stans, Tirol"
               }
             },
             {
               "name": {
                 "synonyms": [
-                  "Sterzing",
-                  "Vipiteno"
+                  "Steinach am Brenner"
                 ],
-                "value": "Sterzing"
+                "value": "Steinach am Brenner"
               }
             },
             {
               "name": {
                 "synonyms": [
+                  "Stubai Glacier",
                   "Stubaier Gletscher"
                 ],
-                "value": "Stubaier Gletscher"
+                "value": "Stubai Glacier"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Stubai Valley",
+                  "Stubai",
+                  "Stubaital",
+                  "Stubaier Alpen"
+                ],
+                "value": "Stubai Valley"
               }
             },
             {
@@ -1174,37 +1113,10 @@
             {
               "name": {
                 "synonyms": [
-                  "Stubai",
-                  "Stubaier Alpen",
-                  "Stubaital"
-                ],
-                "value": "Stubaital"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Sölden"
-                ],
-                "value": "Sölden"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
                   "Sölden",
                   "Zwieselstein"
                 ],
                 "value": "Sölden"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Süd Tirol",
-                  "Südtirol"
-                ],
-                "value": "Südtirol"
               }
             },
             {
@@ -1226,10 +1138,9 @@
             {
               "name": {
                 "synonyms": [
-                  "Terlan",
                   "Terlano"
                 ],
-                "value": "Terlan"
+                "value": "Terlano"
               }
             },
             {
@@ -1243,34 +1154,9 @@
             {
               "name": {
                 "synonyms": [
-                  "Tione di Trento"
+                  "Trento"
                 ],
-                "value": "Tione di Trento"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Tirol"
-                ],
-                "value": "Tirol"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Trentino"
-                ],
-                "value": "Trentino"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Trento",
-                  "Trient"
-                ],
-                "value": "Trient, Trentino"
+                "value": "Trento"
               }
             },
             {
@@ -1278,7 +1164,16 @@
                 "synonyms": [
                   "Tux"
                 ],
-                "value": "Tux, Österreich"
+                "value": "Tux, Austria"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Tyrol",
+                  "Tirolo"
+                ],
+                "value": "Tyrol"
               }
             },
             {
@@ -1288,6 +1183,15 @@
                   "Varna"
                 ],
                 "value": "Vahrn"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Valle Aurina",
+                  "Ahrntal"
+                ],
+                "value": "Valle Aurina"
               }
             },
             {
@@ -1303,7 +1207,7 @@
                 "synonyms": [
                   "Vent"
                 ],
-                "value": "Vent"
+                "value": "Vent, Tirol"
               }
             },
             {
@@ -1312,6 +1216,14 @@
                   "Villa Lagarina"
                 ],
                 "value": "Villa Lagarina"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Vipiteno"
+                ],
+                "value": "Vipiteno"
               }
             },
             {
@@ -1365,6 +1277,14 @@
             {
               "name": {
                 "synonyms": [
+                  "Wipptal"
+                ],
+                "value": "Wipptal"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
                   "Wörgl"
                 ],
                 "value": "Wörgl"
@@ -1390,19 +1310,9 @@
               "name": {
                 "synonyms": [
                   "Matrei am Brenner",
-                  "Matrei Brenner"
+                  "Matrei Brenero"
                 ],
                 "value": "Matrei am Brenner"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Gries am Brenner",
-                  "Gries",
-                  "Gries Brenner"
-                ],
-                "value": "Gries am Brenner"
               }
             },
             {
@@ -1417,10 +1327,11 @@
             {
               "name": {
                 "synonyms": [
-                  "Steinach am Brenner",
-                  "Wipptal"
+                  "Gries am Brenner",
+                  "Gries Brenero",
+                  "Gries"
                 ],
-                "value": "Steinach am Brenner"
+                "value": "Gries am Brenner"
               }
             }
           ]
@@ -1432,10 +1343,10 @@
               "id": "AM",
               "name": {
                 "synonyms": [
-                  "vormittags",
-                  "morgens",
-                  "am morgen",
-                  "Vormittag"
+                  "prima di mezzogiorno",
+                  "mattinata",
+                  "inizio della giornata",
+                  "mattina"
                 ],
                 "value": "AM"
               }
@@ -1444,11 +1355,9 @@
               "id": "PM",
               "name": {
                 "synonyms": [
-                  "nachmittags",
-                  "am Nachmittag",
-                  "am Abend",
-                  "Nachmittag",
-                  "Mittags"
+                  "pomeriggio",
+                  "fine della giornata",
+                  "serata"
                 ],
                 "value": "PM"
               }
