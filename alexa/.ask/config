@@ -2,15 +2,21 @@
   "deploy_settings": {
     "default": {
       "skill_id": "amzn1.ask.skill.26bb3ccc-5c06-4ec9-955e-dd78705b09db",
-      "was_cloned": true,
+      "was_cloned": false,
       "merge": {},
       "resources": {
         "manifest": {
-          "eTag": "ddd80da15da587e87e65eb8a95e7aeda"
+          "eTag": "d4658119517d716fdb1d778d0b536b42"
         },
         "interactionModel": {
           "de-DE": {
-            "eTag": "fe6cc656e403a41de44bd12f59d000a9"
+            "eTag": "b4d918aa3149a49a0ca00f152d316a50"
+          },
+          "en-US": {
+            "eTag": "e86418e92f6e9076fcd4befadf9f5ae9"
+          },
+          "it-IT": {
+            "eTag": "98b9e6825a243cce6b12c414cff0462f"
           }
         },
         "lambda": [
@@ -23,7 +29,7 @@
             "codeUri": "lambda/eu-central-1_avalanche-forecast",
             "functionName": "avalanche-forecast",
             "handler": "index.handler",
-            "revisionId": "158c3326-7d39-4b05-88c3-e930b4a19a35",
+            "revisionId": "ff9783ab-c244-470e-be7a-90b21c30c6a8",
             "runtime": "nodejs12.x"
           }
         ]

@@ -6,22 +6,115 @@
           "uri": "avalanche-forecast",
           "sourceDir": "lambda\\eu-central-1_avalanche-forecast"
         },
-        "interfaces": []
+        "interfaces": [
+          {
+            "type": "RENDER_TEMPLATE",
+            "minimumTemplateVersion": "1.0"
+          }
+        ]
       }
     },
     "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "locales": {
+        "de-DE": {
+          "privacyPolicyUrl": "https://tkupek.eu/avalanche-forecast/"
+        },
+        "en-US": {
+          "privacyPolicyUrl": "https://tkupek.eu/avalanche-forecast/"
+        },
+        "it-IT": {
+          "privacyPolicyUrl": "https://tkupek.eu/avalanche-forecast/"
+        }
+      },
+      "allowsPurchases": false,
+      "usesPersonalInfo": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
+      "containsAds": false
+    },
     "publishingInformation": {
       "locales": {
         "it-IT": {
-          "name": "Previsione Valanghe"
+          "name": "Previsione Valanghe",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/d811/b770a52633ea4b0790d3a6034eb1fd39/APP_ICON?versionId=XX1TpX4gQ0LeVTM7m7_hST5VnoglAMiP&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200111T112531Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20200111%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=1b1fa630d715f892a371153ae65d27613c33f8e93a207a270315dc1dfd03876a",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/987b/7c692d423a864afca00b6e39d209c4d7/APP_ICON_LARGE?versionId=WIrSeKsYwSeaE2ZhjpSjNmjCDsGi.oOp&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200111T112531Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20200111%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=4e6b21f50fb88fabb54243db4c4e6d607f31136ebd4c25572da2272e5d6e4333",
+          "summary": "La Previsione valanghe vi mostra un rapporto aggiornato di Tirolo - Alto Adige, Trentino - Trentino.",
+          "description": "Avalance Forecast accede ai dati più recenti del servizio di avviso valanghe Tirolo - Alto Adige - Trentino e vi permette di ottenere facilmente informazioni aggiornate.\nL'azione utilizza i dati del noto progetto comune valanghe.report.\n\nFonte dei dati: Terreno Tirolo - data.tirol.gv.at",
+          "examplePhrases": [
+            "Alexa, apri Previsione Valanghe."
+          ],
+          "keywords": [
+            "Valanghe",
+            "rapporto",
+            "valanghe",
+            "previsione",
+            "valanghe",
+            "Tirolo",
+            "Trentino",
+            "Alto",
+            "Adige",
+            "rapporto",
+            "valanghe",
+            "rapporto",
+            "situazione",
+            "valanghe"
+          ]
         },
         "de-DE": {
-          "name": "Avalanche Forecast"
+          "name": "Lawinenvorhersage Tirol",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/14d3/3dc39d680909415ca90bffcd6f5e0ab2/APP_ICON?versionId=4f9OyUpTvvj4vdwO40Nbk520aWYTUgF3&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200111T112531Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20200111%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=c9b39861a118ee52297d93a43e5fc3558dd39f5dc3ddfdf233515376176e21a8",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/b93b/15c113c464a5430092c385bccf86246a/APP_ICON_LARGE?versionId=_HoJ1Sj3Zp4z6DgGaRW0Sasnv5ENeMwo&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200111T112531Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20200111%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=b16168f366c2947c96b77535681be5925d420898a273aeaf056c9fc1c06a6fc0",
+          "summary": "Lawinenvorhersage zeigt den aktuellen Warnbericht von Tirol - Südtirol und Trentino.",
+          "description": "Lawinenvorhersage greift auf die aktuellsten Daten des Warndienstes Tirol - Südtirol - Trentino zu und stellt diese über Alexa leicht zugänglich zur Verfügung.\nDie Action verwendet die Daten des bekannten Euregio Projekts lawine.report.\n\nDatenquelle: Land Tirol - data.tirol.gv.at",
+          "examplePhrases": [
+            "Alexa, frage Lawinenvorhersage Tirol nach der Warnstufe für Innsbruck.",
+            "Alexa, frage Lawinenvorhersage Tirol nach Stubaier Gletscher am Nachmittag.",
+            "Alexa, frage Lawinenvorhersage Tirol welche Gefahrenstufen gibt es."
+          ],
+          "keywords": [
+            "Lawine",
+            "Lawinenreport",
+            "Lawinenvorhersage",
+            "Tirol",
+            "Trentino",
+            "Südtirol",
+            "Lawinenbericht",
+            "Lawinenlagebericht"
+          ]
         },
         "en-US": {
-          "name": "Avalanche Forecast Tyrol"
+          "name": "Avalanche Forecast Tyrol",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cca2/855a6eb3f84b4367991e5abfd9c692fe/APP_ICON?versionId=Cod6l28u9spVJKMKDKUkGrMN5wt3O.gx&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200111T112531Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20200111%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=fff297cc6882406a9dd843a56c84b9e829a0da26ed7de045cb3835fca9774cf6",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/6b3b/b6fede6441274ceabed27baf711fb0dd/APP_ICON_LARGE?versionId=1NMHkJF_H0NgGvMsbZFGfwZxhQyA8z7a&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200111T112531Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20200111%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=30ef63c94024d8e0456d15e941ff2d628ac78ada4cd59569cc21fd014d6138b0",
+          "summary": "Avalanche Forecast shows you an up to date report of Tyrol - South Tyrol - Trentino.",
+          "description": "Avalance Forecast accesses the latest data from the Avalanche Warning Services Tyrol - South Tyrol - Trentino and let's you easily get the up to date information.\nThe action uses data from the well known joint project avalanche.report.\n\nData Source: Land Tirol - data.tirol.gv.at",
+          "examplePhrases": [
+            "Alexa, ask Avalanche Forecast Tyrol for the warning in Innsbruck.",
+            "Alexa, ask Avalanche Forecast Tyrol for Stubai Glacier in the afternoon.",
+            "Alexa, ask Avalanche Forecast Tyrol to explain the dangerscale."
+          ],
+          "keywords": [
+            "Avalanche",
+            "Avalanchereport",
+            "Avalancheforecast",
+            "Tyrol",
+            "Trient",
+            "South",
+            "Tyrol",
+            "Avalanchereport"
+          ]
         }
-      }
+      },
+      "isAvailableWorldwide": false,
+      "testingInstructions": "two main intents to test, explain danger scale + avalanche forecast\nforecast takes two parameters, location (mandatory) and period (AM or PM, optional)",
+      "category": "WEATHER",
+      "distributionCountries": [
+        "AT",
+        "DE",
+        "IT",
+        "CH"
+      ]
     }
   }
 }
