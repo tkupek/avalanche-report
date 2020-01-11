@@ -18,13 +18,11 @@ const handler = {
     },
     handle: function(handlerInput) {
         handlerInput = SessionUtil.clear(handlerInput);
-        const slots = handlerInput.requestEnvelope.request.intent.slots;
+        const slots = SessionUtil.getResolutedSlotValues(handlerInput);
 
-        console.log(JSON.stringify(slots))
         let location;
-        // TODO switch to resoluted value, not original value
-        if (slots && slots.location && slots.location.value) {
-            location = slots.location.value;
+        if (slots['location'] && slots['location'].id) {
+            location = slots['location'].name;
         } else {
             return handler.buildAgentError(handlerInput, 'NO_REGION');
         }
@@ -44,7 +42,7 @@ const handler = {
         return handlerInput.responseBuilder.speak(speakOutput).reprompt(speakOutput).getResponse();
     },
     buildAgentResponse: function(handlerInput, data, location) {
-        const slots = handlerInput.requestEnvelope.request.intent.slots;
+        const slots = SessionUtil.getResolutedSlotValues(handlerInput);
         // config.debug && console.log('build agent response [' + JSON.stringify(data) + ']');
 
         let primaryData = data[config.OBS_TIME.AM];
@@ -52,8 +50,8 @@ const handler = {
 
         if(data[config.OBS_TIME.PM]) {
             let period;
-            if (slots && slots.period && slots.period.value) {
-                period = slots.period.value;
+            if (slots['period'] && slots['period'].id) {
+                period = slots['period'].id;
             }
 
             if (period && period === config.OBS_TIME.PM) {

@@ -15,7 +15,7 @@ const translationManager = {
         return res;
     },
     random(input) {
-        // return Array.isArray(input) ? input[Math.floor(Math.random() * input.length)] : input;
+        return Array.isArray(input) ? input[Math.floor(Math.random() * input.length)] : input;
     }
 };
 

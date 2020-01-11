@@ -2,6 +2,7 @@ const Alexa = require('ask-sdk-core');
 const i18n = require('i18next');
 const languageStrings = require('./config/messages');
 const SessionUtil = require('./util/sessionUtil');
+const T = require('./util/translationManager');
 
 const ForecastIntentHandler = require('./handler/forecastHandler')
 const DangerScaleIntentHandler = require('./handler/dangerScaleHandler')
@@ -124,7 +125,7 @@ const LocalisationRequestInterceptor = {
             resources: languageStrings,
             returnObjects: true
         }).then((t) => {
-            handlerInput.t = (...args) => t(...args);
+            handlerInput.t = (...args) => T.random(t(...args));
         });
     }
 };
