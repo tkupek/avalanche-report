@@ -56,7 +56,6 @@
             "Si",
             "Certo",
             "Fallo",
-            "Prossimo",
             "Per favore",
             "Continua",
             "Dimmi",
@@ -401,10 +400,9 @@
             {
               "name": {
                 "synonyms": [
-                  "Eben",
-                  "Eben am Achensee"
+                  "Eben"
                 ],
-                "value": "Eben"
+                "value": "Eben am Achensee"
               }
             },
             {
