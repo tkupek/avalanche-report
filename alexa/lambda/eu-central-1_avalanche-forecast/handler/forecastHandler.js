@@ -109,7 +109,7 @@ const handler = {
     getDangerText(handlerInput, danger, message) {
         if(danger.type[0] === 'favourable situation') {
             elevationText = handler.getExpositionElevationText(agent, danger);
-            return T.getMessage(agent, 'FORECAST_DANGER_FAV', [elevationText])
+            return handlerInput.t('FORECAST_DANGER_FAV', [elevationText])
         }
 
         dangerText = handlerInput.t('DANGERS_' + danger.type)
