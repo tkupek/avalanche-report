@@ -6,17 +6,17 @@
       "merge": {},
       "resources": {
         "manifest": {
-          "eTag": "739481149bc42dc4f212fda68b777c25"
+          "eTag": "d4b2b8e589f982e21fd3b654daa657df"
         },
         "interactionModel": {
           "de-DE": {
-            "eTag": "c6a73562db6030fe0ac681327ee1ed19"
+            "eTag": "0cc43f516138d84211ff2ceef72cfed8"
           },
           "en-US": {
-            "eTag": "36c3f3630ac5d0a592f6238c687e9026"
+            "eTag": "2e80e7d25d625b91854e8270e78d65e9"
           },
           "it-IT": {
-            "eTag": "aa208e74dc5b6400ba4251c4688fdb5a"
+            "eTag": "acb23ff1c9ae5070871d2931e8615fec"
           }
         },
         "lambda": [
@@ -29,7 +29,7 @@
             "codeUri": "lambda/eu-central-1_avalanche-forecast",
             "functionName": "avalanche-forecast",
             "handler": "index.handler",
-            "revisionId": "6e366fdb-87b9-442a-8228-8b01139d6ff7",
+            "revisionId": "154e600f-8fe2-4bd9-9154-71444f2182e0",
             "runtime": "nodejs12.x"
           }
         ]

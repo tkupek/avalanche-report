@@ -43,6 +43,7 @@ const messages = {
             'FORECAST_TREELINE': 'the treeline',
             'FULL_REPORT': 'Show full report',
             'FORECAST_PM_NOTICE': 'There is a separate report for the afternoon.',
+            'FORECAST_DANGER_FAV': 'In general, the avalanche situation is favourable {{0}}.',
             'FORECAST_DANGER_SINGLE': 'There are problems by {{0}} on {{1}} {{2}}.',
             'FORECAST_DANGER_SECOND': 'There are further problems through {{0}} on {{1}} {{2}}.',
 
@@ -143,6 +144,7 @@ const messages = {
             'FORECAST_TREELINE': 'der Waldgrenze',
             'FULL_REPORT': 'Ganzen Bericht lesen',
             'FORECAST_PM_NOTICE': 'Für den Nachmittag gibt es einen separaten Report.',
+            'FORECAST_DANGER_FAV': 'Allgemeinen herrscht eine günstige Lawinensituation {{0}}.',
             'FORECAST_DANGER_SINGLE': 'Probleme gibt es vor allem durch {{0}} in {{1}} {{2}}.',
             'FORECAST_DANGER_SECOND': 'Weitere Probleme gibt es durch {{0}} in {{1}} {{2}}.',
 
@@ -244,6 +246,7 @@ const messages = {
             'FULL_REPORT': 'Mostra rapporto completo',
             'FORECAST_PM_NOTICE': 'Esiste un bollettino diverso per il pomeriggio.',
             'FORECAST_DANGER_SINGLE': 'Ci sono problemi soprattutto a causa di {{0}}} in {{1}} {{2}}.',
+            'FORECAST_DANGER_FAV': 'In generale, la situazione valanghiva è favorevole {{0}}.',
             'FORECAST_DANGER_SECOND': 'Ci sono altri problemi attraverso {{0}} in {{1}} {{2}}.',
 
             'DANGERS_drifting snow': 'neve ventata',

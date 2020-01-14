@@ -24,7 +24,7 @@ module.exports = Object.freeze({
 
     images: {
     	'latest_forecast': 'https://avalanche.report/albina_files/latest/{{0}}.jpg',
-    	'danger_scale': 'https://avalanche.report/content_files/ava_danger_en.png',
+    	'danger_scale': 'https://tkupek.eu/avalanche-forecast/content_files/ava_danger_en.png',
     	'danger_scale_5': 'https://avalanche.report/content_files/level_5.png',
     	'danger_scale_4': 'https://avalanche.report/content_files/level_4.png',
     	'danger_scale_3': 'https://avalanche.report/content_files/level_3.png',

@@ -46,7 +46,7 @@ const HelpIntentHandler = {
 const YesIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.YesIntent';
+            && (Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.YesIntent' || Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.NextIntent');
     },
     handle(handlerInput) {
     	const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
