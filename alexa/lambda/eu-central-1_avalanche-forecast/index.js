@@ -16,7 +16,6 @@ const LaunchRequestHandler = {
         const speakOutput = handlerInput.t('WELCOME');
 
         let response = handlerInput.responseBuilder;
-        console.log(config.hasScreenSupport(handlerInput))
         if(config.hasScreenSupport(handlerInput)) {
         	const template = "BodyTemplate6";
             const text = speakOutput;
