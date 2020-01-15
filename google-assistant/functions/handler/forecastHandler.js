@@ -69,10 +69,9 @@ const handler = {
         result = handler.clearHTML(result);
 
         dangers = primaryData['bulletinResultsOf'][0]['BulletinMeasurements'][0]['avProblems'][0]['AvProblem'];
+        dangers.remove(""); //necessary to fix XML bug
 
         if(dangers.length > 0) {
-            dangers.remove(""); //necessary to fix XML bug
-
             if(dangers.length == 1) {
                 result.dangers = handler.getDangerText(agent, dangers[0], 'FORECAST_DANGER_SINGLE');
             } else {
@@ -84,7 +83,7 @@ const handler = {
         if(config.hasScreenSupport(agent)) {
             handler.buildAgentResponseCard(agent, result, primaryData, time, dateValid, location);
         } else {
-            agent.add(result.intro + ' ' + result.dangers);
+            agent.add(result.dangers ? (result.intro + ' ' + result.dangers) : result.intro);
             // TODO implement this via additional "full report" intent
             // agent.add(result.text);
         }      
@@ -152,7 +151,7 @@ const handler = {
             result.intro += ' ' + T.getMessage(agent, 'FORECAST_PM_NOTICE');
         }
         
-        agent.add(result.intro + ' ' + result.dangers);
+        agent.add(result.dangers ? (result.intro + ' ' + result.dangers) : result.intro);
         agent.add(new Card({
             title: result.highlight,
             imageUrl: config.images['latest_forecast'].replace('{{0}}', primaryData['$']['gml:id']),
