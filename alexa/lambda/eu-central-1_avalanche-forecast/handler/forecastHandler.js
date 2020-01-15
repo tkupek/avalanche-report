@@ -39,7 +39,7 @@ const handler = {
             console.error(err);
         }
         speakOutput = handlerInput.t(message);
-        return handlerInput.responseBuilder.speak(speakOutput).reprompt(speakOutput).getResponse();
+        return handlerInput.responseBuilder.speak(speakOutput).getResponse();
     },
     buildAgentResponse: function(handlerInput, data, location) {
         const slots = AlexaUtil.getResolutedSlotValues(handlerInput);
