@@ -1,8 +1,8 @@
-# Avalanche Forecast
-Avalance Forecast is an Action / Skill for the Google Assistant and Amazon Alexa that gets the latest data from the Avalanche Warning Services Tyrol - South Tyrol - Trentino.
+# Avalanche Report
+Avalanche Report is an Action / Skill for the Google Assistant and Amazon Alexa that gets the latest data from the Avalanche Warning Services Tyrol - South Tyrol - Trentino.
 
 ## Description
-[https://tkupek.eu/avalanche-forecast/](https://tkupek.eu/avalanche-forecast/)
+[https://tkupek.eu/avalanche-report/](https://tkupek.eu/avalanche-report/)
 
 ## Possible improvements
 - implement dynamodb geocoding cache in alexa app
