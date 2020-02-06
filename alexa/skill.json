@@ -62,7 +62,7 @@
           ]
         },
         "de-DE": {
-          "name": "Lawinenvorhersage Tirol",
+          "name": "Lawinen Report",
           "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/14d3/3dc39d680909415ca90bffcd6f5e0ab2/APP_ICON?versionId=4f9OyUpTvvj4vdwO40Nbk520aWYTUgF3&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200111T112531Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20200111%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=c9b39861a118ee52297d93a43e5fc3558dd39f5dc3ddfdf233515376176e21a8",
           "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/b93b/15c113c464a5430092c385bccf86246a/APP_ICON_LARGE?versionId=_HoJ1Sj3Zp4z6DgGaRW0Sasnv5ENeMwo&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200111T112531Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20200111%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=b16168f366c2947c96b77535681be5925d420898a273aeaf056c9fc1c06a6fc0",
           "summary": "Lawinen Report zeigt den aktuellen Warnbericht von Tirol - Südtirol und Trentino.",

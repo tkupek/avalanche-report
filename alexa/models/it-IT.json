@@ -164,7 +164,7 @@
           ]
         }
       ],
-      "invocationName": "previsione valanghe",
+      "invocationName": "valanghe report",
       "types": [
         {
           "name": "location",

@@ -165,7 +165,7 @@
           ]
         }
       ],
-      "invocationName": "lawinenvorhersage tirol",
+      "invocationName": "avalanche report",
       "types": [
         {
           "name": "location",

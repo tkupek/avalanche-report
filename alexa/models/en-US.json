@@ -165,7 +165,7 @@
           ]
         }
       ],
-      "invocationName": "avalanche forecast tyrol",
+      "invocationName": "avalanche report",
       "types": [
         {
           "name": "location",
