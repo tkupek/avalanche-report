@@ -69,6 +69,7 @@ const messages = {
             'EXPOSITION_ELEVATIONHI': 'above {{0}}',
             'EXPOSITION_ELEVATIONLW': 'below {{0}}',
             'EXPOSITION_ELEVATION_RANGE': 'between {{0}} and {{1}}',
+            'EXPOSITION_ELEVATION_ALL': 'in all elevations',
 
             'SUGGESTION_WELCOME_1': 'forecast',
             'SUGGESTION_WELCOME_2': 'danger scale',
@@ -170,6 +171,7 @@ const messages = {
             'EXPOSITION_ELEVATIONHI': 'oberhalb {{0}}',
             'EXPOSITION_ELEVATIONLW': 'unterhalb {{0}}',
             'EXPOSITION_ELEVATION_RANGE': 'zwischen {{0}} und {{1}}',
+            'EXPOSITION_ELEVATION_ALL': 'in allen Höhenlagen',
 
             'SUGGESTION_WELCOME_1': 'Vorhersage',
             'SUGGESTION_WELCOME_2': 'Gefahrenstufen',
@@ -271,6 +273,7 @@ const messages = {
             'EXPOSITION_ELEVATIONHI': 'al di sopra {{0}}',
             'EXPOSITION_ELEVATIONLW': 'al di sotto {{0}}',
             'EXPOSITION_ELEVATION_RANGE': 'tra {{0}} e {{1}}',
+            'EXPOSITION_ELEVATION_ALL': 'in tute le quote',
 
             'SUGGESTION_WELCOME_1': 'Previsione',
             'SUGGESTION_WELCOME_2': 'Scala del pericolo',

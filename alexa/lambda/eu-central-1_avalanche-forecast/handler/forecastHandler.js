@@ -38,7 +38,7 @@ const handler = {
         if(err && !config.ERRORS[err]) {
             console.error(err);
         }
-        speakOutput = handlerInput.t(message);
+        let speakOutput = handlerInput.t(message);
         return handlerInput.responseBuilder.speak(speakOutput).getResponse();
     },
     buildAgentResponse: function(handlerInput, data, location) {
@@ -76,7 +76,7 @@ const handler = {
         result.highlight = primaryData['bulletinResultsOf'][0]['BulletinMeasurements'][0]['avActivityHighlights'][0];
         result = handler.clearHTML(result);
 
-        dangers = primaryData['bulletinResultsOf'][0]['BulletinMeasurements'][0]['avProblems'][0]['AvProblem'];
+        let dangers = primaryData['bulletinResultsOf'][0]['BulletinMeasurements'][0]['avProblems'][0]['AvProblem'];
         dangers.remove(""); //necessary to fix XML bug
 
         if(dangers.length > 0) {
@@ -90,10 +90,6 @@ const handler = {
 
         let response = handlerInput.responseBuilder
         if(config.hasScreenSupport(handlerInput)) {
-            if(time === config.OBS_TIME.AM) {
-                result.intro += ' ' + handlerInput.t('FORECAST_PM_NOTICE');
-            }
-
             const template = "BodyTemplate3";
             const imageUrl = config.images['latest_forecast'].replace('{{0}}', primaryData['$']['gml:id']);
             const title = handlerInput.t('FORECAST_CARD_TITLE', [location, formatDateValid]);
@@ -102,24 +98,29 @@ const handler = {
             response = AlexaUtil.getDisplay(response, template, imageUrl, title, text, subtitle)
         }
 
-        speakOutput = result.intro;
+        let speakOutput = result.intro;
         result.dangers && (speakOutput += ' ' + result.dangers);
+        time === config.OBS_TIME.AM && (speakOutput += ' ' + handlerInput.t('FORECAST_PM_NOTICE'))
+
         return response.speak(speakOutput).getResponse();
     },
     getDangerText(handlerInput, danger, message) {
+        let elevationText;
         if(danger.type[0] === 'favourable situation') {
             elevationText = handler.getExpositionElevationText(handlerInput, danger);
             return handlerInput.t('FORECAST_DANGER_FAV', [elevationText])
         }
 
-        dangerText = handlerInput.t('DANGERS_' + danger.type)
-        expositionText = handler.getExpositionText(handlerInput, danger.validAspect);
+        let dangerText = handlerInput.t('DANGERS_' + danger.type)
+        let expositionText = handler.getExpositionText(handlerInput, danger.validAspect);
         elevationText = handler.getExpositionElevationText(handlerInput, danger);
         return handlerInput.t(message, [dangerText, expositionText, elevationText])
     },
     getExpositionElevationText(handlerInput, danger) {
-        elevation = handler.getElevationData(handlerInput, [danger]);
-        var key;
+        let elevation = handler.getElevationData(handlerInput, [danger]);
+        if(!elevation) {
+            return handlerInput.t('EXPOSITION_ELEVATION_ALL');
+        }
         if(elevation.elevationHi) {
             return handlerInput.t('EXPOSITION_ELEVATIONHI', [elevation.elevationHi]);
         }
@@ -133,7 +134,7 @@ const handler = {
         return '';
     },
     getExpositionText(handlerInput, expositionData) {
-        expositions = []
+        let expositions = []
         expositionData.forEach(element => {
             expositions.push(element['$']['xlink:href'].replace('AspectRange_', ''))
         });
@@ -153,14 +154,15 @@ const handler = {
             return handlerInput.t('EXPOSITIONS_double', [exText1, exText2]);
         }
         
+        let distance;
         do {
             expositions.rotate(1)
             distance = Math.abs(EXPOSITION_ORD.indexOf(expositions[0]) - EXPOSITION_ORD.indexOf(expositions[expositions.length -1]));
         } while(distance == 1 || distance == EXPOSITION_ORD.length -1);
 
-        exText1 = handlerInput.t('EXPOSITIONS_' + expositions[0]);
-        exText2 = handlerInput.t('EXPOSITIONS_' + expositions[parseInt((expositions.length -1) /2)]);
-        exText3 = handlerInput.t('EXPOSITIONS_' + expositions[expositions.length -1]);
+        let exText1 = handlerInput.t('EXPOSITIONS_' + expositions[0]);
+        let exText2 = handlerInput.t('EXPOSITIONS_' + expositions[parseInt((expositions.length -1) /2)]);
+        let exText3 = handlerInput.t('EXPOSITIONS_' + expositions[expositions.length -1]);
 
         return handlerInput.t('EXPOSITIONS_multi', [exText1, exText2, exText3]);
     },
@@ -184,22 +186,26 @@ const handler = {
         let elevationData = {};
 
         dangerRating.forEach(function(element) {
+            if(!element.validElevation) {
+                return;
+            }
             let range = element.validElevation[0]['elevationRange']
             if(range) {
                 elevationData.elevationRange = true;
                 elevationData.elevationRangeFrom = handler.getElevationText(handlerInput, range[0].begionPosition[0]);
                 elevationData.elevationRangeTo = handler.getElevationText(handlerInput, range[0].endPosition[0]);
-            } else {
-                let elevation = element.validElevation[0]['$']['xlink:href'].replace('ElevationRange_', '');
-                if (elevation.endsWith('Hi')) {
-                    elevationData.elevationHi = handler.getElevationText(handlerInput, elevation.replace('Hi', ''));
-                    element.mainValue && (elevationData.dangerHi = element.mainValue[0]);
-                }
-                if (elevation.endsWith('Lw')) {
-                    elevationData.elevationLw = handler.getElevationText(handlerInput, elevation.replace('Lw', ''));
-                    element.mainValue && (elevationData.dangerLw = element.mainValue[0]);
-                }
+                return
             }
+            let elevation = element.validElevation[0]['$']['xlink:href'].replace('ElevationRange_', '');
+            if (elevation.endsWith('Hi')) {
+                elevationData.elevationHi = handler.getElevationText(handlerInput, elevation.replace('Hi', ''));
+                element.mainValue && (elevationData.dangerHi = element.mainValue[0]);
+            }
+            if (elevation.endsWith('Lw')) {
+                elevationData.elevationLw = handler.getElevationText(handlerInput, elevation.replace('Lw', ''));
+                element.mainValue && (elevationData.dangerLw = element.mainValue[0]);
+            }
+            
         });
 
         return elevationData;

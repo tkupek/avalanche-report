@@ -68,7 +68,7 @@ const handler = {
         result.highlight = primaryData['bulletinResultsOf'][0]['BulletinMeasurements'][0]['avActivityHighlights'][0];
         result = handler.clearHTML(result);
 
-        dangers = primaryData['bulletinResultsOf'][0]['BulletinMeasurements'][0]['avProblems'][0]['AvProblem'];
+        let dangers = primaryData['bulletinResultsOf'][0]['BulletinMeasurements'][0]['avProblems'][0]['AvProblem'];
         dangers.remove(""); //necessary to fix XML bug
 
         if(dangers.length > 0) {
@@ -84,24 +84,25 @@ const handler = {
             handler.buildAgentResponseCard(agent, result, primaryData, time, dateValid, location);
         } else {
             agent.add(result.dangers ? (result.intro + ' ' + result.dangers) : result.intro);
-            // TODO implement this via additional "full report" intent
-            // agent.add(result.text);
         }      
     },
     getDangerText(agent, danger, message) {
+        let elevationText;
         if(danger.type[0] === 'favourable situation') {
             elevationText = handler.getExpositionElevationText(agent, danger);
             return T.getMessage(agent, 'FORECAST_DANGER_FAV', [elevationText])
         }
 
-        dangerText = T.getMessage(agent, 'DANGERS_' + danger.type)
-        expositionText = handler.getExpositionText(agent, danger.validAspect);
+        let dangerText = T.getMessage(agent, 'DANGERS_' + danger.type)
+        let expositionText = handler.getExpositionText(agent, danger.validAspect);
         elevationText = handler.getExpositionElevationText(agent, danger);
         return T.getMessage(agent, message, [dangerText, expositionText, elevationText])
     },
     getExpositionElevationText(agent, danger) {
-        elevation = handler.getElevationData(agent, [danger]);
-        var key;
+        let elevation = handler.getElevationData(agent, [danger]);
+        if(!elevation) {
+            return handlerInput.t('EXPOSITION_ELEVATION_ALL');
+        }
         if(elevation.elevationHi) {
             return T.getMessage(agent, 'EXPOSITION_ELEVATIONHI', [elevation.elevationHi]);
         }
@@ -115,7 +116,7 @@ const handler = {
         return '';
     },
     getExpositionText(agent, expositionData) {
-        expositions = []
+        let expositions = []
         expositionData.forEach(element => {
             expositions.push(element['$']['xlink:href'].replace('AspectRange_', ''))
         });
@@ -135,23 +136,23 @@ const handler = {
             return T.getMessage(agent, 'EXPOSITIONS_double', [exText1, exText2]);
         }
         
+        let distance;
         do {
             expositions.rotate(1)
             distance = Math.abs(EXPOSITION_ORD.indexOf(expositions[0]) - EXPOSITION_ORD.indexOf(expositions[expositions.length -1]));
         } while(distance == 1 || distance == EXPOSITION_ORD.length -1);
 
-        exText1 = T.getMessage(agent, 'EXPOSITIONS_' + expositions[0]);
-        exText2 = T.getMessage(agent, 'EXPOSITIONS_' + expositions[parseInt((expositions.length -1) /2)]);
-        exText3 = T.getMessage(agent, 'EXPOSITIONS_' + expositions[expositions.length -1]);
+        let exText1 = T.getMessage(agent, 'EXPOSITIONS_' + expositions[0]);
+        let exText2 = T.getMessage(agent, 'EXPOSITIONS_' + expositions[parseInt((expositions.length -1) /2)]);
+        let exText3 = T.getMessage(agent, 'EXPOSITIONS_' + expositions[expositions.length -1]);
 
         return T.getMessage(agent, 'EXPOSITIONS_multi', [exText1, exText2, exText3]);
     },
     buildAgentResponseCard(agent, result, primaryData, time, dateValid, location) {
-        if(time === config.OBS_TIME.AM) {
-            result.intro += ' ' + T.getMessage(agent, 'FORECAST_PM_NOTICE');
-        }
+        result.dangers && (result.intro += ' ' + result.dangers);
+        time === config.OBS_TIME.AM && (result.intro += ' ' + T.getMessage(agent, 'FORECAST_PM_NOTICE'));
         
-        agent.add(result.dangers ? (result.intro + ' ' + result.dangers) : result.intro);
+        agent.add(result.intro);
         agent.add(new Card({
             title: result.highlight,
             imageUrl: config.images['latest_forecast'].replace('{{0}}', primaryData['$']['gml:id']),
@@ -181,21 +182,24 @@ const handler = {
         let elevationData = {};
 
         dangerRating.forEach(function(element) {
+            if(!element.validElevation) {
+                return;
+            }
             let range = element.validElevation[0]['elevationRange']
             if(range) {
                 elevationData.elevationRange = true;
                 elevationData.elevationRangeFrom = handler.getElevationText(agent, range[0].begionPosition[0]);
                 elevationData.elevationRangeTo = handler.getElevationText(agent, range[0].endPosition[0]);
-            } else {
-                let elevation = element.validElevation[0]['$']['xlink:href'].replace('ElevationRange_', '');
-                if (elevation.endsWith('Hi')) {
-                    elevationData.elevationHi = handler.getElevationText(agent, elevation.replace('Hi', ''));
-                    element.mainValue && (elevationData.dangerHi = element.mainValue[0]);
-                }
-                if (elevation.endsWith('Lw')) {
-                    elevationData.elevationLw = handler.getElevationText(agent, elevation.replace('Lw', ''));
-                    element.mainValue && (elevationData.dangerLw = element.mainValue[0]);
-                }
+                return;
+            }
+            let elevation = element.validElevation[0]['$']['xlink:href'].replace('ElevationRange_', '');
+            if (elevation.endsWith('Hi')) {
+                elevationData.elevationHi = handler.getElevationText(agent, elevation.replace('Hi', ''));
+                element.mainValue && (elevationData.dangerHi = element.mainValue[0]);
+            }
+            if (elevation.endsWith('Lw')) {
+                elevationData.elevationLw = handler.getElevationText(agent, elevation.replace('Lw', ''));
+                element.mainValue && (elevationData.dangerLw = element.mainValue[0]);
             }
         });
 

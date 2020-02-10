@@ -107,7 +107,7 @@
         }
       },
       "isAvailableWorldwide": false,
-      "testingInstructions": "two main intents to test, explain danger scale + avalanche forecast\nforecast takes two parameters, location (mandatory) and period (AM or PM, optional)",
+      "testingInstructions": "same skill as previously existing 'avalanche-forecast', changed invocation",
       "category": "WEATHER",
       "distributionCountries": [
         "AT",

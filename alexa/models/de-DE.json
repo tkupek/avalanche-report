@@ -165,7 +165,7 @@
           ]
         }
       ],
-      "invocationName": "avalanche report",
+      "invocationName": "lawinen report",
       "types": [
         {
           "name": "location",
