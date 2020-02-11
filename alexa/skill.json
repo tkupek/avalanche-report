@@ -36,13 +36,13 @@
     "publishingInformation": {
       "locales": {
         "it-IT": {
-          "name": "Previsione Valanghe",
+          "name": "Valanghe Report",
           "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/d811/b770a52633ea4b0790d3a6034eb1fd39/APP_ICON?versionId=XX1TpX4gQ0LeVTM7m7_hST5VnoglAMiP&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200111T112531Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20200111%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=1b1fa630d715f892a371153ae65d27613c33f8e93a207a270315dc1dfd03876a",
           "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/987b/7c692d423a864afca00b6e39d209c4d7/APP_ICON_LARGE?versionId=WIrSeKsYwSeaE2ZhjpSjNmjCDsGi.oOp&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200111T112531Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20200111%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=4e6b21f50fb88fabb54243db4c4e6d607f31136ebd4c25572da2272e5d6e4333",
           "summary": "Valanghe Report vi mostra un rapporto aggiornato di Tirolo - Alto Adige, Trentino - Trentino.",
           "description": "Valanghe Report accede ai dati più recenti del servizio di avviso valanghe Tirolo - Alto Adige - Trentino e vi permette di ottenere facilmente informazioni aggiornate.\nL'azione utilizza i dati del noto progetto comune valanghe.report.\n\nFonte dei dati: Terreno Tirolo - data.tirol.gv.at",
           "examplePhrases": [
-            "Alexa, apri Previsione Valanghe."
+            "Alexa, apri Valanghe Report."
           ],
           "keywords": [
             "Valanghe",
@@ -62,15 +62,15 @@
           ]
         },
         "de-DE": {
-          "name": "Lawinen Report",
+          "name": "Lawinenreport",
           "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/14d3/3dc39d680909415ca90bffcd6f5e0ab2/APP_ICON?versionId=4f9OyUpTvvj4vdwO40Nbk520aWYTUgF3&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200111T112531Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20200111%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=c9b39861a118ee52297d93a43e5fc3558dd39f5dc3ddfdf233515376176e21a8",
           "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/b93b/15c113c464a5430092c385bccf86246a/APP_ICON_LARGE?versionId=_HoJ1Sj3Zp4z6DgGaRW0Sasnv5ENeMwo&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200111T112531Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20200111%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=b16168f366c2947c96b77535681be5925d420898a273aeaf056c9fc1c06a6fc0",
-          "summary": "Lawinen Report zeigt den aktuellen Warnbericht von Tirol - Südtirol und Trentino.",
-          "description": "Lawinen Report greift auf die aktuellsten Daten des Warndienstes Tirol - Südtirol - Trentino zu und stellt diese über Alexa leicht zugänglich zur Verfügung.\nDie Action verwendet die Daten des bekannten Euregio Projekts lawine.report.\n\nDatenquelle: Land Tirol - data.tirol.gv.at",
+          "summary": "Lawinenreport zeigt den aktuellen Warnbericht von Tirol - Südtirol und Trentino.",
+          "description": "Lawinenreport greift auf die aktuellsten Daten des Warndienstes Tirol - Südtirol - Trentino zu und stellt diese über Alexa leicht zugänglich zur Verfügung.\nDie Action verwendet die Daten des bekannten Euregio Projekts lawine.report.\n\nDatenquelle: Land Tirol - data.tirol.gv.at",
           "examplePhrases": [
-            "Alexa, öffne Lawinen Report.",
-            "Alexa, frage Lawinen Report nach Stubaier Gletscher.",
-            "Alexa, frage Lawinen Report welche Gefahrenstufen gibt es."
+            "Alexa, öffne Lawinenreport.",
+            "Alexa, frage Lawinenreport nach Stubaier Gletscher.",
+            "Alexa, frage Lawinenreport welche Gefahrenstufen gibt es."
           ],
           "keywords": [
             "Lawine",

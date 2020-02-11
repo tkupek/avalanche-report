@@ -165,7 +165,7 @@
           ]
         }
       ],
-      "invocationName": "lawinen report",
+      "invocationName": "lawinenreport",
       "types": [
         {
           "name": "location",
