@@ -4,7 +4,7 @@ const messages = {
             'WELCOME': 'Welcome to the avalanche forecast. What location are you interested in?',
             'FALLBACK': 'Sorry, I did not get that. Can you try again?',
             'HELP': 'You can ask me for the latest avalanche forecast for a region in Tyrol, South Tyrol or Trentino. I can also explain you the european avalanche danger scale. What would you like to hear?',
-            'NO_REGION': ['What location are you interested in? Examples are Innsbruck, Bolzano or Trento.', 'For which location do you need the forecast? Examples are Innsbruck, Bolzano or Trento.'],
+            'NO_REGION': ['What location are you interested in? Supported regions are Tyrol, South Tyrol and Trentino.', 'For which location do you need the forecast? Supported regions are Tyrol, South Tyrol and Trentino.'],
             'LOCATION_UNSUPPORTED': 'The region you are asking for is not supported. Only data for Tyrol, South Tyrol and Trentino is available.',
 
             'DANGER_LEVEL_INTRO': 'The avalanche danger is evaluated with the five-levelled European avalanche danger scale. The levels are described by three different parameters: Probability of avalanche release, distribution of hazardous sites as well as size and frequency of expected avalanches. Ask me for a specific level.',
@@ -106,7 +106,7 @@ const messages = {
             'WELCOME': 'Willkommen zur Lawinenvorhersage. Welche Region interessiert dich?',
             'FALLBACK': 'Entschuldige, das habe ich nicht verstanden. Kannst du es wiederholen?',
             'HELP': 'Du kannst mich nach dem neusten Lawinenreport für eine Region in Tirol, Südtirol oder Trentino fragen. Ich kann dir außerdem etwas über die europäische Lawinengefahrenstufen erzählen. Was würdest du gerne hören?',
-            'NO_REGION': ['Welche Region interessiert dich? Beispiele sind Innsbruck, Bozen oder Trient.', 'Für welche Region möchtest du die Vorhersage? Beispiele sind Innsbruck, Bozen oder Trient.'],
+            'NO_REGION': ['Welche Region interessiert dich? Vorhersagen für die Regionen Tirol, Südtirol und Trentino sind verfügbar.', 'Für welche Region möchtest du die Vorhersage? Vorhersagen für die Regionen Tirol, Südtirol und Trentino sind verfügbar.'],
             'LOCATION_UNSUPPORTED': 'Die gesuchte Region wird aktuell nicht unterstützt. Es sind nur Daten für Tirol, Südtirol und Trentino verfügbar.',
 
             'DANGER_LEVEL_INTRO': 'Die Lawinenvorhersage beschreibt die Lawinengefahr mit der fünfteiligen europäischen Lawinengefahrenstufenskala. Dabei werden die fünf Gefahrenstufen durch drei verschiedene Parameter beschrieben: Die Auslösewahrscheinlichkeit von Lawinen, der Umfang der Gefahrenstellen bzw. die Größe und Häufigkeit der zu erwartenden Lawinen. Frag mich nach einer Stufe.',
@@ -208,7 +208,7 @@ const messages = {
             'WELCOME': 'Benvenuti al bollettino valanghe. A quale zona siete interessati?',
             'FALLBACK': 'Scusa, non l\'ho capito. Puoi riprovare?',
             'HELP': 'Potete chiedermi la previsione valanghe attuale per una zona del Tirolo, dell\'Alto Adige o del Trentino. Posso anche spiegarvi la scala europea del pericolo valanghe. Cosa vorresti sentire?',
-            'NO_REGION': ['Quale zona ti interessa? Esempi sono Innsbruck, Bolzano o Trento.', 'In quale zona avete bisogno della previsione? Esempi sono Innsbruck, Bolzano o Trento.'],
+            'NO_REGION': ['Quale zona ti interessa? Le regioni supportate sono il Tirolo, l\'Alto Adige e il Trentino.', 'In quale zona avete bisogno della previsione? Le regioni supportate sono il Tirolo, l\'Alto Adige e il Trentino..'],
             'LOCATION_UNSUPPORTED': 'La zona cercata non è supportata. Sono disponibili solo i dati per il Tirolo, l\'Alto Adige e il Trentino.',
 
             'DANGER_LEVEL_INTRO': 'Per descrivere il pericolo valanghe, valanghe.report usa la scala europea del pericolo valanghe divisa in cinque gradi. Il grado di pericolo dipende dai seguenti fattori: Probabilità di distacco valanghe, distribuzione dei luoghi pericolosi, dimensioni e frequenza delle valanghe previste. Chiedimi un livello specifico.',
