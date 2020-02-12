@@ -39,7 +39,11 @@ const handler = {
             console.error(err);
         }
         let speakOutput = handlerInput.t(message);
-        return handlerInput.responseBuilder.speak(speakOutput).reprompt(speakOutput).getResponse();
+        response = handlerInput.responseBuilder.speak(speakOutput);
+        if(message === 'NO_REGION') {
+            response.reprompt(speakOutput).getResponse();
+        }
+        return response;
     },
     buildAgentResponse: function(handlerInput, data, location) {
         const slots = AlexaUtil.getResolutedSlotValues(handlerInput);
