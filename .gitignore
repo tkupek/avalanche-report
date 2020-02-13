@@ -62,3 +62,4 @@ typings/
 
 # api keys
 apiKeys.js
+/.idea/

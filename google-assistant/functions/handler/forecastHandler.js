@@ -185,10 +185,10 @@ const handler = {
             if(!element.validElevation) {
                 return;
             }
-            let range = element.validElevation[0]['elevationRange']
+            let range = element.validElevation[0]['elevationRange'];
             if(range) {
                 elevationData.elevationRange = true;
-                elevationData.elevationRangeFrom = handler.getElevationText(agent, range[0].begionPosition[0]);
+                elevationData.elevationRangeFrom = handler.getElevationText(agent, range[0].beginPosition[0]);
                 elevationData.elevationRangeTo = handler.getElevationText(agent, range[0].endPosition[0]);
                 return;
             }
