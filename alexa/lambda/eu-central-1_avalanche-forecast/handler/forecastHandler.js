@@ -27,7 +27,7 @@ const handler = {
             return handler.buildAgentError(handlerInput, 'NO_REGION');
         }
 
-        let locale = T.getLanguage(handlerInput)
+        let locale = T.getLanguage(handlerInput);
         return geocodingUtil.geocodeLocation(location, locale)
             .then(resolvedLoc => avalancheReportAPI.mapCoordinatesToRegion(resolvedLoc.coordinates, location))
             .then(regionId => avalancheReportAPI.getAvalancheReportFromAPI(locale, regionId))
@@ -39,11 +39,11 @@ const handler = {
             console.error(err);
         }
         let speakOutput = handlerInput.t(message);
-        response = handlerInput.responseBuilder.speak(speakOutput);
+        let response = handlerInput.responseBuilder.speak(speakOutput);
         if(message === 'NO_REGION') {
-            response.reprompt(speakOutput).getResponse();
+            response.reprompt(speakOutput);
         }
-        return response;
+        return response.getResponse();
     },
     buildAgentResponse: function(handlerInput, data, location) {
         const slots = AlexaUtil.getResolutedSlotValues(handlerInput);
@@ -92,7 +92,7 @@ const handler = {
             }
         }
 
-        let response = handlerInput.responseBuilder
+        let response = handlerInput.responseBuilder;
         if(config.hasScreenSupport(handlerInput)) {
             const template = "BodyTemplate3";
             const imageUrl = config.images['latest_forecast'].replace('{{0}}', primaryData['$']['gml:id']);
