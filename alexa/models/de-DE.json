@@ -320,14 +320,6 @@
             {
               "name": {
                 "synonyms": [
-                  "Brenner"
-                ],
-                "value": "Brenner"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
                   "Brenner",
                   "Brennero"
                 ],
@@ -380,7 +372,8 @@
             {
               "name": {
                 "synonyms": [
-                  "Eben"
+                  "Eben",
+                  "Eben am Achensee"
                 ],
                 "value": "Eben am Achensee"
               }
@@ -604,22 +597,6 @@
             {
               "name": {
                 "synonyms": [
-                  "Kaunertal"
-                ],
-                "value": "Kaunertal"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Kitzbühel"
-                ],
-                "value": "Kitzbühel"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
                   "Kitzbühel"
                 ],
                 "value": "Kitzbühel"
@@ -675,14 +652,6 @@
                   "Lana"
                 ],
                 "value": "Lana, Südtirol"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Landeck"
-                ],
-                "value": "Landeck"
               }
             },
             {
@@ -802,14 +771,6 @@
                   "Mattrei am Brenner"
                 ],
                 "value": "Mattrei am Brenner"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Mayrhofen"
-                ],
-                "value": "Mayrhofen"
               }
             },
             {
@@ -1003,14 +964,6 @@
               "name": {
                 "synonyms": [
                   "Hahnenkamm Reutte",
-                  "Reutte"
-                ],
-                "value": "Reutte"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
                   "Reutte"
                 ],
                 "value": "Reutte"
@@ -1221,14 +1174,6 @@
             {
               "name": {
                 "synonyms": [
-                  "Sölden"
-                ],
-                "value": "Sölden"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
                   "Sölden",
                   "Zwieselstein"
                 ],
@@ -1267,14 +1212,6 @@
                   "Terlano"
                 ],
                 "value": "Terlan"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Tione di Trento"
-                ],
-                "value": "Tione di Trento"
               }
             },
             {

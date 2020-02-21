@@ -10,13 +10,13 @@
         },
         "interactionModel": {
           "en-US": {
-            "eTag": "18b7bf7efbb3dbe0ec08f4c43a32c19f"
+            "eTag": "f8f9ddbfdc3b3f859830d2bb092d79af"
           },
           "de-DE": {
-            "eTag": "44947897f97650239a0dea2d89348176"
+            "eTag": "d728a54f8aa8f92c55806c0577a2618c"
           },
           "it-IT": {
-            "eTag": "75d7da49a403d51ecb5dda8a42bb0210"
+            "eTag": "dd778cad3901e0ac8607833299f2043e"
           }
         },
         "lambda": [

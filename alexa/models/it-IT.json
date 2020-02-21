@@ -172,14 +172,6 @@
             {
               "name": {
                 "synonyms": [
-                  "Achenkirch"
-                ],
-                "value": "Achenkirch"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
                   "Achensee"
                 ],
                 "value": "Achensee"
@@ -268,18 +260,9 @@
             {
               "name": {
                 "synonyms": [
-                  "Bozen",
-                  "Bolzano"
-                ],
-                "value": "Bozen"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
                   "Brandberg"
                 ],
-                "value": "Brandberg, Tirol"
+                "value": "Brandberg"
               }
             },
             {
@@ -344,14 +327,6 @@
             {
               "name": {
                 "synonyms": [
-                  "Campo Tures"
-                ],
-                "value": "Campo Tures"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
                   "Castelrotto"
                 ],
                 "value": "Castelrotto"
@@ -400,7 +375,8 @@
             {
               "name": {
                 "synonyms": [
-                  "Eben"
+                  "Eben",
+                  "Eben am Achensee"
                 ],
                 "value": "Eben am Achensee"
               }
@@ -474,25 +450,9 @@
             {
               "name": {
                 "synonyms": [
-                  "Folgaria"
-                ],
-                "value": "Folgaria"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
                   "Fügen"
                 ],
                 "value": "Fügen"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Galtür"
-                ],
-                "value": "Galtür"
               }
             },
             {
@@ -509,15 +469,6 @@
                   "Hinterbichl"
                 ],
                 "value": "Hinterbichl"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Hintertux",
-                  "Hintertux ghiacciaio"
-                ],
-                "value": "Hintertux"
               }
             },
             {
@@ -543,31 +494,6 @@
                   "Hopfgarten"
                 ],
                 "value": "Hopfgarten im Brixental"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Imst"
-                ],
-                "value": "Imst"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Innsbruck",
-                  "Nordkette"
-                ],
-                "value": "Innsbruck"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Ischgl"
-                ],
-                "value": "Ischgl"
               }
             },
             {
@@ -601,22 +527,6 @@
                   "Kaltern an der Weinstraße"
                 ],
                 "value": "Kaltern"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Kaunertal"
-                ],
-                "value": "Kaunertal"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Kitzbühel"
-                ],
-                "value": "Kitzbühel"
               }
             },
             {
@@ -664,14 +574,6 @@
             {
               "name": {
                 "synonyms": [
-                  "Landeck"
-                ],
-                "value": "Landeck"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
                   "Lasa"
                 ],
                 "value": "Lasa, South Tyrol"
@@ -707,14 +609,6 @@
                   "Levico Terme"
                 ],
                 "value": "Levico Terme"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Lienz"
-                ],
-                "value": "Lienz"
               }
             },
             {
@@ -756,14 +650,6 @@
                   "Mattrei am Brenner"
                 ],
                 "value": "Mattrei am Brenner"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Mayrhofen"
-                ],
-                "value": "Mayrhofen"
               }
             },
             {
@@ -815,14 +701,6 @@
                   "Naturno"
                 ],
                 "value": "Naturno"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Nauders"
-                ],
-                "value": "Nauders"
               }
             },
             {
@@ -905,14 +783,6 @@
             {
               "name": {
                 "synonyms": [
-                  "Pitztal"
-                ],
-                "value": "Pitztal"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
                   "Plan de Corones",
                   "Kronplatz"
                 ],
@@ -925,24 +795,6 @@
                   "Predaia"
                 ],
                 "value": "Predaia"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Predazzo"
-                ],
-                "value": "Predazzo"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Prägraten am Großvenediger",
-                  "Großvenediger",
-                  "Prägraten"
-                ],
-                "value": "Prägraten am Großvenediger"
               }
             },
             {
@@ -1067,31 +919,11 @@
             {
               "name": {
                 "synonyms": [
-                  "St. Anton am Arlberg",
-                  "Sankt Anton",
-                  "Sankt Anton am Arlberg"
-                ],
-                "value": "St. Anton am Arlberg"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
                   "St. Jakob in Defereggen",
                   "Sankt Jakob",
                   "Sankt Jakob in Defreggen"
                 ],
                 "value": "St. Jakob in Defereggen"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "St. Johann in Tirol",
-                  "Sankt Johann",
-                  "Sankt Johann in Tirol"
-                ],
-                "value": "St. Johann in Tirol"
               }
             },
             {
@@ -1184,22 +1016,6 @@
             {
               "name": {
                 "synonyms": [
-                  "Tione di Trento"
-                ],
-                "value": "Tione di Trento"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Trento"
-                ],
-                "value": "Trento"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
                   "Tux"
                 ],
                 "value": "Tux, Austria"
@@ -1226,15 +1042,6 @@
             {
               "name": {
                 "synonyms": [
-                  "Valle Aurina",
-                  "Ahrntal"
-                ],
-                "value": "Valle Aurina"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
                   "Vallelaghi"
                 ],
                 "value": "Vallelaghi"
@@ -1254,14 +1061,6 @@
                   "Villa Lagarina"
                 ],
                 "value": "Villa Lagarina"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Vipiteno"
-                ],
-                "value": "Vipiteno"
               }
             },
             {
@@ -1315,14 +1114,6 @@
             {
               "name": {
                 "synonyms": [
-                  "Wipptal"
-                ],
-                "value": "Wipptal"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
                   "Wörgl"
                 ],
                 "value": "Wörgl"
@@ -1334,14 +1125,6 @@
                   "Zell am Ziller"
                 ],
                 "value": "Zell am Ziller"
-              }
-            },
-            {
-              "name": {
-                "synonyms": [
-                  "Zillertal"
-                ],
-                "value": "Zillertal"
               }
             },
             {
@@ -1370,6 +1153,1280 @@
                   "Gries"
                 ],
                 "value": "Gries am Brenner"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Alpi del Ammergau"
+                ],
+                "value": "Alpi del Ammergau"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Alpi del Chiemgau"
+                ],
+                "value": "Alpi del Chiemgau"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Alpi del Lechtal"
+                ],
+                "value": "Alpi del Lechtal"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Alpi del Mangfall"
+                ],
+                "value": "Alpi del Mangfall"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Alpi dell Ammergau"
+                ],
+                "value": "Alpi dell Ammergau"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Gruppo del Silvretta"
+                ],
+                "value": "Gruppo del Silvretta"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Monti di Tannheim"
+                ],
+                "value": "Monti di Tannheim"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Monti del Wetterstein"
+                ],
+                "value": "Monti del Wetterstein"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Catena del Wilder Kaiser"
+                ],
+                "value": "Catena del Wilder Kaiser"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Catena del Zahmer Kaiser"
+                ],
+                "value": "Catena del Zahmer Kaiser"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Alpi dell Allgäu"
+                ],
+                "value": "Alpi dell Allgäu"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Monti di Mieming"
+                ],
+                "value": "Monti di Mieming"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Monti del Karwendel"
+                ],
+                "value": "Monti del Karwendel"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Alpi di Brandenberg"
+                ],
+                "value": "Alpi di Brandenberg"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Alpi di Waidring"
+                ],
+                "value": "Alpi di Waidring"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Gruppo del Grieskogel"
+                ],
+                "value": "Gruppo del Grieskogel"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Gruppo Verwall"
+                ],
+                "value": "Gruppo Verwall"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Gruppo del Samnaun"
+                ],
+                "value": "Gruppo del Samnaun"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Alpi della Oetztal"
+                ],
+                "value": "Alpi della Oetztal"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Alpi di Kitzbühel"
+                ],
+                "value": "Alpi di Kitzbühel"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Alpi della Zillertal"
+                ],
+                "value": "Alpi della Zillertal"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Gruppo dello Schober"
+                ],
+                "value": "Gruppo dello Schober"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Inntal"
+                ],
+                "value": "Inntal"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Großglockner"
+                ],
+                "value": "Großglockner"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Großvenediger"
+                ],
+                "value": "Großvenediger"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Piz Buin"
+                ],
+                "value": "Piz Buin"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Pan di Zucchero"
+                ],
+                "value": "Pan di Zucchero"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Zugspitze"
+                ],
+                "value": "Zugspitze"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Ötztaler Ache"
+                ],
+                "value": "Ötztaler Ache"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Innsbruck"
+                ],
+                "value": "Innsbruck"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Landeck"
+                ],
+                "value": "Landeck"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Imst"
+                ],
+                "value": "Imst"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Kitzbühel"
+                ],
+                "value": "Kitzbühel"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Lienz"
+                ],
+                "value": "Lienz"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "St. Johann in Tirol"
+                ],
+                "value": "St. Johann in Tirol"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Mayrhofen"
+                ],
+                "value": "Mayrhofen"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Hintertux"
+                ],
+                "value": "Hintertux"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Achenkirch"
+                ],
+                "value": "Achenkirch"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Nauders"
+                ],
+                "value": "Nauders"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Ischgl"
+                ],
+                "value": "Ischgl"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Galtür"
+                ],
+                "value": "Galtür"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "St. Anton am Arlberg"
+                ],
+                "value": "St. Anton am Arlberg"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Sillian"
+                ],
+                "value": "Sillian"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Innervillgraten"
+                ],
+                "value": "Innervillgraten"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Untertilliach"
+                ],
+                "value": "Untertilliach"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Prägraten am Großvenediger"
+                ],
+                "value": "Prägraten am Großvenediger"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Alti Tauri"
+                ],
+                "value": "Alti Tauri"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Gruppo dell Ortles"
+                ],
+                "value": "Gruppo dell Ortles"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Alpi dell Ötztal"
+                ],
+                "value": "Alpi dell Ötztal"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Gruppo delle Vedrette di Ries"
+                ],
+                "value": "Gruppo delle Vedrette di Ries"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Alpi dello Stubai"
+                ],
+                "value": "Alpi dello Stubai"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Alpi del Tux"
+                ],
+                "value": "Alpi del Tux"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Alpi della Val Müstair"
+                ],
+                "value": "Alpi della Val Müstair"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Vallelunga"
+                ],
+                "value": "Vallelunga"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Cresta di Senales"
+                ],
+                "value": "Cresta di Senales"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Gruppo Saldura-Mastaun"
+                ],
+                "value": "Gruppo Saldura-Mastaun"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Gruppo Tessa"
+                ],
+                "value": "Gruppo Tessa"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Alpi Sarentine"
+                ],
+                "value": "Alpi Sarentine"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Monti di Fundres"
+                ],
+                "value": "Monti di Fundres"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Gruppo della Cima Dura"
+                ],
+                "value": "Gruppo della Cima Dura"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Catena delle Vedrette di Ries"
+                ],
+                "value": "Catena delle Vedrette di Ries"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Alpi del Defereggen"
+                ],
+                "value": "Alpi del Defereggen"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Dolomiti di Braies"
+                ],
+                "value": "Dolomiti di Braies"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Dolomiti di Sesto"
+                ],
+                "value": "Dolomiti di Sesto"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Dolomiti di Lienz"
+                ],
+                "value": "Dolomiti di Lienz"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Gruppo della Punta della Gallina"
+                ],
+                "value": "Gruppo della Punta della Gallina"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Gruppo della Palla Bianca"
+                ],
+                "value": "Gruppo della Palla Bianca"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Alpi Passirie"
+                ],
+                "value": "Alpi Passirie"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Gruppo del Venediger"
+                ],
+                "value": "Gruppo del Venediger"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Gruppo del Glockner"
+                ],
+                "value": "Gruppo del Glockner"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Val Venosta"
+                ],
+                "value": "Val Venosta"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Val Senales"
+                ],
+                "value": "Val Senales"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Val Sarentino"
+                ],
+                "value": "Val Sarentino"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Val Passiria"
+                ],
+                "value": "Val Passiria"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Pitztal"
+                ],
+                "value": "Pitztal"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Kaunertal"
+                ],
+                "value": "Kaunertal"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Wipptal"
+                ],
+                "value": "Wipptal"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Zillertal"
+                ],
+                "value": "Zillertal"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Val Pusteria"
+                ],
+                "value": "Val Pusteria"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Valle Aurina"
+                ],
+                "value": "Valle Aurina"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Val Badia"
+                ],
+                "value": "Val Badia"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Val Gardena"
+                ],
+                "value": "Val Gardena"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Defereggen"
+                ],
+                "value": "Defereggen"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Iseltal"
+                ],
+                "value": "Iseltal"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Virgental"
+                ],
+                "value": "Virgental"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Gran Pilastro"
+                ],
+                "value": "Gran Pilastro"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Monte Lovello"
+                ],
+                "value": "Monte Lovello"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Ortles"
+                ],
+                "value": "Ortles"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Tre Cime di Lavaredo"
+                ],
+                "value": "Tre Cime di Lavaredo"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Passo del Brennero"
+                ],
+                "value": "Passo del Brennero"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Passo del Rombo"
+                ],
+                "value": "Passo del Rombo"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Isarco"
+                ],
+                "value": "Isarco"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Aurino"
+                ],
+                "value": "Aurino"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Gadera"
+                ],
+                "value": "Gadera"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Rio Gardena"
+                ],
+                "value": "Rio Gardena"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Bolzano",
+                  "Bozen"
+                ],
+                "value": "Bolzano"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Vipiteno"
+                ],
+                "value": "Vipiteno"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Solda"
+                ],
+                "value": "Solda"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Curon Venosta"
+                ],
+                "value": "Curon Venosta"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "San Leonardo in Passiria"
+                ],
+                "value": "San Leonardo in Passiria"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Fundres"
+                ],
+                "value": "Fundres"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Campo Tures"
+                ],
+                "value": "Campo Tures"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "San Martino in Badia"
+                ],
+                "value": "San Martino in Badia"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Monguelfo"
+                ],
+                "value": "Monguelfo"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Dobbiaco"
+                ],
+                "value": "Dobbiaco"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Gruppo del Brenta"
+                ],
+                "value": "Gruppo del Brenta"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Dolomiti"
+                ],
+                "value": "Dolomiti"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Gruppo dell'Ortles"
+                ],
+                "value": "Gruppo dell'Ortles"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Prealpi Vicentine"
+                ],
+                "value": "Prealpi Vicentine"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Prealpi Gardesane"
+                ],
+                "value": "Prealpi Gardesane"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Adamello"
+                ],
+                "value": "Adamello"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Bondone e Stivo"
+                ],
+                "value": "Bondone e Stivo"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Folgaria - Lavarone",
+                  "Folgaria"
+                ],
+                "value": "Folgaria - Lavarone"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Lagorai"
+                ],
+                "value": "Lagorai"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Latemar"
+                ],
+                "value": "Latemar"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Marzola"
+                ],
+                "value": "Marzola"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Paganella"
+                ],
+                "value": "Paganella"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Prealpi"
+                ],
+                "value": "Prealpi"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Primiero - Pale di S. Martino"
+                ],
+                "value": "Primiero - Pale di S. Martino"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Vallarsa"
+                ],
+                "value": "Vallarsa"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Valle di Cembra"
+                ],
+                "value": "Valle di Cembra"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Valle di Fassa"
+                ],
+                "value": "Valle di Fassa"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Alpi della Val"
+                ],
+                "value": "Alpi della Val"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Valle di Ledro"
+                ],
+                "value": "Valle di Ledro"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Sole, Pejo e Rabbi"
+                ],
+                "value": "Sole, Pejo e Rabbi"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Maddalene"
+                ],
+                "value": "Maddalene"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Val d'Ultimo"
+                ],
+                "value": "Val d'Ultimo"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Pine' - Valle dei Mocheni"
+                ],
+                "value": "Pine' - Valle dei Mocheni"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Dolomiti di Fiemme"
+                ],
+                "value": "Dolomiti di Fiemme"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Dolomiti di Gardena"
+                ],
+                "value": "Dolomiti di Gardena"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Val d'Adige"
+                ],
+                "value": "Val d'Adige"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Val di Non"
+                ],
+                "value": "Val di Non"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Val di Sole"
+                ],
+                "value": "Val di Sole"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Val di Cembra"
+                ],
+                "value": "Val di Cembra"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Val di Fiemme"
+                ],
+                "value": "Val di Fiemme"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Valsugana"
+                ],
+                "value": "Valsugana"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Giudicarie"
+                ],
+                "value": "Giudicarie"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Val Rendena"
+                ],
+                "value": "Val Rendena"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Piz Boè"
+                ],
+                "value": "Piz Boè"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Marmolada"
+                ],
+                "value": "Marmolada"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Cima Tosa"
+                ],
+                "value": "Cima Tosa"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Presanella"
+                ],
+                "value": "Presanella"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Monte Cevedale"
+                ],
+                "value": "Monte Cevedale"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Adige"
+                ],
+                "value": "Adige"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Sarca"
+                ],
+                "value": "Sarca"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Brenta"
+                ],
+                "value": "Brenta"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Torrente Noce"
+                ],
+                "value": "Torrente Noce"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Torrente Avisio"
+                ],
+                "value": "Torrente Avisio"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Trento"
+                ],
+                "value": "Trento"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Andalo"
+                ],
+                "value": "Andalo"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Tione di Trento"
+                ],
+                "value": "Tione di Trento"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Rabbi"
+                ],
+                "value": "Rabbi"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Peio"
+                ],
+                "value": "Peio"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Madonna di Campiglio"
+                ],
+                "value": "Madonna di Campiglio"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Pinzolo"
+                ],
+                "value": "Pinzolo"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Castello Tesino"
+                ],
+                "value": "Castello Tesino"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "San Martino di Castrorozza"
+                ],
+                "value": "San Martino di Castrorozza"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Predazzo"
+                ],
+                "value": "Predazzo"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Canazei"
+                ],
+                "value": "Canazei"
               }
             }
           ]
