@@ -191,7 +191,7 @@
                 "synonyms": [
                   "Achental"
                 ],
-                "value": "Achental"
+                "value": "Achental, Tirol"
               }
             },
             {
@@ -1395,6 +1395,56 @@
                   "Wipptal"
                 ],
                 "value": "Steinach am Brenner"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Pragser Dolomiten"
+                ],
+                "value": "Pragser Dolomiten"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Sextner Dolomiten"
+                ],
+                "value": "Sextner Dolomiten"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Lienzer Dolomiten"
+                ],
+                "value": "Lienzer Dolomiten"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Fleimstaler Dolomiten"
+                ],
+                "value": "Fleimstaler Dolomiten"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Grödner Dolomiten"
+                ],
+                "value": "Grödner Dolomiten"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "Marmolata",
+                  "Dolomiten",
+                  "Marmolada"
+                ],
+                "value": "Marmolata"
               }
             }
           ]

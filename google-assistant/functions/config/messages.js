@@ -247,7 +247,7 @@ const messages = {
             'FORECAST_TREELINE': 'del limite del bosco',
             'FULL_REPORT': 'Mostra rapporto completo',
             'FORECAST_PM_NOTICE': 'Esiste un bollettino diverso per il pomeriggio.',
-            'FORECAST_DANGER_SINGLE': 'Ci sono problemi soprattutto a causa di {{0}}} in {{1}} {{2}}.',
+            'FORECAST_DANGER_SINGLE': 'Ci sono problemi soprattutto a causa di {{0}} in {{1}} {{2}}.',
             'FORECAST_DANGER_FAV': 'In generale, la situazione valanghiva è favorevole {{0}}.',
             'FORECAST_DANGER_SECOND': 'Ci sono altri problemi attraverso {{0}} in {{1}} {{2}}.',
 

@@ -191,7 +191,7 @@
                 "synonyms": [
                   "Achental"
                 ],
-                "value": "Achental"
+                "value": "Achental, Tirol"
               }
             },
             {
@@ -2055,9 +2055,12 @@
             {
               "name": {
                 "synonyms": [
-                  "Dolomiten"
+                  "Dolomiten",
+                  "Dolomiti",
+                  "Marmolata",
+                  "Marmolada"
                 ],
-                "value": "Dolomiten"
+                "value": "Marmolata"
               }
             },
             {
