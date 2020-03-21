@@ -72,7 +72,7 @@ const handler = {
         dangers.remove(""); //necessary to fix XML bug
 
         if(dangers.length > 0) {
-            if(dangers.length == 1) {
+            if(dangers.length === 1) {
                 result.dangers = handler.getDangerText(agent, dangers[0], 'FORECAST_DANGER_SINGLE');
             } else {
                 result.dangers = handler.getDangerText(agent, dangers[0], 'FORECAST_DANGER_SINGLE');
@@ -116,31 +116,31 @@ const handler = {
         return '';
     },
     getExpositionText(agent, expositionData) {
-        let expositions = []
+        let expositions = [];
         expositionData.forEach(element => {
             expositions.push(element['$']['xlink:href'].replace('AspectRange_', ''))
         });
         
         expositions.sort( ( a, b ) => EXPOSITION_ORD.indexOf(a) - EXPOSITION_ORD.indexOf(b) );
 
-        if(expositions.length == 8) {
+        if(expositions.length === 8) {
             return T.getMessage(agent, 'EXPOSITIONS_all');
         }
-        if(expositions.length == 1) {
-            exText1 = T.getMessage(agent, 'EXPOSITIONS_' + expositions[0]);
+        if(expositions.length === 1) {
+            let exText1 = T.getMessage(agent, 'EXPOSITIONS_' + expositions[0]);
             return T.getMessage(agent, 'EXPOSITIONS_single', [exText1]);
         }
-        if(expositions.length == 2) {
-            exText1 = T.getMessage(agent, 'EXPOSITIONS_' + expositions[0]);
-            exText2 = T.getMessage(agent, 'EXPOSITIONS_' + expositions[1]);
+        if(expositions.length === 2) {
+            let exText1 = T.getMessage(agent, 'EXPOSITIONS_' + expositions[0]);
+            let exText2 = T.getMessage(agent, 'EXPOSITIONS_' + expositions[1]);
             return T.getMessage(agent, 'EXPOSITIONS_double', [exText1, exText2]);
         }
         
         let distance;
         do {
-            expositions.rotate(1)
+            expositions.rotate(1);
             distance = Math.abs(EXPOSITION_ORD.indexOf(expositions[0]) - EXPOSITION_ORD.indexOf(expositions[expositions.length -1]));
-        } while(distance == 1 || distance == EXPOSITION_ORD.length -1);
+        } while(distance === 1 || distance === EXPOSITION_ORD.length -1);
 
         let exText1 = T.getMessage(agent, 'EXPOSITIONS_' + expositions[0]);
         let exText2 = T.getMessage(agent, 'EXPOSITIONS_' + expositions[parseInt((expositions.length -1) /2)]);
@@ -214,6 +214,6 @@ const handler = {
     getElevationText: function(agent, elevation) {
         return elevation === 'Treeline' ? T.getMessage(agent, 'FORECAST_TREELINE') : elevation + 'm';
     }
-}
+};
 
 module.exports = handler;
