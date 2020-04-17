@@ -29,7 +29,7 @@
             "codeUri": "lambda\\eu-central-1_avalanche-forecast",
             "functionName": "avalanche-forecast",
             "handler": "index.handler",
-            "revisionId": "56556bec-1fa2-4392-a023-d86228e1a80a",
+            "revisionId": "7ab344e4-f719-40d5-8ddb-88484d2c7659",
             "runtime": "nodejs12.x"
           }
         ]
