@@ -37,6 +37,7 @@ const messages = {
             'FORECAST_LEVEL_3': '3 - considerable',
             'FORECAST_LEVEL_4': '4 - high',
             'FORECAST_LEVEL_5': '5 - very high',
+            'FORECAST_LEVEL_n/a': '0 - no snow',
 
             'FORECAST_ERROR': 'Sorry, currently the forecast is not available.',
             'FORECAST_CARD_TITLE': 'Avalanche report {{0}} valid until {{1}}',
@@ -139,6 +140,7 @@ const messages = {
             'FORECAST_LEVEL_3': '3 - erheblich',
             'FORECAST_LEVEL_4': '4 - groß',
             'FORECAST_LEVEL_5': '5 - sehr groß',
+            'FORECAST_LEVEL_n/a': '0 - kein Schnee',
 
             'FORECAST_ERROR': 'Entschuldige, aktuell ist die Vorhersage nicht verfügbar.',
             'FORECAST_CARD_TITLE': 'Lawinenreport {{0}} gültig für {{1}}',
@@ -241,6 +243,7 @@ const messages = {
             'FORECAST_LEVEL_3': '3 - marcato',
             'FORECAST_LEVEL_4': '4 - forte',
             'FORECAST_LEVEL_5': '5 - molto forte',
+            'FORECAST_LEVEL_n/a': '0 - niente neve',
 
             'FORECAST_ERROR': 'Spiacente, al momento le previsioni non sono disponibili.',
             'FORECAST_CARD_TITLE': 'Bollettino valanghe {{0}} valido fino a {{1}}.',
