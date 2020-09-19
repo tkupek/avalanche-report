@@ -24,6 +24,7 @@
     "https": "^1.0.0",
     "locale": "^0.1.0",
     "lodash": "^4.17.19",
+    "node-forge": "^0.10.0",
     "robust-point-in-polygon": "^1.0.3",
     "uuid": "^7.0.3",
     "xml2js": "^0.4.23"
