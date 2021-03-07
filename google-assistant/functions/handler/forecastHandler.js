@@ -69,9 +69,11 @@ const handler = {
         result = handler.clearHTML(result);
 
         let dangers = primaryData['bulletinResultsOf'][0]['BulletinMeasurements'][0]['avProblems'][0]['AvProblem'];
-        dangers.remove(""); //necessary to fix XML bug
+        if(dangers) {
+            dangers.remove("");  //necessary to fix XML bug
+        }
 
-        if(dangers.length > 0) {
+        if(dangers && dangers.length > 0) {
             if(dangers.length === 1) {
                 result.dangers = handler.getDangerText(agent, dangers[0], 'FORECAST_DANGER_SINGLE');
             } else {
