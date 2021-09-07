@@ -16,7 +16,7 @@
     "@google-cloud/firestore": "^4.11.0",
     "@google/maps": "^0.5.5",
     "actions-on-google": "^2.14.0",
-    "axios": "^0.21.1",
+    "axios": "^0.21.4",
     "dateformat": "^3.0.3",
     "dialogflow": "^4.0.3",
     "dialogflow-fulfillment": "^0.6.1",
