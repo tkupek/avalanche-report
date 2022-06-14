@@ -1,6 +1,15 @@
 # Avalanche Report
 Avalanche Report is an Action / Skill for the Google Assistant and Amazon Alexa that gets the latest data from the Avalanche Warning Services Tyrol - South Tyrol - Trentino.
 
+
+---
+
+### :warning: **Deprecation warning**: *Google Actions will be shutdown in June 2023.*
+https://developers.google.com/assistant/ca-sunset
+
+---
+
+
 ## Description
 [https://tkupek.eu/avalanche-report/](https://tkupek.eu/avalanche-report/)
 
@@ -14,7 +23,7 @@ Avalanche Report is an Action / Skill for the Google Assistant and Amazon Alexa 
 - switch to JSON API, https://admin.avalanche.report/swagger/#/
 - refactor avalancheReportAPI.js to use async functions
 - in summer: static hint to blog, when API gives no result
-- warn user if he is very close to the border of a region
+- warn user if she is very close to the border of a region
 
 ## Thanks to
 *Land Tirol* for providing the data for this application and for releasing their website avalanche.report under an CC license.
