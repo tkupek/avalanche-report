@@ -4,26 +4,18 @@ Avalanche Report is an Action / Skill for the Google Assistant and Amazon Alexa 
 
 ---
 
-### :warning: **Deprecation warning**: *Google Actions will be shutdown in June 2023.*
+### :warning: **Deprecated**
+The language bot is discontinued, as Google Actions are shutdown in June 2023.
+
 https://developers.google.com/assistant/ca-sunset
+
+The Alexa Skill is discontinues due to a lack of resources. Let me know if you want to continue the work.
 
 ---
 
 
 ## Description
 [https://tkupek.eu/avalanche-report/](https://tkupek.eu/avalanche-report/)
-
-## Possible improvements
-- implementation for Siri Shortcort
-- implement dynamodb geocoding cache in alexa app
-- search for zip code
-- forecast for current device location, https://developers.google.com/actions/reference/rest/Shared.Types/Location
-- fix Google pronounciation of date
-- full-report intent that reads the complete text
-- switch to JSON API, https://admin.avalanche.report/swagger/#/
-- refactor avalancheReportAPI.js to use async functions
-- in summer: static hint to blog, when API gives no result
-- warn user if she is very close to the border of a region
 
 ## Thanks to
 *Land Tirol* for providing the data for this application and for releasing their website avalanche.report under an CC license.
