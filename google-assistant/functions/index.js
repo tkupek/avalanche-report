@@ -3,9 +3,10 @@
 const functions = require('firebase-functions');
 const { WebhookClient } = require('dialogflow-fulfillment');
 
-const defaultHandler = require('./handler/defaultHandler');
-const forecastHandler = require('./handler/forecastHandler');
-const dangerScaleHandler = require('./handler/dangerScaleHandler');
+// const defaultHandler = require('./handler/defaultHandler');
+// const forecastHandler = require('./handler/forecastHandler');
+// const dangerScaleHandler = require('./handler/dangerScaleHandler');
+const deprecationHandler = require('./handler/deprecationHandler');
 
 process.env.DEBUG = 'dialogflow:debug'; // enables lib debugging statements
 
@@ -16,9 +17,10 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
     let intentMap = new Map();
 
-    intentMap = defaultHandler.registerHandler(intentMap);
-    intentMap = forecastHandler.registerHandler(intentMap);
-    intentMap = dangerScaleHandler.registerHandler(intentMap);
+    // intentMap = defaultHandler.registerHandler(intentMap);
+    // intentMap = forecastHandler.registerHandler(intentMap);
+    // intentMap = dangerScaleHandler.registerHandler(intentMap);
+    intentMap = deprecationHandler.registerHandler(intentMap);
 
     agent.handleRequest(intentMap);
 });

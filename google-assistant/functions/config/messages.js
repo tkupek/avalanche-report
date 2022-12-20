@@ -1,6 +1,7 @@
 const messages = {
     'en': {
         translation: {
+            'DEPRECATED': 'Sorry, due to the discontinuation of Actions on the Google Assistant, this app is no longer maintained. If you want to know more about this, reach out to the developer.',
             'WELCOME': 'Welcome to the avalanche forecast. What location are you interested in?',
             'FALLBACK': 'Sorry, I did not get that. Can you try again?',
             'HELP': 'You can ask me for the latest avalanche forecast for a region in Tyrol, South Tyrol or Trentino. I can also explain you the european avalanche danger scale. What would you like to hear?',
@@ -104,6 +105,7 @@ const messages = {
     },
     'de': {
         translation: {
+            'DEPRECATED': 'Aufgrund der Einstellung von Actions auf dem Google Assistant ist diese App leider nicht mehr verfügbar. Wenn Sie mehr darüber erfahren möchten, wenden Sie sich an den Entwickler.',
             'WELCOME': 'Willkommen zur Lawinenvorhersage. Welche Region interessiert dich?',
             'FALLBACK': 'Entschuldige, das habe ich nicht verstanden. Kannst du es wiederholen?',
             'HELP': 'Du kannst mich nach dem neusten Lawinenreport für eine Region in Tirol, Südtirol oder Trentino fragen. Ich kann dir außerdem etwas über die europäische Lawinengefahrenstufen erzählen. Was würdest du gerne hören?',
@@ -207,6 +209,7 @@ const messages = {
     },
     'it': {
         translation: {
+            'DEPRECATED': 'Spiacenti, a causa dell\'interruzione di Actions sull\'Assistente Google, questa app non viene più gestita. Se vuoi saperne di più, contatta lo sviluppatore.',
             'WELCOME': 'Benvenuti al bollettino valanghe. A quale zona siete interessati?',
             'FALLBACK': 'Scusa, non l\'ho capito. Puoi riprovare?',
             'HELP': 'Potete chiedermi la previsione valanghe attuale per una zona del Tirolo, dell\'Alto Adige o del Trentino. Posso anche spiegarvi la scala europea del pericolo valanghe. Cosa vorresti sentire?',
